@@ -4,9 +4,15 @@
     "license": "MIT",
     "author": "Daniel Giljam (https://github.com/DanielGiljam)",
     "scripts": {
-        "start": "nx serve",
-        "build": "nx build",
-        "test": "nx test"
+        "type-check": "nx affected --target=type-check --parallel",
+        "lint": "nx affected --target=lint --parallel --cache",
+        "fix": "nx affected --target=lint --parallel --cache --fix",
+        "prettier": "nx format:check",
+        "format": "nx format:write",
+        "lp": "yarn lint $* && yarn prettier $*",
+        "tlp": "yarn type-check $* && yarn lp $*",
+        "ff": "yarn fix $* && yarn format $*",
+        "tff": "yarn type-check $* && yarn ff $*"
     },
     "private": true,
     "dependencies": {
