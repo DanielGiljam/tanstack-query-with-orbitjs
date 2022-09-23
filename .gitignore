@@ -49,3 +49,7 @@ Thumbs.db
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# caches
+.eslintcache
+tsconfig.tsbuildinfo
