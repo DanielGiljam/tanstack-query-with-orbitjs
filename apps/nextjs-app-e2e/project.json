@@ -17,6 +17,12 @@
                 }
             }
         },
+        "type-check": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "tsc --build apps/nextjs-app-e2e/tsconfig.json --incremental"
+            }
+        },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],

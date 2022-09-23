@@ -51,6 +51,12 @@
                 "passWithNoTests": true
             }
         },
+        "type-check": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "tsc --build apps/nextjs-app/tsconfig.json --incremental"
+            }
+        },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
