@@ -5,10 +5,13 @@
         "next/core-web-vitals",
         "../../.eslintrc.json"
     ],
-    "ignorePatterns": ["!**/*", ".next/**/*"],
+    "ignorePatterns": ["!**/*", ".next/**/*", "next-env.d.ts"],
     "overrides": [
         {
             "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+            "parserOptions": {
+                "project": ["apps/nextjs-app/tsconfig(.*)?.json"]
+            },
             "rules": {
                 "@next/next/no-html-link-for-pages": [
                     "error",
@@ -23,6 +26,10 @@
         {
             "files": ["*.js", "*.jsx"],
             "rules": {}
+        },
+        {
+            "files": ["*.tsx", "*.jsx"],
+            "extends": ["@danielgiljam/jsx"]
         }
     ],
     "rules": {

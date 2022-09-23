@@ -3,5 +3,14 @@
     "version": "0.0.0",
     "license": "MIT",
     "author": "Daniel Giljam (https://github.com/DanielGiljam)",
-    "private": true
+    "private": true,
+    "devDependencies": {
+        "@rushstack/eslint-patch": "^1.2.0",
+        "eslint-config-prettier": "8.1.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-config-standard-with-typescript": "^23.0.0",
+        "eslint-plugin-n": "^15.3.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^6.0.1"
+    }
 }

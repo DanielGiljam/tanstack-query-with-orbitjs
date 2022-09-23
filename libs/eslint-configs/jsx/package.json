@@ -3,5 +3,10 @@
     "version": "0.0.0",
     "license": "MIT",
     "author": "Daniel Giljam (https://github.com/DanielGiljam)",
-    "private": true
+    "private": true,
+    "devDependencies": {
+        "@rushstack/eslint-patch": "^1.2.0",
+        "eslint-config-prettier": "8.1.0",
+        "eslint-config-standard-jsx": "^11.0.0"
+    }
 }
