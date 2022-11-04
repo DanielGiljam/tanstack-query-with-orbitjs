@@ -1,7 +1,7 @@
 {
     "name": "@danielgiljam/eslint-config-jsx",
     "version": "0.0.0",
-    "scripts": {
-        "test": "node index.js"
-    }
+    "license": "MIT",
+    "author": "Daniel Giljam (https://github.com/DanielGiljam)",
+    "private": true
 }
