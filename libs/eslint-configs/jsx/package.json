@@ -1,5 +1,5 @@
 {
-    "name": "@danielgiljam.com/eslint-configs/jsx",
+    "name": "@danielgiljam/eslint-config-jsx",
     "version": "0.0.0",
     "scripts": {
         "test": "node index.js"
