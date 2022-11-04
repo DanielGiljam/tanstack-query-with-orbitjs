@@ -1,0 +1,7 @@
+{
+    "name": "@danielgiljam.com/eslint-configs/typescript",
+    "version": "0.0.0",
+    "scripts": {
+        "test": "node index.js"
+    }
+}
