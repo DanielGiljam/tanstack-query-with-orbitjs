@@ -8,6 +8,7 @@ importers:
       '@nrwl/cypress': 15.6.3
       '@nrwl/eslint-plugin-nx': 15.6.3
       '@nrwl/jest': 15.6.3
+      '@nrwl/js': 15.6.3
       '@nrwl/linter': 15.6.3
       '@nrwl/next': 15.6.3
       '@nrwl/react': 15.6.3
@@ -22,7 +23,7 @@ importers:
       '@typescript-eslint/parser': ^5.36.1
       babel-jest: 28.1.1
       core-js: ^3.6.5
-      cypress: ^10.7.0
+      cypress: ^12.2.0
       eslint: ~8.15.0
       eslint-config-next: 13.1.1
       eslint-config-prettier: 8.1.0
@@ -45,7 +46,7 @@ importers:
       tslib: ^2.3.0
       typescript: ~4.8.2
     dependencies:
-      '@nrwl/next': 15.6.3_7sm5b2f6jvdgydqio3tpftnbdm
+      '@nrwl/next': 15.6.3_cfz7nmmaditshiqc7xzj26mxvq
       core-js: 3.27.2
       next: 13.1.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -54,12 +55,13 @@ importers:
       tslib: 2.5.0
     devDependencies:
       '@nrwl/cli': 15.6.3
-      '@nrwl/cypress': 15.6.3_7slkfdybqr7mwf4jzapompdclu
+      '@nrwl/cypress': 15.6.3_bq52ynz2keqdzxiqw36oznldoa
       '@nrwl/eslint-plugin-nx': 15.6.3_wrqdxpx2lmyci54uz4efldzlbe
       '@nrwl/jest': 15.6.3_4e23wtoi6ep4vxxphsoq3dqysi
+      '@nrwl/js': 15.6.3_niqd3hdk7vpad7e2t7c2ooltle
       '@nrwl/linter': 15.6.3_2gweb7o7pkltzmj3jx6phpvxki
       '@nrwl/react': 15.6.3_niqd3hdk7vpad7e2t7c2ooltle
-      '@nrwl/web': 15.6.3_kn5jdu2vmgfoymw3obdhb3jbmu
+      '@nrwl/web': 15.6.3_haobvbiz67lssrprbzhlfcv5sy
       '@nrwl/workspace': 15.6.3_ru3a6u6i5jfe3w3i7orrmgwxwa
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/jest': 28.1.1
@@ -69,7 +71,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.50.0_oiayn2leqjc6k36fpvo66zqqpi
       '@typescript-eslint/parser': 5.50.0_oy7hgmlo6357d5kkcjbkfgtg4q
       babel-jest: 28.1.1
-      cypress: 10.11.0
+      cypress: 12.5.1
       eslint: 8.15.0
       eslint-config-next: 13.1.1_oy7hgmlo6357d5kkcjbkfgtg4q
       eslint-config-prettier: 8.1.0_eslint@8.15.0
@@ -2028,7 +2030,7 @@ packages:
       - '@swc/core'
       - debug
 
-  /@nrwl/cypress/15.6.3_7slkfdybqr7mwf4jzapompdclu:
+  /@nrwl/cypress/15.6.3_bq52ynz2keqdzxiqw36oznldoa:
     resolution: {integrity: sha512-ZPQ60KTkEgCQaIhaoPICiACfufuE8klwkBSl3bbTL5d6QEYlpTb2M1IeHEYZP1aEKXJlC9Kb6al9lB87peNVkQ==}
     peerDependencies:
       cypress: '>= 3 < 13'
@@ -2040,7 +2042,7 @@ packages:
       '@nrwl/linter': 15.6.3_2gweb7o7pkltzmj3jx6phpvxki
       '@nrwl/workspace': 15.6.3_ru3a6u6i5jfe3w3i7orrmgwxwa
       '@phenomnomnominal/tsquery': 4.1.1_typescript@4.8.4
-      cypress: 10.11.0
+      cypress: 12.5.1
       dotenv: 10.0.0
       semver: 7.3.4
     transitivePeerDependencies:
@@ -2164,13 +2166,13 @@ packages:
       - nx
       - typescript
 
-  /@nrwl/next/15.6.3_7sm5b2f6jvdgydqio3tpftnbdm:
+  /@nrwl/next/15.6.3_cfz7nmmaditshiqc7xzj26mxvq:
     resolution: {integrity: sha512-yLXBCx/O5HKDvJvG7xrtU9TASWr+gF9Cy+XNvTEqERb8e/evXCpI0yjErON6WsVeo/Rthv+pSBCtJJzvoOqM4Q==}
     peerDependencies:
       next: ^13.0.0
     dependencies:
       '@babel/plugin-proposal-decorators': 7.20.13
-      '@nrwl/cypress': 15.6.3_7slkfdybqr7mwf4jzapompdclu
+      '@nrwl/cypress': 15.6.3_bq52ynz2keqdzxiqw36oznldoa
       '@nrwl/devkit': 15.6.3_nx@15.6.3+typescript@4.8.4
       '@nrwl/jest': 15.6.3_4e23wtoi6ep4vxxphsoq3dqysi
       '@nrwl/linter': 15.6.3_2gweb7o7pkltzmj3jx6phpvxki
@@ -2285,10 +2287,10 @@ packages:
       - '@swc/core'
       - debug
 
-  /@nrwl/web/15.6.3_kn5jdu2vmgfoymw3obdhb3jbmu:
+  /@nrwl/web/15.6.3_haobvbiz67lssrprbzhlfcv5sy:
     resolution: {integrity: sha512-K4qbULw6hiAegDB4YwkPTj9xcWpw4Fj8s+uP7l+/KgTElO5e6phS3iiij3ClDe8AUPliTp/PdzCftiuwwxxM5A==}
     dependencies:
-      '@nrwl/cypress': 15.6.3_7slkfdybqr7mwf4jzapompdclu
+      '@nrwl/cypress': 15.6.3_bq52ynz2keqdzxiqw36oznldoa
       '@nrwl/devkit': 15.6.3_nx@15.6.3+typescript@4.8.4
       '@nrwl/jest': 15.6.3_4e23wtoi6ep4vxxphsoq3dqysi
       '@nrwl/js': 15.6.3_niqd3hdk7vpad7e2t7c2ooltle
@@ -4514,9 +4516,9 @@ packages:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
     dev: true
 
-  /cypress/10.11.0:
-    resolution: {integrity: sha512-lsaE7dprw5DoXM00skni6W5ElVVLGAdRUUdZjX2dYsGjbY/QnpzWZ95Zom1mkGg0hAaO/QVTZoFVS7Jgr/GUPA==}
-    engines: {node: '>=12.0.0'}
+  /cypress/12.5.1:
+    resolution: {integrity: sha512-ZmCmJ3lsyeOpBfh410m5+AO2CO1AxAzFBt7k6/uVbNcrNZje1vdiwYTpj2ksPKg9mjr9lR6V8tmlDNMvr4H/YQ==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     hasBin: true
     requiresBuild: true
     dependencies:
