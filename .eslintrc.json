@@ -23,18 +23,12 @@
         },
         {
             "files": ["*.ts", "*.tsx"],
-            "extends": [
-                "plugin:@nrwl/nx/typescript",
-                "@danielgiljam/typescript"
-            ],
+            "extends": ["plugin:@nrwl/nx/typescript", "@kantele/typescript"],
             "rules": {}
         },
         {
             "files": ["*.js", "*.jsx"],
-            "extends": [
-                "plugin:@nrwl/nx/javascript",
-                "@danielgiljam/javascript"
-            ],
+            "extends": ["plugin:@nrwl/nx/javascript", "@kantele/javascript"],
             "rules": {}
         }
     ]

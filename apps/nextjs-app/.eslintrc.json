@@ -29,7 +29,7 @@
         },
         {
             "files": ["*.tsx", "*.jsx"],
-            "extends": ["@danielgiljam/jsx"]
+            "extends": ["@kantele/jsx"]
         }
     ],
     "rules": {

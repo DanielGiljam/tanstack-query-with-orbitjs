@@ -1,5 +1,5 @@
 {
-    "name": "@danielgiljam/eslint-config-jsx",
+    "name": "@kantele/eslint-config-jsx",
     "version": "0.0.0",
     "license": "MIT",
     "author": "Daniel Giljam (https://github.com/DanielGiljam)",

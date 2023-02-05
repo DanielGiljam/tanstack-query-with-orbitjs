@@ -1,10 +1,10 @@
 {
-    "name": "@danielgiljam/eslint-config-typescript",
+    "name": "@kantele/eslint-config-typescript",
     "version": "0.0.0",
     "license": "MIT",
     "author": "Daniel Giljam (https://github.com/DanielGiljam)",
     "private": true,
     "devDependencies": {
-        "@danielgiljam/eslint-config-javascript": "workspace:^"
+        "@kantele/eslint-config-javascript": "workspace:^"
     }
 }

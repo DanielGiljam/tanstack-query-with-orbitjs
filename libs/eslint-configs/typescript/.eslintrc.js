@@ -1,1 +1,1 @@
-module.exports = {extends: ["@danielgiljam/javascript"]};
+module.exports = {extends: ["@kantele/javascript"]};
