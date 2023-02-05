@@ -25,6 +25,9 @@
         "tslib": "^2.3.0"
     },
     "devDependencies": {
+        "@danielgiljam/eslint-config-javascript": "workspace:^0.0.0",
+        "@danielgiljam/eslint-config-jsx": "workspace:^0.0.0",
+        "@danielgiljam/eslint-config-typescript": "workspace:^0.0.0",
         "@nrwl/cli": "15.6.3",
         "@nrwl/cypress": "15.6.3",
         "@nrwl/eslint-plugin-nx": "15.6.3",

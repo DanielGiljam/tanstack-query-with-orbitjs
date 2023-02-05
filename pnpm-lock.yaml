@@ -4,6 +4,9 @@ importers:
 
   .:
     specifiers:
+      '@danielgiljam/eslint-config-javascript': workspace:^0.0.0
+      '@danielgiljam/eslint-config-jsx': workspace:^0.0.0
+      '@danielgiljam/eslint-config-typescript': workspace:^0.0.0
       '@nrwl/cli': 15.6.3
       '@nrwl/cypress': 15.6.3
       '@nrwl/eslint-plugin-nx': 15.6.3
@@ -54,6 +57,9 @@ importers:
       regenerator-runtime: 0.13.7
       tslib: 2.5.0
     devDependencies:
+      '@danielgiljam/eslint-config-javascript': link:libs/eslint-configs/javascript
+      '@danielgiljam/eslint-config-jsx': link:libs/eslint-configs/jsx
+      '@danielgiljam/eslint-config-typescript': link:libs/eslint-configs/typescript
       '@nrwl/cli': 15.6.3
       '@nrwl/cypress': 15.6.3_bq52ynz2keqdzxiqw36oznldoa
       '@nrwl/eslint-plugin-nx': 15.6.3_wrqdxpx2lmyci54uz4efldzlbe
