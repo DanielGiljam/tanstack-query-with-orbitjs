@@ -1,9 +1,9 @@
 import createEmotionServer from "@emotion/server/create-instance";
-import Document, {Head, Html, Main, NextScript} from "next/document";
+import NextDocument, {Head, Html, Main, NextScript} from "next/document";
 
 import {createEmotionCache, roboto, theme} from "../theme";
 
-export default class MyDocument extends Document<{
+class Document extends NextDocument<{
     emotionStyleTags: JSX.Element[];
 }> {
     render() {
@@ -30,7 +30,7 @@ export default class MyDocument extends Document<{
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
+Document.getInitialProps = async (ctx) => {
     // Resolution order
     //
     // On the server:
@@ -69,7 +69,7 @@ MyDocument.getInitialProps = async (ctx) => {
                 },
         });
 
-    const initialProps = await Document.getInitialProps(ctx);
+    const initialProps = await NextDocument.getInitialProps(ctx);
     // This is important. It prevents Emotion to render invalid HTML.
     // See https://github.com/mui/material-ui/issues/26561#issuecomment-855286153
     const emotionStyles = extractCriticalToChunks(initialProps.html);
@@ -86,3 +86,5 @@ MyDocument.getInitialProps = async (ctx) => {
         emotionStyleTags,
     };
 };
+
+export default Document;
