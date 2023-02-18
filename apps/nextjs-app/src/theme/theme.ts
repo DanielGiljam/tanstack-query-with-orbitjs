@@ -1,4 +1,4 @@
-import {createTheme} from "@mui/material";
+import {experimental_extendTheme as extendTheme} from "@mui/material";
 import {red} from "@mui/material/colors";
 import {Roboto} from "@next/font/google";
 
@@ -10,16 +10,20 @@ export const roboto = Roboto({
 });
 
 // Create a theme instance.
-export const theme = createTheme({
-    palette: {
-        primary: {
-            main: "#556cd6",
-        },
-        secondary: {
-            main: "#19857b",
-        },
-        error: {
-            main: red.A400,
+export const theme = extendTheme({
+    colorSchemes: {
+        light: {
+            palette: {
+                primary: {
+                    main: "#556cd6",
+                },
+                secondary: {
+                    main: "#19857b",
+                },
+                error: {
+                    main: red.A400,
+                },
+            },
         },
     },
     typography: {

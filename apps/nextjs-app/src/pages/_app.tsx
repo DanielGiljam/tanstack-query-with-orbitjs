@@ -1,5 +1,8 @@
 import {CacheProvider, EmotionCache} from "@emotion/react";
-import {CssBaseline, ThemeProvider} from "@mui/material";
+import {
+    CssBaseline,
+    Experimental_CssVarsProvider as CssVarsProvider,
+} from "@mui/material";
 import {AppProps as NextAppProps} from "next/app";
 import Head from "next/head";
 
@@ -25,12 +28,12 @@ const App = ({
                 <title>Welcome to nextjs-app!</title>
             </Head>
             <CacheProvider value={emotionCache}>
-                <ThemeProvider theme={theme}>
+                <CssVarsProvider theme={theme}>
                     <CssBaseline />
                     <main className={"app"}>
                         <Component {...pageProps} />
                     </main>
-                </ThemeProvider>
+                </CssVarsProvider>
             </CacheProvider>
         </>
     );

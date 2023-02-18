@@ -1,4 +1,5 @@
 import createEmotionServer from "@emotion/server/create-instance";
+import {getInitColorSchemeScript} from "@mui/material";
 import NextDocument, {Head, Html, Main, NextScript} from "next/document";
 
 import {createEmotionCache, roboto, theme} from "../theme";
@@ -12,7 +13,7 @@ class Document extends NextDocument<{
                 <Head>
                     {/* PWA primary color */}
                     <meta
-                        content={theme.palette.primary.main}
+                        content={theme.colorSchemes.light.palette.primary.main}
                         name={"theme-color"}
                     />
                     <link href={"/favicon.ico"} rel={"shortcut icon"} />
@@ -20,6 +21,7 @@ class Document extends NextDocument<{
                     {this.props.emotionStyleTags}
                 </Head>
                 <body>
+                    {getInitColorSchemeScript()}
                     <Main />
                     <NextScript />
                 </body>
