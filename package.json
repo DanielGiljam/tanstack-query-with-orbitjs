@@ -25,9 +25,12 @@
         "tslib": "^2.3.0"
     },
     "devDependencies": {
+        "@emotion/react": "^11.10.6",
+        "@emotion/styled": "^11.10.6",
         "@kantele/eslint-config-javascript": "workspace:^0.0.0",
         "@kantele/eslint-config-jsx": "workspace:^0.0.0",
         "@kantele/eslint-config-typescript": "workspace:^0.0.0",
+        "@mui/material": "^5.11.9",
         "@nrwl/cli": "15.6.3",
         "@nrwl/cypress": "15.6.3",
         "@nrwl/eslint-plugin-nx": "15.6.3",
