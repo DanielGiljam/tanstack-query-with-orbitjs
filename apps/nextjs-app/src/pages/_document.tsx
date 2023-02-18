@@ -3,7 +3,9 @@ import Document, {Head, Html, Main, NextScript} from "next/document";
 
 import {createEmotionCache, roboto, theme} from "../theme";
 
-export default class MyDocument extends Document {
+export default class MyDocument extends Document<{
+    emotionStyleTags: JSX.Element[];
+}> {
     render() {
         return (
             <Html className={roboto.className} lang={"en"}>
@@ -15,7 +17,7 @@ export default class MyDocument extends Document {
                     />
                     <link href={"/favicon.ico"} rel={"shortcut icon"} />
                     <meta content={""} name={"emotion-insertion-point"} />
-                    {(this.props as any).emotionStyleTags}
+                    {this.props.emotionStyleTags}
                 </Head>
                 <body>
                     <Main />
@@ -60,8 +62,9 @@ MyDocument.getInitialProps = async (ctx) => {
 
     ctx.renderPage = () =>
         originalRenderPage({
-            enhanceApp: (App: any) =>
+            enhanceApp: (App) =>
                 function EnhanceApp(props) {
+                    // @ts-expect-error In our case emotionCache is a valid prop that can be passed to the App component
                     return <App emotionCache={cache} {...props} />;
                 },
         });
