@@ -15,6 +15,7 @@ const nextConfig = {
         // See: https://github.com/gregberge/svgr
         svgr: false,
     },
+    reactStrictMode: true,
     typescript: {
         ignoreBuildErrors: true,
     },
