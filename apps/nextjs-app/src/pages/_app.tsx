@@ -8,8 +8,6 @@ import Head from "next/head";
 
 import {createEmotionCache, theme} from "../theme";
 
-import "./styles.css";
-
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -30,9 +28,7 @@ const App = ({
             <CacheProvider value={emotionCache}>
                 <CssVarsProvider theme={theme}>
                     <CssBaseline />
-                    <main className={"app"}>
-                        <Component {...pageProps} />
-                    </main>
+                    <Component {...pageProps} />
                 </CssVarsProvider>
             </CacheProvider>
         </>
