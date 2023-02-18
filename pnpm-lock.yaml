@@ -11,6 +11,7 @@ importers:
       '@kantele/eslint-config-javascript': workspace:^0.0.0
       '@kantele/eslint-config-jsx': workspace:^0.0.0
       '@kantele/eslint-config-typescript': workspace:^0.0.0
+      '@mui/icons-material': ^5.11.9
       '@mui/material': ^5.11.9
       '@next/font': ^13.1.6
       '@nrwl/cli': 15.6.3
@@ -70,6 +71,7 @@ importers:
       '@kantele/eslint-config-javascript': link:libs/eslint-configs/javascript
       '@kantele/eslint-config-jsx': link:libs/eslint-configs/jsx
       '@kantele/eslint-config-typescript': link:libs/eslint-configs/typescript
+      '@mui/icons-material': 5.11.9_rf36yb7fpwohzfiba4qr5l2xre
       '@mui/material': 5.11.9_djbvr54jltxzvghogofy3z763q
       '@next/font': 13.1.6
       '@nrwl/cli': 15.6.3
@@ -2050,6 +2052,23 @@ packages:
 
   /@mui/core-downloads-tracker/5.11.9:
     resolution: {integrity: sha512-YGEtucQ/Nl91VZkzYaLad47Cdui51n/hW+OQm4210g4N3/nZzBxmGeKfubEalf+ShKH4aYDS86XTO6q/TpZnjQ==}
+    dev: true
+
+  /@mui/icons-material/5.11.9_rf36yb7fpwohzfiba4qr5l2xre:
+    resolution: {integrity: sha512-SPANMk6K757Q1x48nCwPGdSNb8B71d+2hPMJ0V12VWerpSsbjZtvAPi5FAn13l2O5mwWkvI0Kne+0tCgnNxMNw==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.13
+      '@mui/material': 5.11.9_djbvr54jltxzvghogofy3z763q
+      '@types/react': 18.0.25
+      react: 18.2.0
     dev: true
 
   /@mui/material/5.11.9_djbvr54jltxzvghogofy3z763q:

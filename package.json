@@ -32,6 +32,7 @@
         "@kantele/eslint-config-javascript": "workspace:^0.0.0",
         "@kantele/eslint-config-jsx": "workspace:^0.0.0",
         "@kantele/eslint-config-typescript": "workspace:^0.0.0",
+        "@mui/icons-material": "^5.11.9",
         "@mui/material": "^5.11.9",
         "@next/font": "^13.1.6",
         "@nrwl/cli": "15.6.3",
