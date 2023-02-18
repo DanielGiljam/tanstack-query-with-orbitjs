@@ -1,7 +1,7 @@
 import {render} from "@testing-library/react";
 import React from "react";
 
-import Index from "../pages/index";
+import Index from "../src/pages/index";
 
 describe("Index", () => {
     it("should render successfully", () => {

@@ -15,7 +15,7 @@
             "rules": {
                 "@next/next/no-html-link-for-pages": [
                     "error",
-                    "apps/nextjs-app/pages"
+                    "apps/nextjs-app/src/pages"
                 ]
             }
         },
