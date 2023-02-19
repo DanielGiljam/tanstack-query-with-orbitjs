@@ -3,8 +3,8 @@ import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import {useNotes} from "../../hooks";
 
 export interface NoteListProps {
-    selectedNote: number | undefined;
-    setSelectedNote: (id: number) => void;
+    selectedNote: string | undefined;
+    setSelectedNote: (id: string) => void;
 }
 
 export const NoteList = ({selectedNote, setSelectedNote}: NoteListProps) => {
@@ -21,7 +21,7 @@ export const NoteList = ({selectedNote, setSelectedNote}: NoteListProps) => {
                             dense
                             disableTouchRipple
                             divider
-                            onClick={() => setSelectedNote(id!)}
+                            onClick={() => setSelectedNote(id)}
                         >
                             <ListItemText
                                 primary={noTitle ? "Untitled" : title}

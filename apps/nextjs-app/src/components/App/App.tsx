@@ -12,7 +12,7 @@ const drawerWidth = 240;
 
 export const App = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const [selectedNote, setSelectedNote] = React.useState<number>();
+    const [selectedNote, setSelectedNote] = React.useState<string>();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);

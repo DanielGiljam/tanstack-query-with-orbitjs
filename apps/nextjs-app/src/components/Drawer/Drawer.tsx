@@ -16,8 +16,8 @@ export interface DrawerProps {
     mobileOpen: boolean;
     drawerWidth: number;
     handleDrawerToggle: () => void;
-    selectedNote: number | undefined;
-    setSelectedNote: (id: number) => void;
+    selectedNote: string | undefined;
+    setSelectedNote: (id: string) => void;
 }
 
 export const Drawer = ({

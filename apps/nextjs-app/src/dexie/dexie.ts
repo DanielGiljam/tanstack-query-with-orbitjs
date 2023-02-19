@@ -1,7 +1,7 @@
 import {Dexie} from "dexie";
 
 export interface Note {
-    id?: number;
+    id: string;
     created_at: Date;
     updated_at: Date;
     title: string;
@@ -9,12 +9,12 @@ export interface Note {
 }
 
 class Kantele extends Dexie {
-    notes!: Dexie.Table<Note, number>;
+    notes!: Dexie.Table<Note, string>;
 
     constructor() {
         super("kantele");
         this.version(1).stores({
-            notes: "++id, created_at, updated_at, title, contents",
+            notes: "id, created_at, updated_at, title, contents",
         });
     }
 }

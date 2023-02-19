@@ -3,7 +3,7 @@ import {Skeleton, TextField} from "@mui/material";
 import {useNote} from "../../hooks";
 
 export interface NoteProps {
-    id: number | undefined;
+    id: string | undefined;
 }
 
 export const Note = ({id}: NoteProps) => {
