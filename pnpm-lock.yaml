@@ -8,9 +8,6 @@ importers:
       '@emotion/react': ^11.10.6
       '@emotion/server': ^11.10.0
       '@emotion/styled': ^11.10.6
-      '@kantele/eslint-config-javascript': workspace:^0.0.0
-      '@kantele/eslint-config-jsx': workspace:^0.0.0
-      '@kantele/eslint-config-typescript': workspace:^0.0.0
       '@mui/icons-material': ^5.11.9
       '@mui/material': ^5.11.9
       '@next/font': ^13.1.6
@@ -24,6 +21,9 @@ importers:
       '@nrwl/react': 15.6.3
       '@nrwl/web': 15.6.3
       '@nrwl/workspace': 15.6.3
+      '@offline-full-text-search-in-web-app/eslint-config-javascript': workspace:^0.0.0
+      '@offline-full-text-search-in-web-app/eslint-config-jsx': workspace:^0.0.0
+      '@offline-full-text-search-in-web-app/eslint-config-typescript': workspace:^0.0.0
       '@tanstack/react-query': ^4.24.9
       '@tanstack/react-query-devtools': ^4.24.9
       '@testing-library/react': 13.4.0
@@ -73,9 +73,6 @@ importers:
       '@emotion/react': 11.10.6_fan5qbzahqtxlm5dzefqlqx5ia
       '@emotion/server': 11.10.0
       '@emotion/styled': 11.10.6_36w5hsinjku373i4fj56ptnobm
-      '@kantele/eslint-config-javascript': link:libs/eslint-configs/javascript
-      '@kantele/eslint-config-jsx': link:libs/eslint-configs/jsx
-      '@kantele/eslint-config-typescript': link:libs/eslint-configs/typescript
       '@mui/icons-material': 5.11.9_rf36yb7fpwohzfiba4qr5l2xre
       '@mui/material': 5.11.9_djbvr54jltxzvghogofy3z763q
       '@next/font': 13.1.6
@@ -88,6 +85,9 @@ importers:
       '@nrwl/react': 15.6.3_niqd3hdk7vpad7e2t7c2ooltle
       '@nrwl/web': 15.6.3_haobvbiz67lssrprbzhlfcv5sy
       '@nrwl/workspace': 15.6.3_ru3a6u6i5jfe3w3i7orrmgwxwa
+      '@offline-full-text-search-in-web-app/eslint-config-javascript': link:libs/eslint-configs/javascript
+      '@offline-full-text-search-in-web-app/eslint-config-jsx': link:libs/eslint-configs/jsx
+      '@offline-full-text-search-in-web-app/eslint-config-typescript': link:libs/eslint-configs/typescript
       '@tanstack/react-query': 4.24.9_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-devtools': 4.24.9_bzphmdwvicyhtx5eo3azinrh54
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -149,9 +149,9 @@ importers:
 
   libs/eslint-configs/typescript:
     specifiers:
-      '@kantele/eslint-config-javascript': workspace:^
+      '@offline-full-text-search-in-web-app/eslint-config-javascript': workspace:^
     devDependencies:
-      '@kantele/eslint-config-javascript': link:../javascript
+      '@offline-full-text-search-in-web-app/eslint-config-javascript': link:../javascript
 
 packages:
 

@@ -1,10 +1,10 @@
 {
-    "name": "@kantele/eslint-config-typescript",
+    "name": "@offline-full-text-search-in-web-app/eslint-config-typescript",
     "version": "0.0.0",
     "license": "MIT",
     "author": "Daniel Giljam (https://github.com/DanielGiljam)",
     "private": true,
     "devDependencies": {
-        "@kantele/eslint-config-javascript": "workspace:^"
+        "@offline-full-text-search-in-web-app/eslint-config-javascript": "workspace:^"
     }
 }

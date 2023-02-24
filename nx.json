@@ -1,6 +1,6 @@
 {
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
-    "npmScope": "kantele",
+    "npmScope": "offline-full-text-search-in-web-app",
     "tasksRunnerOptions": {
         "default": {
             "runner": "nx/tasks-runners/default",

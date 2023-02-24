@@ -29,7 +29,7 @@
         },
         {
             "files": ["*.tsx", "*.jsx"],
-            "extends": ["@kantele/jsx"]
+            "extends": ["@offline-full-text-search-in-web-app/jsx"]
         }
     ],
     "rules": {
