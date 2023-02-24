@@ -35,7 +35,7 @@ export const MobileAppBar = ({
                     <MenuIcon />
                 </IconButton>
                 <Typography component={"div"} variant={"h6"} noWrap>
-                    Kantele
+                    Demo Note-Taking Application
                 </Typography>
             </Toolbar>
         </AppBar>

@@ -23,7 +23,7 @@ const App = ({
     return (
         <>
             <Head>
-                <title>Welcome to nextjs-app!</title>
+                <title>Welcome to demo-note-taking-app!</title>
             </Head>
             <CacheProvider value={emotionCache}>
                 <CssVarsProvider theme={theme}>

@@ -1,7 +1,7 @@
 {
-    "name": "nextjs-app",
+    "name": "demo-note-taking-app",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "apps/nextjs-app",
+    "sourceRoot": "apps/demo-note-taking-app",
     "projectType": "application",
     "targets": {
         "build": {
@@ -9,12 +9,12 @@
             "outputs": ["{options.outputPath}"],
             "defaultConfiguration": "production",
             "options": {
-                "root": "apps/nextjs-app",
-                "outputPath": "dist/apps/nextjs-app"
+                "root": "apps/demo-note-taking-app",
+                "outputPath": "dist/apps/demo-note-taking-app"
             },
             "configurations": {
                 "development": {
-                    "outputPath": "apps/nextjs-app"
+                    "outputPath": "apps/demo-note-taking-app"
                 },
                 "production": {}
             }
@@ -23,16 +23,16 @@
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
             "options": {
-                "buildTarget": "nextjs-app:build",
+                "buildTarget": "demo-note-taking-app:build",
                 "dev": true
             },
             "configurations": {
                 "development": {
-                    "buildTarget": "nextjs-app:build:development",
+                    "buildTarget": "demo-note-taking-app:build:development",
                     "dev": true
                 },
                 "production": {
-                    "buildTarget": "nextjs-app:build:production",
+                    "buildTarget": "demo-note-taking-app:build:production",
                     "dev": false
                 }
             }
@@ -40,28 +40,30 @@
         "export": {
             "executor": "@nrwl/next:export",
             "options": {
-                "buildTarget": "nextjs-app:build:production"
+                "buildTarget": "demo-note-taking-app:build:production"
             }
         },
         "test": {
             "executor": "@nrwl/jest:jest",
             "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
             "options": {
-                "jestConfig": "apps/nextjs-app/jest.config.ts",
+                "jestConfig": "apps/demo-note-taking-app/jest.config.ts",
                 "passWithNoTests": true
             }
         },
         "type-check": {
             "executor": "@nrwl/workspace:run-commands",
             "options": {
-                "command": "tsc --build apps/nextjs-app/tsconfig.json --incremental"
+                "command": "tsc --build apps/demo-note-taking-app/tsconfig.json --incremental"
             }
         },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
             "options": {
-                "lintFilePatterns": ["apps/nextjs-app/**/*.{ts,tsx,js,jsx}"]
+                "lintFilePatterns": [
+                    "apps/demo-note-taking-app/**/*.{ts,tsx,js,jsx}"
+                ]
             }
         }
     },

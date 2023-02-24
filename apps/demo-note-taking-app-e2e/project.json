@@ -1,36 +1,38 @@
 {
-    "name": "nextjs-app-e2e",
+    "name": "demo-note-taking-app-e2e",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "apps/nextjs-app-e2e/src",
+    "sourceRoot": "apps/demo-note-taking-app-e2e/src",
     "projectType": "application",
     "targets": {
         "e2e": {
             "executor": "@nrwl/cypress:cypress",
             "options": {
-                "cypressConfig": "apps/nextjs-app-e2e/cypress.config.ts",
-                "devServerTarget": "nextjs-app:serve:development",
+                "cypressConfig": "apps/demo-note-taking-app-e2e/cypress.config.ts",
+                "devServerTarget": "demo-note-taking-app:serve:development",
                 "testingType": "e2e"
             },
             "configurations": {
                 "production": {
-                    "devServerTarget": "nextjs-app:serve:production"
+                    "devServerTarget": "demo-note-taking-app:serve:production"
                 }
             }
         },
         "type-check": {
             "executor": "@nrwl/workspace:run-commands",
             "options": {
-                "command": "tsc --build apps/nextjs-app-e2e/tsconfig.json --incremental"
+                "command": "tsc --build apps/demo-note-taking-app-e2e/tsconfig.json --incremental"
             }
         },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
             "options": {
-                "lintFilePatterns": ["apps/nextjs-app-e2e/**/*.{js,ts}"]
+                "lintFilePatterns": [
+                    "apps/demo-note-taking-app-e2e/**/*.{js,ts}"
+                ]
             }
         }
     },
     "tags": [],
-    "implicitDependencies": ["nextjs-app"]
+    "implicitDependencies": ["demo-note-taking-app"]
 }

@@ -8,15 +8,15 @@ export interface Note {
     contents: string;
 }
 
-class Kantele extends Dexie {
+class DemoNoteTakingApp extends Dexie {
     notes!: Dexie.Table<Note, string>;
 
     constructor() {
-        super("kantele");
+        super("demo-note-taking-app");
         this.version(1).stores({
             notes: "id, created_at, updated_at, title, contents",
         });
     }
 }
 
-export const db = new Kantele();
+export const db = new DemoNoteTakingApp();

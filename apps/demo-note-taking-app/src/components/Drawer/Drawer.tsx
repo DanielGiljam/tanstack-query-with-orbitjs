@@ -39,7 +39,7 @@ export const Drawer = ({
                 disableGutters
             >
                 <Typography component={"div"} variant={"h6"} noWrap>
-                    Kantele
+                    Demo Note-Taking Application
                 </Typography>
                 <IconButton
                     aria-label={"add note"}

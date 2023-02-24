@@ -5,7 +5,7 @@
         {
             "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
             "parserOptions": {
-                "project": "apps/nextjs-app-e2e/tsconfig.json"
+                "project": ["apps/demo-note-taking-app-e2e/tsconfig.json"]
             },
             "rules": {}
         },

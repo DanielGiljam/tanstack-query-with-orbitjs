@@ -52,5 +52,5 @@
             }
         }
     },
-    "defaultProject": "nextjs-app"
+    "defaultProject": "demo-note-taking-app"
 }

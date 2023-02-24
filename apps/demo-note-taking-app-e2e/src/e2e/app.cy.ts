@@ -1,6 +1,6 @@
 import {getGreeting} from "../support/app.po";
 
-describe("nextjs-app", () => {
+describe("demo-note-taking-app", () => {
     beforeEach(() => cy.visit("/"));
 
     it("should display welcome message", () => {
@@ -8,6 +8,6 @@ describe("nextjs-app", () => {
         cy.login("my-email@something.com", "myPassword");
 
         // Function helper example, see `../support/app.po.ts` file
-        getGreeting().contains("Welcome nextjs-app");
+        getGreeting().contains("Welcome demo-note-taking-app");
     });
 });

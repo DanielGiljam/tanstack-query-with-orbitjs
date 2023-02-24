@@ -10,12 +10,12 @@
         {
             "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
             "parserOptions": {
-                "project": ["apps/nextjs-app/tsconfig(.*)?.json"]
+                "project": ["apps/demo-note-taking-app/tsconfig(.*)?.json"]
             },
             "rules": {
                 "@next/next/no-html-link-for-pages": [
                     "error",
-                    "apps/nextjs-app/src/pages"
+                    "apps/demo-note-taking-app/src/pages"
                 ]
             }
         },
