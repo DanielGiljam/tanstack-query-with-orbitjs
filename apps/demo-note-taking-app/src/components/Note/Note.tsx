@@ -1,6 +1,6 @@
 import {Skeleton, TextField} from "@mui/material";
 
-import {useNote} from "../../hooks";
+import {useNote, useUpdateNote} from "../../hooks";
 
 export interface NoteProps {
     id: string | undefined;
@@ -8,6 +8,7 @@ export interface NoteProps {
 
 export const Note = ({id}: NoteProps) => {
     const {data} = useNote(id);
+    const {mutate} = useUpdateNote({id: id!});
     if (data == null) {
         return (
             <>
@@ -29,6 +30,7 @@ export const Note = ({id}: NoteProps) => {
                 sx={{mb: 2}}
                 value={data.title}
                 fullWidth
+                onChange={(event) => mutate({title: event.target.value})}
             />
             <TextField
                 inputProps={{"aria-label": "note contents"}}
@@ -37,6 +39,7 @@ export const Note = ({id}: NoteProps) => {
                 value={data.contents}
                 fullWidth
                 multiline
+                onChange={(event) => mutate({contents: event.target.value})}
             />
         </>
     );
