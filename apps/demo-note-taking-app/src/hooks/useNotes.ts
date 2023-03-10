@@ -1,10 +1,23 @@
 import {useQuery} from "@tanstack/react-query";
 
-import {db} from "../dexie";
+import {Note} from "../orbit";
 
-export const useNotes = () =>
-    useQuery({
+export interface UseNotesOptions {
+    onSuccess?: (notes: Note[]) => void;
+    suspense?: boolean;
+}
+
+export const useNotes = ({
+    onSuccess = () => undefined,
+    suspense = true,
+}: UseNotesOptions = {}) =>
+    useQuery<Note[]>({
         queryKey: ["notes"],
-        queryFn: async () =>
-            await db.notes.orderBy("updated_at").reverse().toArray(),
+        onSuccess,
+        suspense,
+        meta: {
+            getQueryOrExpressions: () => (q) =>
+                q.findRecords("note").sort("-updated_at"),
+            keepAlive: true,
+        },
     });

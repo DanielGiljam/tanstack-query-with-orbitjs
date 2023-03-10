@@ -8,6 +8,7 @@ importers:
       '@emotion/react': ^11.10.6
       '@emotion/server': ^11.10.0
       '@emotion/styled': ^11.10.6
+      '@faker-js/faker': ^7.6.0
       '@mui/icons-material': ^5.11.9
       '@mui/material': ^5.11.9
       '@next/font': ^13.1.6
@@ -24,6 +25,11 @@ importers:
       '@offline-full-text-search-in-web-app/eslint-config-javascript': workspace:^0.0.0
       '@offline-full-text-search-in-web-app/eslint-config-jsx': workspace:^0.0.0
       '@offline-full-text-search-in-web-app/eslint-config-typescript': workspace:^0.0.0
+      '@orbit/coordinator': ^0.17.0
+      '@orbit/indexeddb': ^0.17.2
+      '@orbit/indexeddb-bucket': ^0.17.0
+      '@orbit/memory': ^0.17.2
+      '@orbit/records': ^0.17.0
       '@tanstack/react-query': ^4.24.9
       '@tanstack/react-query-devtools': ^4.24.9
       '@testing-library/react': 13.4.0
@@ -37,7 +43,6 @@ importers:
       babel-jest: 28.1.1
       core-js: ^3.6.5
       cypress: ^12.2.0
-      dexie: ^3.2.3
       eslint: ~8.15.0
       eslint-config-next: 13.1.1
       eslint-config-prettier: 8.1.0
@@ -46,6 +51,7 @@ importers:
       eslint-plugin-jsx-a11y: 6.6.1
       eslint-plugin-react: 7.31.11
       eslint-plugin-react-hooks: 4.6.0
+      idb-keyval: ^6.2.0
       jest: 28.1.1
       jest-environment-jsdom: 28.1.1
       next: 13.1.1
@@ -73,6 +79,7 @@ importers:
       '@emotion/react': 11.10.6_fan5qbzahqtxlm5dzefqlqx5ia
       '@emotion/server': 11.10.0
       '@emotion/styled': 11.10.6_36w5hsinjku373i4fj56ptnobm
+      '@faker-js/faker': 7.6.0
       '@mui/icons-material': 5.11.9_rf36yb7fpwohzfiba4qr5l2xre
       '@mui/material': 5.11.9_djbvr54jltxzvghogofy3z763q
       '@next/font': 13.1.6
@@ -88,6 +95,11 @@ importers:
       '@offline-full-text-search-in-web-app/eslint-config-javascript': link:libs/eslint-configs/javascript
       '@offline-full-text-search-in-web-app/eslint-config-jsx': link:libs/eslint-configs/jsx
       '@offline-full-text-search-in-web-app/eslint-config-typescript': link:libs/eslint-configs/typescript
+      '@orbit/coordinator': 0.17.0
+      '@orbit/indexeddb': 0.17.2
+      '@orbit/indexeddb-bucket': 0.17.0
+      '@orbit/memory': 0.17.2
+      '@orbit/records': 0.17.0
       '@tanstack/react-query': 4.24.9_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-devtools': 4.24.9_bzphmdwvicyhtx5eo3azinrh54
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -100,7 +112,6 @@ importers:
       '@typescript-eslint/parser': 5.50.0_oy7hgmlo6357d5kkcjbkfgtg4q
       babel-jest: 28.1.1
       cypress: 12.5.1
-      dexie: 3.2.3
       eslint: 8.15.0
       eslint-config-next: 13.1.1_oy7hgmlo6357d5kkcjbkfgtg4q
       eslint-config-prettier: 8.1.0_eslint@8.15.0
@@ -109,6 +120,7 @@ importers:
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.15.0
       eslint-plugin-react: 7.31.11_eslint@8.15.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.15.0
+      idb-keyval: 6.2.0
       jest: 28.1.1_odkjkoia5xunhxkdrka32ib6vi
       jest-environment-jsdom: 28.1.1
       nx: 15.6.3
@@ -1712,6 +1724,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /@faker-js/faker/7.6.0:
+    resolution: {integrity: sha512-XK6BTq1NDMo9Xqw/YkYyGjSsg44fbNwYRx7QK2CuoQgyy+f1rrTDHoExVM5PsyXCtfl2vs2vVJ0MN0yN6LppRw==}
+    engines: {node: '>=14.0.0', npm: '>=6.0.0'}
+    dev: true
+
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
     engines: {node: '>=10.10.0'}
@@ -2771,6 +2788,86 @@ packages:
       - debug
       - eslint
       - typescript
+
+  /@orbit/coordinator/0.17.0:
+    resolution: {integrity: sha512-r/jBGCi/sgvkJf9CBqQVS8pHBopYK4FQZCzcL9gdjKXOhnLwobOb9WH7/SqvwHYceFKx8tv+tOpl+d44+75DWQ==}
+    dependencies:
+      '@orbit/core': 0.17.0
+      '@orbit/data': 0.17.0
+      '@orbit/utils': 0.17.0
+    dev: true
+
+  /@orbit/core/0.17.0:
+    resolution: {integrity: sha512-wzaA7d04QU+Bi/ebVk100vPhVNDe8CHiACK7h0FjX+qTa54M9YmCNOOlXHj6PvO6GWY6s5eDBaloJdijKXjFHQ==}
+    dependencies:
+      '@orbit/utils': 0.17.0
+    dev: true
+
+  /@orbit/data/0.17.0:
+    resolution: {integrity: sha512-aaF40uriJ0SBXjoqyZ5/03Cj1XVxYzDwZnrRlM7GjI1lSd6f6OwyoDeru5WoflQvDTE3ILej1h0v1++fh9H5/A==}
+    dependencies:
+      '@orbit/core': 0.17.0
+      '@orbit/utils': 0.17.0
+    dev: true
+
+  /@orbit/immutable/0.17.0:
+    resolution: {integrity: sha512-WImAn7I6I35lXzXq/JA5d23yPGV8Vv+xn7DM6lysPJ3ZWOXBF7aBTDJAXYxNtgdEEJnat83PctUDO/QWEKofJQ==}
+    dev: true
+
+  /@orbit/indexeddb-bucket/0.17.0:
+    resolution: {integrity: sha512-TjxBQIPvYbde40NzNPEyE7D8ga8dJw4uV7d2j9gweeJ3jVnTa4gAnFCldNMD2GLyK8RxteP82Ik4sGTNJXjz/A==}
+    dependencies:
+      '@orbit/core': 0.17.0
+      '@orbit/utils': 0.17.0
+    dev: true
+
+  /@orbit/indexeddb/0.17.2:
+    resolution: {integrity: sha512-+44D1aVy7jrAr0VWHpbYv5GsCQevhu+CiXC7bJ4GpVg0ygirBEnFcUPBW5b3dJkbx/qFvsKp/vW32zqrwZUQZA==}
+    dependencies:
+      '@orbit/core': 0.17.0
+      '@orbit/data': 0.17.0
+      '@orbit/record-cache': 0.17.2
+      '@orbit/records': 0.17.0
+      '@orbit/utils': 0.17.0
+    dev: true
+
+  /@orbit/memory/0.17.2:
+    resolution: {integrity: sha512-2JYCXnpuFFV8tTDqaJ+yPFmYwg3b7BwIbGL3dTZ6z0S7WogEQ0lWiFTEtvBXtg1X3c7W5ZNgq1LxP21mu9EOhw==}
+    dependencies:
+      '@orbit/core': 0.17.0
+      '@orbit/data': 0.17.0
+      '@orbit/immutable': 0.17.0
+      '@orbit/record-cache': 0.17.2
+      '@orbit/records': 0.17.0
+      '@orbit/utils': 0.17.0
+    dev: true
+
+  /@orbit/record-cache/0.17.2:
+    resolution: {integrity: sha512-HhxNkXg11MAMpuktG+39aLQYC47dTQXF9yWGIKRQu47gyd2KMiB0C4CwXsqHaF2SMLMu3P4YB/5qjcHhynaQ4g==}
+    dependencies:
+      '@orbit/core': 0.17.0
+      '@orbit/data': 0.17.0
+      '@orbit/records': 0.17.0
+      '@orbit/utils': 0.17.0
+    dev: true
+
+  /@orbit/records/0.17.0:
+    resolution: {integrity: sha512-ljXbaV4o3iK3xDhHlCrtl5YQiMMHWav71m2qOd/BprdieMtU7nMAWeAUfXegLnIAv35imrowGcIgx5rGXkGo0g==}
+    dependencies:
+      '@orbit/data': 0.17.0
+      '@orbit/utils': 0.17.0
+      '@orbit/validators': 0.17.0
+    dev: true
+
+  /@orbit/utils/0.17.0:
+    resolution: {integrity: sha512-nRxzl0pvFHK9+g0WhQMq++6EZ5YQjPxEkqRDAeIfPJtX2+hu8hG7Oyz/KzHJRWimzjC9nRDL4M2HatZleFCwNg==}
+    dev: true
+
+  /@orbit/validators/0.17.0:
+    resolution: {integrity: sha512-OOcrTWdai0ce7CEXPsVXOw6oxHVCbE7W9nSH1Fn3B28VpzUnKQ9O/d59e3S5E1DTFXZpNvcVBAVsohQS+PGm+g==}
+    dependencies:
+      '@orbit/utils': 0.17.0
+    dev: true
 
   /@parcel/watcher/2.0.4:
     resolution: {integrity: sha512-cTDi+FUDBIUOBKEtj+nhiJ71AZVlkAsQFuGQTun5tV9mwQBQgZvhCzG+URPQc8myeN32yRVZEfVAPCs1RW+Jvg==}
@@ -5166,11 +5263,6 @@ packages:
     resolution: {integrity: sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==}
     dev: false
 
-  /dexie/3.2.3:
-    resolution: {integrity: sha512-iHayBd4UYryDCVUNa3PMsJMEnd8yjyh5p7a+RFeC8i8n476BC9wMhVvqiImq5zJZJf5Tuer+s4SSj+AA3x+ZbQ==}
-    engines: {node: '>=6.0'}
-    dev: true
-
   /diff-sequences/27.5.1:
     resolution: {integrity: sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -6789,6 +6881,12 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: 8.4.21
+
+  /idb-keyval/6.2.0:
+    resolution: {integrity: sha512-uw+MIyQn2jl3+hroD7hF8J7PUviBU7BPKWw4f/ISf32D4LoGu98yHjrzWWJDASu9QNrX10tCJqk9YY0ClWm8Ng==}
+    dependencies:
+      safari-14-idb-fix: 3.0.0
+    dev: true
 
   /identity-obj-proxy/3.0.0:
     resolution: {integrity: sha512-00n6YnVHKrinT9t0d9+5yZC6UBNJANpYEQvL2LlX6Ab9lnmxzIRcEmTPuyGScvl1+jKuCICX1Z0Ab1pPKKdikA==}
@@ -9526,6 +9624,10 @@ packages:
     resolution: {integrity: sha512-F2+gxDshqmIub1KdvZkaEfGDwLNpPvk9Fs6LD/MyQxNgMds/WH9OdDDXOmxUZpME+iSK3rQCctkL0DYyytUqMg==}
     dependencies:
       tslib: 2.5.0
+
+  /safari-14-idb-fix/3.0.0:
+    resolution: {integrity: sha512-eBNFLob4PMq8JA1dGyFn6G97q3/WzNtFK4RnzT1fnLq+9RyrGknzYiM/9B12MnKAxuj1IXr7UKYtTNtjyKMBog==}
+    dev: true
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}

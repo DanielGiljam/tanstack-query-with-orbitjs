@@ -1,6 +1,9 @@
-import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
+import {List} from "@mui/material";
+import React from "react";
 
 import {useNotes} from "../../hooks";
+
+import {NoteListItem} from "./NoteListItem";
 
 export interface NoteListProps {
     selectedNote: string | undefined;
@@ -8,41 +11,29 @@ export interface NoteListProps {
 }
 
 export const NoteList = ({selectedNote, setSelectedNote}: NoteListProps) => {
-    const {data} = useNotes();
+    const {data} = useNotes({
+        onSuccess: (notes) => {
+            if (selectedNote == null) {
+                setSelectedNote(notes[0].id);
+            }
+        },
+        suspense: false,
+    });
     return (
-        <List disablePadding>
-            {data?.map(({id, title, contents}) => {
-                const noTitle = title.length === 0;
-                const noContents = contents.length === 0;
-                return (
-                    <ListItem key={id} disablePadding>
-                        <ListItemButton
-                            selected={id === selectedNote}
-                            dense
-                            disableTouchRipple
-                            divider
-                            onClick={() => setSelectedNote(id)}
-                        >
-                            <ListItemText
-                                primary={noTitle ? "Untitled" : title}
-                                primaryTypographyProps={
-                                    noTitle
-                                        ? {sx: {fontStyle: "italic"}}
-                                        : undefined
-                                }
-                                secondary={
-                                    noContents ? "No contents" : contents
-                                }
-                                secondaryTypographyProps={
-                                    noContents
-                                        ? {sx: {fontStyle: "italic"}}
-                                        : undefined
-                                }
-                            />
-                        </ListItemButton>
-                    </ListItem>
-                );
-            })}
+        <List
+            sx={{flexGrow: 1, overflowY: data != null ? "auto" : "hidden"}}
+            disablePadding
+        >
+            {(data ?? Array.from(Array(8), () => undefined)).map(
+                (note, index) => (
+                    <NoteListItem
+                        key={note?.id ?? index}
+                        note={note}
+                        selectedNote={selectedNote}
+                        setSelectedNote={setSelectedNote}
+                    />
+                ),
+            )}
         </List>
     );
 };

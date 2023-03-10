@@ -8,6 +8,7 @@ import {
     Toolbar,
     Typography,
 } from "@mui/material";
+import React from "react";
 
 import {useAddNote} from "../../hooks";
 import {NoteList} from "../NoteList";
@@ -27,7 +28,9 @@ export const Drawer = ({
     selectedNote,
     setSelectedNote,
 }: DrawerProps) => {
-    const {mutate} = useAddNote({onSuccess: (id) => setSelectedNote(id)});
+    const {mutate} = useAddNote({
+        onSuccess: (note) => setSelectedNote(note.id),
+    });
     const drawer = (
         <>
             <Toolbar

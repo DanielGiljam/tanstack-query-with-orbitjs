@@ -1,6 +1,7 @@
-import {Skeleton, TextField} from "@mui/material";
+import {TextField} from "@mui/material";
+import React from "react";
 
-import {useNote, useUpdateNote} from "../../hooks";
+import {useDebounce, useNote, useUpdateNote} from "../../hooks";
 
 export interface NoteProps {
     id: string | undefined;
@@ -8,38 +9,34 @@ export interface NoteProps {
 
 export const Note = ({id}: NoteProps) => {
     const {data} = useNote(id);
-    const {mutate} = useUpdateNote({id: id!});
-    if (data == null) {
-        return (
-            <>
-                <Skeleton
-                    height={56}
-                    sx={{mb: 2}}
-                    variant={"rounded"}
-                    width={"100%"}
-                />
-                <Skeleton height={493} variant={"rounded"} width={"100%"} />
-            </>
-        );
-    }
+    const {mutate} = useUpdateNote();
+    const debouncedMutate = useDebounce(mutate, 500);
+    const [title, setTitle] = React.useState(data!.attributes.title);
+    const [content, setContent] = React.useState(data!.attributes.content);
     return (
         <>
             <TextField
                 inputProps={{"aria-label": "note title"}}
                 placeholder={"Untitled"}
                 sx={{mb: 2}}
-                value={data.title}
+                value={title}
                 fullWidth
-                onChange={(event) => mutate({title: event.target.value})}
+                onChange={(event) => {
+                    setTitle(event.target.value);
+                    debouncedMutate({id: id!, title: event.target.value});
+                }}
             />
             <TextField
-                inputProps={{"aria-label": "note contents"}}
+                inputProps={{"aria-label": "note content"}}
                 minRows={20}
-                placeholder={"No contents"}
-                value={data.contents}
+                placeholder={"No content"}
+                value={content}
                 fullWidth
                 multiline
-                onChange={(event) => mutate({contents: event.target.value})}
+                onChange={(event) => {
+                    setContent(event.target.value);
+                    debouncedMutate({id: id!, content: event.target.value});
+                }}
             />
         </>
     );

@@ -1,10 +1,15 @@
 import {useQuery} from "@tanstack/react-query";
 
-import {db} from "../dexie";
+import {Note} from "../orbit";
 
 export const useNote = (id: string | undefined) =>
-    useQuery({
-        queryKey: ["note", id] as const,
-        queryFn: async (ctx) => await db.notes.get(ctx.queryKey[1]!),
+    useQuery<Note>({
+        queryKey: ["note", id],
         enabled: id != null,
+        meta: {
+            getQueryOrExpressions:
+                ([, id]) =>
+                (q) =>
+                    q.findRecord({type: "note", id: id as string}),
+        },
     });
