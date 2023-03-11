@@ -2,6 +2,7 @@ import {
     Coordinator,
     EventLoggingStrategy,
     LogTruncationStrategy,
+    RequestStrategy,
     SyncStrategy,
 } from "@orbit/coordinator";
 import {IndexedDBSource} from "@orbit/indexeddb";
@@ -51,11 +52,39 @@ export const getCoordinator = async () => {
         sources: [memory, indexedDB],
     });
 
+    const memoryIndexeddbQueryStrategy = new RequestStrategy({
+        source: "memory",
+        on: "beforeQuery",
+        target: "indexedDB",
+        action: "query",
+        blocking: true,
+    });
+
+    indexedDB.on(
+        "query",
+        async (
+            _query: never,
+            response: NonNullable<
+                Awaited<ReturnType<IndexedDBSource["query"]>>
+            >,
+        ) =>
+            await memory.sync((t) =>
+                (Array.isArray(response.data) ? response.data : [response.data])
+                    .flat()
+                    .filter(
+                        (record): record is NonNullable<typeof record> =>
+                            record != null,
+                    )
+                    .map((record) => t.updateRecord(record)),
+            ),
+    );
+
     const memoryIndexeddbSync = new SyncStrategy({
         source: "memory",
         target: "indexedDB",
     });
 
+    coordinator.addStrategy(memoryIndexeddbQueryStrategy);
     coordinator.addStrategy(memoryIndexeddbSync);
 
     const logTruncationStrategy = new LogTruncationStrategy();
