@@ -1,4 +1,3 @@
-import {faker} from "@faker-js/faker";
 import {
     Coordinator,
     EventLoggingStrategy,
@@ -9,7 +8,8 @@ import {IndexedDBSource} from "@orbit/indexeddb";
 import {IndexedDBBucket} from "@orbit/indexeddb-bucket";
 import {MemorySource} from "@orbit/memory";
 import {InitializedRecord, RecordSchema} from "@orbit/records";
-import {get, set} from "idb-keyval";
+
+import {maybeLoadFakeData} from "./fakeData";
 
 export interface Note extends InitializedRecord {
     type: "note";
@@ -46,38 +46,6 @@ export const getCoordinator = async () => {
     const memory = new MemorySource({schema, bucket});
 
     const indexeddb = new IndexedDBSource({schema, bucket});
-
-    if ((await get<boolean>("loaded_fake_data")) === true) {
-        console.log("Fake data: already loaded.");
-    } else {
-        try {
-            console.log("Fake data: not loaded.");
-            console.log("Fake data: loading...");
-            const response = await fetch("/test-data.json");
-            const data = (await response.json()) as Array<{
-                title: string;
-                content: string;
-            }>;
-
-            await indexeddb.update((t) =>
-                data.map(({title, content}) => {
-                    /* eslint-disable @typescript-eslint/naming-convention */
-                    const updated_at = faker.date.past();
-                    const created_at = faker.date.past(undefined, updated_at);
-                    /* eslint-enable @typescript-eslint/naming-convention */
-                    return t.addRecord({
-                        type: "note",
-                        attributes: {title, content, created_at, updated_at},
-                    });
-                }),
-            );
-            await set("loaded_fake_data", true);
-            console.log("Fake data: loading success.");
-        } catch (error) {
-            console.error("Fake data: loading error.");
-            throw error;
-        }
-    }
 
     coordinator = new Coordinator({
         sources: [memory, indexeddb],
@@ -118,6 +86,8 @@ export const getCoordinator = async () => {
         console.error("Coordinator: activation error.");
         throw error;
     }
+
+    await maybeLoadFakeData(coordinator);
 
     // @ts-expect-error for testing purposes
     window.coordinator = coordinator;
