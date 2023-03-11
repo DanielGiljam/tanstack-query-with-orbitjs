@@ -67,18 +67,6 @@ export const getCoordinator = async () => {
     coordinator.addStrategy(eventLoggingStrategy);
 
     try {
-        console.log("Memory source: hydrating...");
-        const allRecords = await indexeddb.query<Note[]>((q) =>
-            q.findRecords(),
-        );
-        await memory.sync((t) => allRecords.map((r) => t.addRecord(r)));
-        console.log("Memory source: hydration success.");
-    } catch (error) {
-        console.error("Memory source: hydration error.");
-        throw error;
-    }
-
-    try {
         console.log("Coordinator: activating...");
         await coordinator.activate();
         console.log("Coordinator: activation success.");
