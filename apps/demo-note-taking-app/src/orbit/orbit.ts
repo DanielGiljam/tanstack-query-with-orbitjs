@@ -45,15 +45,15 @@ export const getCoordinator = async () => {
 
     const memory = new MemorySource({schema, bucket});
 
-    const indexeddb = new IndexedDBSource({schema, bucket});
+    const indexedDB = new IndexedDBSource({schema, bucket});
 
     coordinator = new Coordinator({
-        sources: [memory, indexeddb],
+        sources: [memory, indexedDB],
     });
 
     const memoryIndexeddbSync = new SyncStrategy({
         source: "memory",
-        target: "indexeddb",
+        target: "indexedDB",
     });
 
     coordinator.addStrategy(memoryIndexeddbSync);
