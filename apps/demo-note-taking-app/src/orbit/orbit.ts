@@ -3,7 +3,6 @@ import {
     EventLoggingStrategy,
     LogTruncationStrategy,
     RequestStrategy,
-    SyncStrategy,
 } from "@orbit/coordinator";
 import {IndexedDBSource} from "@orbit/indexeddb";
 import {IndexedDBBucket} from "@orbit/indexeddb-bucket";
@@ -79,13 +78,7 @@ export const getCoordinator = async () => {
             ),
     );
 
-    const memoryIndexeddbSync = new SyncStrategy({
-        source: "memory",
-        target: "indexedDB",
-    });
-
     coordinator.addStrategy(memoryIndexeddbQueryStrategy);
-    coordinator.addStrategy(memoryIndexeddbSync);
 
     const logTruncationStrategy = new LogTruncationStrategy();
 
