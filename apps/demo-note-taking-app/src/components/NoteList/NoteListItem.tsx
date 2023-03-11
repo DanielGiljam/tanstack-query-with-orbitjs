@@ -27,7 +27,7 @@ export const NoteListItem = ({
     return (
         <ListItem disablePadding>
             <ListItemButton
-                selected={id === selectedNote}
+                selected={id != null && id === selectedNote}
                 dense
                 disableTouchRipple
                 divider
