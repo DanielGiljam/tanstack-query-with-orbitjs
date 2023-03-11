@@ -74,8 +74,8 @@ export const NoteListItem = ({
                             {
                                 display: "-webkit-box",
                                 overflow: "hidden",
-                                "-webkit-box-orient": "vertical",
-                                "-webkit-line-clamp": "3",
+                                WebkitBoxOrient: "vertical",
+                                WebkitLineClamp: "3",
                             },
                             content?.length === 0 && {fontStyle: "italic"},
                         ],
