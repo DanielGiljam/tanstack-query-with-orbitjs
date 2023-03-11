@@ -80,6 +80,15 @@ export const getCoordinator = async () => {
 
     coordinator.addStrategy(memoryIndexeddbQueryStrategy);
 
+    const memoryIndexeddbUpdateStrategy = new RequestStrategy({
+        source: "memory",
+        on: "update",
+        target: "indexedDB",
+        action: "update",
+    });
+
+    coordinator.addStrategy(memoryIndexeddbUpdateStrategy);
+
     const logTruncationStrategy = new LogTruncationStrategy();
 
     coordinator.addStrategy(logTruncationStrategy);
