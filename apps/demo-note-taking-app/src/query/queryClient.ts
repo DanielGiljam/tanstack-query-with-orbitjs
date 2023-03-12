@@ -82,15 +82,13 @@ export const getQueryClient = () => {
                                     queryClient.setQueryData<
                                         InfiniteData<InitializedRecord[]>
                                     >(query.queryKey, (data) => {
-                                        if (data == null) {
-                                            return;
-                                        }
                                         const records =
                                             update.query<InitializedRecord[]>();
                                         const pages: InitializedRecord[][] = [];
                                         let offset = 0;
                                         while (
-                                            data.pages.length > pages.length &&
+                                            (data?.pages.length ?? 1) >
+                                                pages.length &&
                                             offset < records.length
                                         ) {
                                             pages.push(
