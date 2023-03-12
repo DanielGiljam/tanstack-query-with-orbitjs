@@ -14,6 +14,7 @@ import {useAddNote} from "../../hooks";
 import {NoteList} from "../NoteList";
 
 export interface DrawerProps {
+    mobile: boolean;
     mobileOpen: boolean;
     drawerWidth: number;
     handleDrawerToggle: () => void;
@@ -22,6 +23,7 @@ export interface DrawerProps {
 }
 
 export const Drawer = ({
+    mobile,
     mobileOpen,
     drawerWidth,
     handleDrawerToggle,
@@ -78,39 +80,35 @@ export const Drawer = ({
             />
         </>
     );
-    // The implementation can be swapped with js to avoid SEO duplication of links.
-    return (
-        <>
-            <MuiDrawer
-                ModalProps={{
-                    keepMounted: true, // Better open performance on mobile.
-                }}
-                open={mobileOpen}
-                sx={{
-                    display: {xs: "block", sm: "none"},
-                    "& .MuiDrawer-paper": {
-                        boxSizing: "border-box",
-                        width: drawerWidth,
-                    },
-                }}
-                variant={"temporary"}
-                onClose={handleDrawerToggle}
-            >
-                {drawer}
-            </MuiDrawer>
-            <MuiDrawer
-                sx={{
-                    display: {xs: "none", sm: "block"},
-                    "& .MuiDrawer-paper": {
-                        boxSizing: "border-box",
-                        width: drawerWidth,
-                    },
-                }}
-                variant={"permanent"}
-                open
-            >
-                {drawer}
-            </MuiDrawer>
-        </>
+    return mobile ? (
+        <MuiDrawer
+            ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+            }}
+            open={mobileOpen}
+            sx={{
+                "& .MuiDrawer-paper": {
+                    boxSizing: "border-box",
+                    width: drawerWidth,
+                },
+            }}
+            variant={"temporary"}
+            onClose={handleDrawerToggle}
+        >
+            {drawer}
+        </MuiDrawer>
+    ) : (
+        <MuiDrawer
+            sx={{
+                "& .MuiDrawer-paper": {
+                    boxSizing: "border-box",
+                    width: drawerWidth,
+                },
+            }}
+            variant={"permanent"}
+            open
+        >
+            {drawer}
+        </MuiDrawer>
     );
 };

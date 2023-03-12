@@ -1,4 +1,4 @@
-import {Box, CircularProgress} from "@mui/material";
+import {Box, CircularProgress, Theme, useMediaQuery} from "@mui/material";
 import {QueryClientProvider} from "@tanstack/react-query";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import React from "react";
@@ -13,6 +13,9 @@ const queryClient = getQueryClient();
 const drawerWidth = 240;
 
 export const App = () => {
+    const mobile = useMediaQuery<Theme>((theme) =>
+        theme.breakpoints.down("sm"),
+    );
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [selectedNote, setSelectedNote] = React.useState<string>();
 
@@ -27,14 +30,16 @@ export const App = () => {
                     <MobileAppBar
                         drawerWidth={drawerWidth}
                         handleDrawerToggle={handleDrawerToggle}
+                        mobile={mobile}
                     />
                     <Box
                         component={"nav"}
-                        sx={{width: {sm: drawerWidth}, flexShrink: {sm: 0}}}
+                        sx={[!mobile && {width: drawerWidth, flexShrink: 0}]}
                     >
                         <Drawer
                             drawerWidth={drawerWidth}
                             handleDrawerToggle={handleDrawerToggle}
+                            mobile={mobile}
                             mobileOpen={mobileOpen}
                             selectedNote={selectedNote}
                             setSelectedNote={setSelectedNote}
@@ -43,12 +48,14 @@ export const App = () => {
                 </Box>
                 <Box
                     component={"main"}
-                    sx={{
-                        flexGrow: 1,
-                        px: {xs: 2, sm: 8},
-                        py: {xs: 8, sm: 6},
-                        width: {sm: `calc(100% - ${drawerWidth}px)`},
-                    }}
+                    sx={[
+                        {flexGrow: 1, px: 2, py: 8},
+                        !mobile && {
+                            px: 8,
+                            py: 6,
+                            width: `calc(100% - ${drawerWidth}px)`,
+                        },
+                    ]}
                 >
                     {selectedNote != null ? (
                         <Note key={selectedNote} id={selectedNote} />
