@@ -1,5 +1,10 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+  '@tanstack/query-core@4.26.1':
+    hash: mccptj3t62by3hdqbixxxek4tq
+    path: patches/@tanstack__query-core@4.26.1.patch
+
 importers:
 
   .:
@@ -30,8 +35,8 @@ importers:
       '@orbit/indexeddb-bucket': ^0.17.0
       '@orbit/memory': ^0.17.2
       '@orbit/records': ^0.17.0
-      '@tanstack/react-query': ^4.24.9
-      '@tanstack/react-query-devtools': ^4.24.9
+      '@tanstack/react-query': 4.26.1
+      '@tanstack/react-query-devtools': 4.26.1
       '@tanstack/react-virtual': v3.0.0-beta.54
       '@testing-library/react': 13.4.0
       '@types/jest': 28.1.1
@@ -101,8 +106,8 @@ importers:
       '@orbit/indexeddb-bucket': 0.17.0
       '@orbit/memory': 0.17.2
       '@orbit/records': 0.17.0
-      '@tanstack/react-query': 4.24.9_biqbaboplfbrettd7655fr4n2y
-      '@tanstack/react-query-devtools': 4.24.9_bzphmdwvicyhtx5eo3azinrh54
+      '@tanstack/react-query': 4.26.1_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query-devtools': 4.26.1_brdhmlf72zuns3lsk66phyptty
       '@tanstack/react-virtual': 3.0.0-beta.54_react@18.2.0
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/jest': 28.1.1
@@ -3173,27 +3178,28 @@ packages:
       remove-accents: 0.4.2
     dev: true
 
-  /@tanstack/query-core/4.24.9:
-    resolution: {integrity: sha512-pZQ2NpdaHzx8gPPkAPh06d6zRkjfonUzILSYBXrdHDapP2eaBbGsx5L4/dMF+fyAglFzQZdDDzZgAykbM20QVw==}
+  /@tanstack/query-core/4.26.1_mccptj3t62by3hdqbixxxek4tq:
+    resolution: {integrity: sha512-Zrx2pVQUP4ndnsu6+K/m8zerXSVY8QM+YSbxA1/jbBY21GeCd5oKfYl92oXPK0hPEUtoNuunIdiq0ZMqLos+Zg==}
     dev: true
+    patched: true
 
-  /@tanstack/react-query-devtools/4.24.9_bzphmdwvicyhtx5eo3azinrh54:
-    resolution: {integrity: sha512-NPsVf3pLMjH/XNTT5iP1q6isEBNE4kWF/IBSbxNUt0tDWK1nS1qgWr9ySTXwimsAHOWMjHkFuUF8VBRmz+axKg==}
+  /@tanstack/react-query-devtools/4.26.1_brdhmlf72zuns3lsk66phyptty:
+    resolution: {integrity: sha512-ts2mA+fyFYFRi3Cee4xBk8Fx6waSFOM+yCkFqwJfGQRGjjTIMYMZPJv4wkv7vy12IVi1SYhL8au22LRKlXS1Zg==}
     peerDependencies:
-      '@tanstack/react-query': 4.24.9
+      '@tanstack/react-query': 4.26.1
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       '@tanstack/match-sorter-utils': 8.7.6
-      '@tanstack/react-query': 4.24.9_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.26.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       superjson: 1.12.2
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: true
 
-  /@tanstack/react-query/4.24.9_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-6WLwUT9mrngIinRtcZjrWOUENOuLbWvQpKmU6DZCo2iPQVA+qvv3Ji90Amme4AkUyWQ8ZSSRTnAFq8V2tj2ACg==}
+  /@tanstack/react-query/4.26.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-i3dnz4TOARGIXrXQ5P7S25Zfi4noii/bxhcwPurh2nrf5EUCcAt/95TB2HSmMweUBx206yIMWUMEQ7ptd6zwDg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3204,7 +3210,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.24.9
+      '@tanstack/query-core': 4.26.1_mccptj3t62by3hdqbixxxek4tq
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0

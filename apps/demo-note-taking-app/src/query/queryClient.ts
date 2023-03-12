@@ -16,6 +16,9 @@ declare module "@tanstack/react-query" {
             queryKey: QueryKey,
             pageParam?: number,
         ) => Parameters<MemorySource["query"]>[0];
+        interceptInfiniteQueryBehavior?: (
+            data: InfiniteData<unknown>,
+        ) => Promise<InfiniteData<unknown>>;
         isInfinite?: boolean;
         keepAlive?: boolean;
         pageSize?: number;
