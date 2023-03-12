@@ -1,5 +1,12 @@
 import {MemorySource} from "@orbit/memory";
-import {Query, QueryCache, QueryClient, QueryKey} from "@tanstack/react-query";
+import {InitializedRecord} from "@orbit/records";
+import {
+    InfiniteData,
+    Query,
+    QueryCache,
+    QueryClient,
+    QueryKey,
+} from "@tanstack/react-query";
 
 import {getCoordinator} from "../orbit";
 
@@ -7,8 +14,11 @@ declare module "@tanstack/react-query" {
     export interface QueryMeta {
         getQueryOrExpressions: (
             queryKey: QueryKey,
+            pageParam?: number,
         ) => Parameters<MemorySource["query"]>[0];
+        isInfinite?: boolean;
         keepAlive?: boolean;
+        pageSize?: number;
     }
 }
 
@@ -64,20 +74,56 @@ export const getQueryClient = () => {
                             [...query.queryKey],
                             {...liveQueryCache[query.queryHash]},
                         );
-                        const unsubscribeToLiveQuery = liveQuery.subscribe(
-                            (update) =>
-                                queryClient.setQueryData(
-                                    query.queryKey,
-                                    update.query(),
-                                ),
-                        );
+                        let unsubscribeFromLiveQuery: () => void;
+                        if (query.meta!.isInfinite === true) {
+                            const pageSize = query.meta!.pageSize!;
+                            unsubscribeFromLiveQuery = liveQuery.subscribe(
+                                (update) =>
+                                    queryClient.setQueryData<
+                                        InfiniteData<InitializedRecord[]>
+                                    >(query.queryKey, (data) => {
+                                        if (data == null) {
+                                            return;
+                                        }
+                                        const records =
+                                            update.query<InitializedRecord[]>();
+                                        const pages: InitializedRecord[][] = [];
+                                        let offset = 0;
+                                        while (
+                                            data.pages.length > pages.length &&
+                                            offset < records.length
+                                        ) {
+                                            pages.push(
+                                                records.slice(
+                                                    offset,
+                                                    (offset += pageSize),
+                                                ),
+                                            );
+                                        }
+                                        return {
+                                            pages,
+                                            pageParams: pages.map(
+                                                (_record, index) => index,
+                                            ),
+                                        };
+                                    }),
+                            );
+                        } else {
+                            unsubscribeFromLiveQuery = liveQuery.subscribe(
+                                (update) =>
+                                    queryClient.setQueryData(
+                                        query.queryKey,
+                                        update.query(),
+                                    ),
+                            );
+                        }
                         entry.unsubscribeFromLiveQuery = () => {
                             console.log(
                                 "Query cache: unsubscribed to live query.",
                                 [...query.queryKey],
                                 {...liveQueryCache[query.queryHash]},
                             );
-                            unsubscribeToLiveQuery();
+                            unsubscribeFromLiveQuery();
                         };
                         console.log(
                             "Query cache: subscribed to live query.",
@@ -127,7 +173,14 @@ export const getQueryClient = () => {
                     const coordinator = await getCoordinator();
                     return await coordinator
                         .getSource<MemorySource>("memory")
-                        .query(ctx.meta!.getQueryOrExpressions(ctx.queryKey));
+                        .query(
+                            ctx.meta!.getQueryOrExpressions(
+                                ctx.queryKey,
+                                ctx.meta!.isInfinite === true
+                                    ? ctx.pageParam ?? 0
+                                    : undefined,
+                            ),
+                        );
                 },
                 suspense: true,
             },

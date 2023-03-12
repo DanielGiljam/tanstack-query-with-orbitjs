@@ -12,9 +12,9 @@ export interface NoteListProps {
 
 export const NoteList = ({selectedNote, setSelectedNote}: NoteListProps) => {
     const {data} = useNotes({
-        onSuccess: (notes) => {
+        onSuccess: (data) => {
             if (selectedNote == null) {
-                setSelectedNote(notes[0].id);
+                setSelectedNote(data.pages[0][0].id);
             }
         },
         suspense: false,
@@ -24,16 +24,16 @@ export const NoteList = ({selectedNote, setSelectedNote}: NoteListProps) => {
             sx={{flexGrow: 1, overflowY: data != null ? "auto" : "hidden"}}
             disablePadding
         >
-            {(data ?? Array.from(Array(8), () => undefined)).map(
-                (note, index) => (
+            {(data?.pages[0] ?? Array.from(Array(8), () => undefined))
+                .flat()
+                .map((note, index) => (
                     <NoteListItem
                         key={note?.id ?? index}
                         note={note}
                         selectedNote={selectedNote}
                         setSelectedNote={setSelectedNote}
                     />
-                ),
-            )}
+                ))}
         </List>
     );
 };
