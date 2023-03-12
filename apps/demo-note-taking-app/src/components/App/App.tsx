@@ -1,4 +1,4 @@
-import {Box} from "@mui/material";
+import {Box, CircularProgress} from "@mui/material";
 import {QueryClientProvider} from "@tanstack/react-query";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import React from "react";
@@ -6,7 +6,7 @@ import React from "react";
 import {getQueryClient} from "../../query";
 import {Drawer} from "../Drawer";
 import {MobileAppBar} from "../MobileAppBar";
-import {Note, NoteSkeleton} from "../Note";
+import {Note} from "../Note";
 
 const queryClient = getQueryClient();
 
@@ -53,7 +53,9 @@ export const App = () => {
                     {selectedNote != null ? (
                         <Note key={selectedNote} id={selectedNote} />
                     ) : (
-                        <NoteSkeleton />
+                        <Box sx={{display: "flex", justifyContent: "center"}}>
+                            <CircularProgress sx={{mx: "auto"}} />
+                        </Box>
                     )}
                 </Box>
             </Box>
