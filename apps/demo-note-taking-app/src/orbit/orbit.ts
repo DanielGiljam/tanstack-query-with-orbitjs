@@ -25,6 +25,7 @@ let coordinator: Coordinator | undefined;
 
 export const getCoordinator = async () => {
     if (coordinator != null) {
+        await coordinator.activated;
         return coordinator;
     }
 
