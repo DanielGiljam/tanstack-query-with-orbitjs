@@ -45,7 +45,11 @@ export const getCoordinator = async () => {
 
     const memory = new MemorySource({schema, bucket});
 
-    const indexedDB = new IndexedDBSource({schema, bucket});
+    const indexedDB = new IndexedDBSource({
+        schema,
+        bucket,
+        defaultTransformOptions: {useBuffer: true},
+    });
 
     coordinator = new Coordinator({
         sources: [memory, indexedDB],
