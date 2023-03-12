@@ -2,7 +2,7 @@ import {InfiniteData} from "@tanstack/react-query";
 
 import {Note} from "../orbit";
 
-import {useInfiniteQueryWithMetaFlagAndInterceptor} from "./useInfiniteQueryWithMetaFlagAndInterceptor";
+import {useInfiniteQueryWithInitialDataMetaFlagAndInterceptor} from "./useInfiniteQueryWithInitialDataMetaFlagAndInterceptor";
 
 export interface UseNotesOptions {
     onSuccess?: (notes: InfiniteData<Note[]>) => void;
@@ -15,7 +15,7 @@ export const useNotes = ({
     pageSize = 10,
     suspense = true,
 }: UseNotesOptions = {}) =>
-    useInfiniteQueryWithMetaFlagAndInterceptor<Note[]>({
+    useInfiniteQueryWithInitialDataMetaFlagAndInterceptor<Note[]>({
         queryKey: ["notes"],
         getNextPageParam: (lastPage, allPages) =>
             lastPage.length < pageSize ? undefined : allPages.length,

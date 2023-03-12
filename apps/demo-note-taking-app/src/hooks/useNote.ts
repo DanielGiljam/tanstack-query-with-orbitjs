@@ -1,9 +1,9 @@
-import {useQuery} from "@tanstack/react-query";
-
 import {Note} from "../orbit";
 
+import {useQueryWithInitialData} from "./useQueryWithInitialData";
+
 export const useNote = (id: string | undefined) =>
-    useQuery<Note>({
+    useQueryWithInitialData<Note>({
         queryKey: ["note", id],
         enabled: id != null,
         meta: {

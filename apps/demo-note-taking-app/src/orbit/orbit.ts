@@ -22,6 +22,7 @@ export interface Note extends InitializedRecord {
 }
 
 let coordinator: Coordinator | undefined;
+let coordinatorHasActivated = false;
 
 export const getCoordinator = async () => {
     if (coordinator != null) {
@@ -105,6 +106,7 @@ export const getCoordinator = async () => {
     try {
         console.log("Coordinator: activating...");
         await coordinator.activate();
+        coordinatorHasActivated = true;
         console.log("Coordinator: activation success.");
     } catch (error) {
         console.error("Coordinator: activation error.");
@@ -117,4 +119,10 @@ export const getCoordinator = async () => {
     window.coordinator = coordinator;
 
     return coordinator;
+};
+
+export const getCoordinatorSync = () => {
+    if (coordinatorHasActivated) {
+        return coordinator;
+    }
 };

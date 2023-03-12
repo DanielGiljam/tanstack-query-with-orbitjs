@@ -6,9 +6,9 @@ import {
     useInfiniteQuery,
 } from "@tanstack/react-query";
 
-import {getCoordinator} from "../orbit";
+import {getCoordinator, getCoordinatorSync} from "../orbit";
 
-export const useInfiniteQueryWithMetaFlagAndInterceptor = <
+export const useInfiniteQueryWithInitialDataMetaFlagAndInterceptor = <
     TQueryFnData = unknown,
     TError = unknown,
     TData = TQueryFnData,
@@ -23,6 +23,25 @@ export const useInfiniteQueryWithMetaFlagAndInterceptor = <
     >,
 ) =>
     useInfiniteQuery<TQueryFnData, TError, TData, TQueryKey>({
+        initialData: () => {
+            const coordinator = getCoordinatorSync();
+            if (coordinator != null) {
+                const records = coordinator
+                    .getSource<MemorySource>("memory")
+                    .cache.query<InitializedRecord[]>(
+                        options.meta!.getQueryOrExpressions(options.queryKey!),
+                    );
+                if (records.length > 0) {
+                    const pages: InitializedRecord[][] = [];
+                    const pageSize = options.meta!.pageSize ?? 10;
+                    pages.push(records.slice(0, pageSize));
+                    return {
+                        pages: pages as never,
+                        pageParams: pages.map((_record, index) => index),
+                    };
+                }
+            }
+        },
         ...options,
         meta: {
             interceptInfiniteQueryBehavior: async (data) => {
