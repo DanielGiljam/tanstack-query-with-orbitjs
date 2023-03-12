@@ -52,6 +52,7 @@
         "@orbit/records": "^0.17.0",
         "@tanstack/react-query": "^4.24.9",
         "@tanstack/react-query-devtools": "^4.24.9",
+        "@tanstack/react-virtual": "v3.0.0-beta.54",
         "@testing-library/react": "13.4.0",
         "@types/jest": "28.1.1",
         "@types/node": "18.11.9",

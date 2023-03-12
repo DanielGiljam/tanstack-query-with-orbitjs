@@ -32,6 +32,7 @@ importers:
       '@orbit/records': ^0.17.0
       '@tanstack/react-query': ^4.24.9
       '@tanstack/react-query-devtools': ^4.24.9
+      '@tanstack/react-virtual': v3.0.0-beta.54
       '@testing-library/react': 13.4.0
       '@types/jest': 28.1.1
       '@types/node': 18.11.9
@@ -102,6 +103,7 @@ importers:
       '@orbit/records': 0.17.0
       '@tanstack/react-query': 4.24.9_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-devtools': 4.24.9_bzphmdwvicyhtx5eo3azinrh54
+      '@tanstack/react-virtual': 3.0.0-beta.54_react@18.2.0
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/jest': 28.1.1
       '@types/node': 18.11.9
@@ -3206,6 +3208,19 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
+    dev: true
+
+  /@tanstack/react-virtual/3.0.0-beta.54_react@18.2.0:
+    resolution: {integrity: sha512-D1mDMf4UPbrtHRZZriCly5bXTBMhylslm4dhcHqTtDJ6brQcgGmk8YD9JdWBGWfGSWPKoh2x1H3e7eh+hgPXtQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tanstack/virtual-core': 3.0.0-beta.54
+      react: 18.2.0
+    dev: true
+
+  /@tanstack/virtual-core/3.0.0-beta.54:
+    resolution: {integrity: sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==}
     dev: true
 
   /@testing-library/dom/8.20.0:
