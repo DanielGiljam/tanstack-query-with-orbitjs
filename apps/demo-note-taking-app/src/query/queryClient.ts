@@ -184,6 +184,8 @@ export const getQueryClient = () => {
                         );
                 },
                 suspense: true,
+                staleTime: Infinity,
+                cacheTime: 0,
             },
         },
     });
