@@ -60,7 +60,7 @@ export const getQueryClient = () => {
             console.log(`Query cache: ${eventTypeLogTermMap[event.type]}.`, [
                 ...query.queryKey,
             ]);
-            if (event.query.meta?.liveQuery !== false) {
+            if (event.query.meta?.liveQuery !== true) {
                 return;
             }
             if (
