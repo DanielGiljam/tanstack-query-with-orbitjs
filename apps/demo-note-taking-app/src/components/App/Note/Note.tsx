@@ -1,7 +1,7 @@
 import {TextField} from "@mui/material";
 import React from "react";
 
-import {useDebounce, useNote, useUpdateNote} from "../../hooks";
+import {useDebounce, useNote, useUpdateNote} from "../../../hooks";
 
 export interface NoteProps {
     id: string | undefined;

@@ -21,6 +21,7 @@ declare module "@tanstack/react-query" {
         ) => Promise<InfiniteData<unknown>>;
         isInfinite?: boolean;
         keepAlive?: boolean;
+        liveQuery?: boolean;
         pageSize?: number;
     }
 }
@@ -45,7 +46,12 @@ const getLiveQuery = async (query: Query) => {
         .cache.liveQuery(query.meta!.getQueryOrExpressions(query.queryKey));
 };
 
+let queryClient: QueryClient;
+
 export const getQueryClient = () => {
+    if (queryClient != null) {
+        return queryClient;
+    }
     const queryCache = new QueryCache();
     const liveQueryCache: Record<string, LiveQueryCacheEntry | undefined> = {};
     queryCache.subscribe((event) => {
@@ -54,6 +60,9 @@ export const getQueryClient = () => {
             console.log(`Query cache: ${eventTypeLogTermMap[event.type]}.`, [
                 ...query.queryKey,
             ]);
+            if (event.query.meta?.liveQuery !== false) {
+                return;
+            }
             if (
                 (event.query.options as {enabled?: boolean}).enabled === false
             ) {
@@ -154,7 +163,7 @@ export const getQueryClient = () => {
             ) {
                 return;
             }
-            if (query.meta!.keepAlive !== true) {
+            if (query.meta?.keepAlive !== true) {
                 liveQueryCache[query.queryHash]?.unsubscribeFromLiveQuery?.();
                 const existed = liveQueryCache[query.queryHash] != null;
                 liveQueryCache[query.queryHash] = undefined;
@@ -166,7 +175,7 @@ export const getQueryClient = () => {
             }
         }
     });
-    const queryClient = new QueryClient({
+    queryClient = new QueryClient({
         queryCache,
         defaultOptions: {
             queries: {

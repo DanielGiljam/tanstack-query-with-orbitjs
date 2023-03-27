@@ -66,6 +66,7 @@ export const useInfiniteQueryWithInitialDataMetaFlagAndInterceptor = <
                 };
             },
             isInfinite: true,
+            liveQuery: true,
             pageSize: 10,
             ...options.meta!,
         },

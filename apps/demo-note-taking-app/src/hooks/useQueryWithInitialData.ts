@@ -34,4 +34,8 @@ export const useQueryWithInitialData = <
             }
         },
         ...options,
+        meta: {
+            liveQuery: true,
+            ...options.meta!,
+        },
     });

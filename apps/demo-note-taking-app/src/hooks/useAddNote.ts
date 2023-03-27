@@ -1,7 +1,8 @@
 import MemorySource from "@orbit/memory";
 import {useMutation} from "@tanstack/react-query";
 
-import {Note, getCoordinator} from "../orbit";
+import {Note} from "../data-models";
+import {getCoordinator} from "../orbit";
 
 export interface UseAddNoteOptions {
     onSuccess?: (note: Note) => void;

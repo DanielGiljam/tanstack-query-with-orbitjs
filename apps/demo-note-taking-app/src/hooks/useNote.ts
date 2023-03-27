@@ -1,4 +1,4 @@
-import {Note} from "../orbit";
+import {Note} from "../data-models";
 
 import {useQueryWithInitialData} from "./useQueryWithInitialData";
 

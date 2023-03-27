@@ -4,9 +4,10 @@ import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import React from "react";
 
 import {getQueryClient} from "../../query";
-import {Drawer} from "../Drawer";
-import {MobileAppBar} from "../MobileAppBar";
-import {Note} from "../Note";
+
+import {Drawer} from "./Drawer";
+import {MobileAppBar} from "./MobileAppBar";
+import {Note} from "./Note";
 
 const queryClient = getQueryClient();
 

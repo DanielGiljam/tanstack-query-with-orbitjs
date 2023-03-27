@@ -1,0 +1,24 @@
+diff --git a/dist/index.js b/dist/index.js
+index d120c8247464e3cbffbb39d66160f9c2660100fe..573f7b00417bdd6abe545bdbd3eb8c8c51193fad 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -58,8 +58,8 @@ async function loadFileSystem(runtime) {
+     switch(runtime){
+         case 'node':
+             {
+-                const { readFile , writeFile  } = await import('node:fs/promises');
+-                const { resolve  } = await import('node:path');
++                const { readFile , writeFile  } = await import(/* webpackIgnore: true */'node:fs/promises');
++                const { resolve  } = await import(/* webpackIgnore: true */'node:path');
+                 return {
+                     cwd: process.cwd,
+                     resolve,
+@@ -70,7 +70,7 @@ async function loadFileSystem(runtime) {
+         /* c8 ignore next 13 */ case 'deno':
+             {
+                 // @ts-expect-error Deno allows TS imports
+-                const { resolve  } = await import('https://deno.land/std/path/mod.ts');
++                const { resolve  } = await import(/* webpackIgnore: true */'https://deno.land/std/path/mod.ts');
+                 // @ts-expect-error Deno is only available in Deno
+                 const { cwd , readTextFile: readFile , writeTextFile: writeFile  } = Deno;
+                 return {

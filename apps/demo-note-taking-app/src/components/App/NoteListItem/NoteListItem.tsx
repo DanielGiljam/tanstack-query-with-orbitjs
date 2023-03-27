@@ -1,4 +1,6 @@
+import {RetrievedDoc} from "@lyrasearch/lyra";
 import {
+    CircularProgress,
     LinearProgress,
     ListItem,
     ListItemButton,
@@ -7,29 +9,52 @@ import {
 } from "@mui/material";
 import React from "react";
 
-import {Note} from "../../orbit";
+import {Note, note} from "../../../data-models";
+import {VirtualListItemProps} from "../../VirtualList";
 
-export interface NoteListItemProps {
-    dataIndex: number;
-    note: Note | undefined;
-    selectedNote: string | undefined;
-    setSelectedNote: (id: string) => void;
-}
+export const NOTE_LIST_ITEM_DATA_LOADING = Symbol("loading");
 
-// eslint-disable-next-line react/display-name
-export const NoteListItem = React.forwardRef<HTMLLIElement, NoteListItemProps>(
-    (
-        {dataIndex, note, selectedNote, setSelectedNote}: NoteListItemProps,
-        ref,
-    ) => {
+export type NoteListItemData =
+    | Note
+    | RetrievedDoc<typeof note.lyraSchema>
+    | typeof NOTE_LIST_ITEM_DATA_LOADING;
+
+export const NoteListItem = React.memo(
+    React.forwardRef<
+        HTMLLIElement,
+        VirtualListItemProps<
+            NoteListItemData,
+            {
+                selected: boolean;
+                setSelectedNote: (id: string) => void;
+            }
+        >
+    >(({data, index, selected, setSelectedNote}, ref) => {
         const [isPending, startTransition] = React.useTransition();
-        const id = note?.id;
-        const title = note?.attributes.title;
-        const content = note?.attributes.content;
+        if (data === NOTE_LIST_ITEM_DATA_LOADING) {
+            return (
+                <ListItem
+                    ref={ref}
+                    data-index={index}
+                    sx={{justifyContent: "center"}}
+                >
+                    <CircularProgress />
+                </ListItem>
+            );
+        }
+        const id = data.id;
+        let title, content;
+        if ("attributes" in data) {
+            title = data.attributes.title;
+            content = data.attributes.content;
+        } else {
+            title = data.document.title;
+            content = data.document.content;
+        }
         return (
-            <ListItem ref={ref} data-index={dataIndex} disablePadding>
+            <ListItem ref={ref} data-index={index} disablePadding>
                 <ListItemButton
-                    selected={id != null && id === selectedNote}
+                    selected={selected}
                     dense
                     disableTouchRipple
                     divider
@@ -91,5 +116,5 @@ export const NoteListItem = React.forwardRef<HTMLLIElement, NoteListItemProps>(
                 </ListItemButton>
             </ListItem>
         );
-    },
+    }),
 );

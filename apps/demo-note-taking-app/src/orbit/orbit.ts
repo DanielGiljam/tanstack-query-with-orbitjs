@@ -7,19 +7,12 @@ import {
 import {IndexedDBSource} from "@orbit/indexeddb";
 import {IndexedDBBucket} from "@orbit/indexeddb-bucket";
 import {MemorySource} from "@orbit/memory";
-import {InitializedRecord, RecordSchema} from "@orbit/records";
+import {RecordSchema} from "@orbit/records";
+
+import * as dataModels from "../data-models";
 
 import {maybeLoadFakeData} from "./fakeData";
-
-export interface Note extends InitializedRecord {
-    type: "note";
-    attributes: {
-        title: string;
-        content: string;
-        created_at: Date;
-        updated_at: Date;
-    };
-}
+import {addMemoryLyraDBUpdateStrategy} from "./memoryLyraDBUpdateStrategy";
 
 let coordinator: Coordinator | undefined;
 let coordinatorHasActivated = false;
@@ -31,16 +24,12 @@ export const getCoordinator = async () => {
     }
 
     const schema = new RecordSchema({
-        models: {
-            note: {
-                attributes: {
-                    title: {type: "string"},
-                    content: {type: "string"},
-                    created_at: {type: "datetime"},
-                    updated_at: {type: "datetime"},
-                },
-            },
-        },
+        models: Object.fromEntries(
+            Object.entries(dataModels).map(([key, value]) => [
+                key,
+                value.orbitSchema,
+            ]),
+        ),
     });
 
     const bucket = new IndexedDBBucket();
@@ -94,6 +83,8 @@ export const getCoordinator = async () => {
     });
 
     coordinator.addStrategy(memoryIndexeddbUpdateStrategy);
+
+    addMemoryLyraDBUpdateStrategy(memory);
 
     const logTruncationStrategy = new LogTruncationStrategy();
 

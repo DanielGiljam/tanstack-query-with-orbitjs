@@ -30,6 +30,8 @@
         "@emotion/server": "^11.10.0",
         "@emotion/styled": "^11.10.6",
         "@faker-js/faker": "^7.6.0",
+        "@lyrasearch/lyra": "^0.4.11",
+        "@lyrasearch/plugin-data-persistence": "0.1.1",
         "@mui/icons-material": "^5.11.9",
         "@mui/material": "^5.11.9",
         "@next/font": "^13.1.6",
@@ -63,6 +65,7 @@
         "@typescript-eslint/parser": "^5.36.1",
         "babel-jest": "28.1.1",
         "cypress": "^12.2.0",
+        "dequal": "^2.0.3",
         "eslint": "~8.15.0",
         "eslint-config-next": "13.1.1",
         "eslint-config-prettier": "8.1.0",
@@ -85,7 +88,8 @@
     "packageManager": "pnpm@7.27.1",
     "pnpm": {
         "patchedDependencies": {
-            "@tanstack/query-core@4.26.1": "patches/@tanstack__query-core@4.26.1.patch"
+            "@tanstack/query-core@4.26.1": "patches/@tanstack__query-core@4.26.1.patch",
+            "@lyrasearch/plugin-data-persistence@0.1.1": "patches/@lyrasearch__plugin-data-persistence@0.1.1.patch"
         }
     }
 }

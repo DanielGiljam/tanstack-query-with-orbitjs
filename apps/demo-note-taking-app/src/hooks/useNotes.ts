@@ -1,6 +1,6 @@
 import {InfiniteData} from "@tanstack/react-query";
 
-import {Note} from "../orbit";
+import {Note} from "../data-models";
 
 import {useInfiniteQueryWithInitialDataMetaFlagAndInterceptor} from "./useInfiniteQueryWithInitialDataMetaFlagAndInterceptor";
 
@@ -21,6 +21,7 @@ export const useNotes = ({
             lastPage.length < pageSize ? undefined : allPages.length,
         onSuccess,
         suspense,
+        cacheTime: Infinity,
         meta: {
             getQueryOrExpressions: (_queryKey, pageParam) => (q) => {
                 let term = q.findRecords("note").sort("-updated_at");
