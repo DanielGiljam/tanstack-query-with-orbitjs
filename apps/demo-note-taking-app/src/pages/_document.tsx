@@ -15,7 +15,7 @@ class Document extends NextDocument<{
                     {this.props.emotionStyleTags}
                 </Head>
                 <body>
-                    {getInitColorSchemeScript()}
+                    {getInitColorSchemeScript({defaultMode: "dark"})}
                     <Main />
                     <NextScript />
                 </body>
