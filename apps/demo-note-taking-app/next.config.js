@@ -7,6 +7,7 @@ const {withNx} = require("@nrwl/next/plugins/with-nx");
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
+    basePath: "/offline-full-text-search-in-web-app/demo-note-taking-app",
     eslint: {
         ignoreDuringBuilds: true,
     },
