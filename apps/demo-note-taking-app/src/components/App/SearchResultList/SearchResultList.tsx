@@ -24,7 +24,9 @@ export const SearchResultList = ({
 }: SearchResultListProps) => {
     const {data: searchData} = useSearchNotes(searchTerm);
     const itemData = searchData!.hits;
-    if (itemData.length === 0) return <div>No results</div>;
+    if (itemData.length === 0) {
+        return null;
+    }
     return (
         <VirtualListTyped
             additionalItemComponentProps={(_index, data) => ({
