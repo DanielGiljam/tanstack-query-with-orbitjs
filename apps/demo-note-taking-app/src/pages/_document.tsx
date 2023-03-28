@@ -2,7 +2,7 @@ import createEmotionServer from "@emotion/server/create-instance";
 import {getInitColorSchemeScript} from "@mui/material";
 import NextDocument, {Head, Html, Main, NextScript} from "next/document";
 
-import {createEmotionCache, roboto, theme} from "../theme";
+import {createEmotionCache, roboto} from "../theme";
 
 class Document extends NextDocument<{
     emotionStyleTags: JSX.Element[];
@@ -11,12 +11,6 @@ class Document extends NextDocument<{
         return (
             <Html className={roboto.className} lang={"en"}>
                 <Head>
-                    {/* PWA primary color */}
-                    <meta
-                        content={theme.colorSchemes.light.palette.primary.main}
-                        name={"theme-color"}
-                    />
-                    <link href={"/favicon.ico"} rel={"shortcut icon"} />
                     <meta content={""} name={"emotion-insertion-point"} />
                     {this.props.emotionStyleTags}
                 </Head>
