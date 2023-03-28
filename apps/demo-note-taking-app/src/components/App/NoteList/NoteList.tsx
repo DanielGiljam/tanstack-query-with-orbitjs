@@ -41,6 +41,9 @@ export const NoteList = ({selectedNote, setSelectedNote}: NoteListProps) => {
         }
         return itemData;
     }, [data, hasNextPage]);
+    if (itemData.length === 0) {
+        return null;
+    }
     return (
         <VirtualListTyped
             additionalItemComponentProps={(_index, data) => ({
