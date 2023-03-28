@@ -65,7 +65,7 @@ export const useInfiniteQueryWithInitialDataMetaFlagAndInterceptor = <
                 }
                 return {
                     pages,
-                    pageParams: pages.map((_record, index) => index),
+                    pageParams: pages.map((_page, index) => index),
                 };
             },
             isInfinite: true,
