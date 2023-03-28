@@ -27,13 +27,16 @@ export const NoteList = ({selectedNote, setSelectedNote}: NoteListProps) => {
         hasNextPage = true,
         isFetchingNextPage,
     } = useNotes({
-        onSuccess: (data) => {
-            if (selectedNote == null) {
-                setSelectedNote(data.pages[0][0].id);
-            }
-        },
         suspense: false,
     });
+    React.useEffect(() => {
+        if (selectedNote == null) {
+            const firstNote = data?.pages[0][0];
+            if (firstNote != null) {
+                setSelectedNote(firstNote.id);
+            }
+        }
+    }, [selectedNote, setSelectedNote, data]);
     const itemData = React.useMemo(() => {
         const itemData: NoteListItemData[] = data?.pages.flat() ?? [];
         if (hasNextPage) {
