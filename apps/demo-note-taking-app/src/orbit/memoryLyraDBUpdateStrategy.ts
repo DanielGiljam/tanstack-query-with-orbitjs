@@ -51,7 +51,6 @@ const aggregateOperation = async (
             record as never,
             existingDoc,
         );
-        console.log({record, existingDoc, docToBeInserted});
         if (dequal(existingDoc, docToBeInserted)) return;
         aggregationObject[type] ??= {insertions: [], removals: []};
         aggregationObject[type].insertions.push(docToBeInserted);
@@ -125,7 +124,6 @@ const processAggregationObjectNode = async (
 
 const memoryOnUpdate = async (transform: RecordTransform) => {
     try {
-        console.log("MEMORY ON UPDATE:", transform);
         const aggregationObject: AggregationObject = {};
         for (const operation of ensureArray(transform.operations)) {
             await aggregateOperation(operation, aggregationObject);
