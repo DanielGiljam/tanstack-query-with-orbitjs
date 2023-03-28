@@ -25,6 +25,7 @@ const App = ({
         <>
             <Head>
                 <title>Demo note-taking app</title>
+                <link href={"/icon.svg"} rel={"icon"} />
             </Head>
             <CacheProvider value={emotionCache}>
                 <CssVarsProvider defaultColorScheme={"dark"} theme={theme}>
