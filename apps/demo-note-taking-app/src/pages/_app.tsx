@@ -24,7 +24,7 @@ const App = ({
     return (
         <>
             <Head>
-                <title>Welcome to demo-note-taking-app!</title>
+                <title>Demo note-taking app</title>
             </Head>
             <CacheProvider value={emotionCache}>
                 <CssVarsProvider defaultColorScheme={"dark"} theme={theme}>
