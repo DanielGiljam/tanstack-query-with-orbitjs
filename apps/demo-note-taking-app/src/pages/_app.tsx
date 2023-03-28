@@ -6,6 +6,7 @@ import {
 import {AppProps as NextAppProps} from "next/app";
 import Head from "next/head";
 
+import {Wrapper} from "../components";
 import {createEmotionCache, theme} from "../theme";
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -26,9 +27,11 @@ const App = ({
                 <title>Welcome to demo-note-taking-app!</title>
             </Head>
             <CacheProvider value={emotionCache}>
-                <CssVarsProvider theme={theme}>
+                <CssVarsProvider defaultColorScheme={"dark"} theme={theme}>
                     <CssBaseline />
-                    <Component {...pageProps} />
+                    <Wrapper>
+                        <Component {...pageProps} />
+                    </Wrapper>
                 </CssVarsProvider>
             </CacheProvider>
         </>

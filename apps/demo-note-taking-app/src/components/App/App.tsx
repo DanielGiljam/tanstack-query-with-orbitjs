@@ -15,7 +15,7 @@ const drawerWidth = 240;
 
 export const App = () => {
     const mobile = useMediaQuery<Theme>((theme) =>
-        theme.breakpoints.down("sm"),
+        theme.breakpoints.down("md"),
     );
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [selectedNote, setSelectedNote] = React.useState<string>();
@@ -26,46 +26,54 @@ export const App = () => {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <Box sx={{display: "flex"}}>
-                <Box component={"header"} sx={{display: "contents"}}>
-                    <MobileAppBar
-                        drawerWidth={drawerWidth}
-                        handleDrawerToggle={handleDrawerToggle}
-                        mobile={mobile}
-                    />
-                    <Box
-                        component={"nav"}
-                        sx={[!mobile && {width: drawerWidth, flexShrink: 0}]}
-                    >
-                        <Drawer
-                            drawerWidth={drawerWidth}
-                            handleDrawerToggle={handleDrawerToggle}
-                            mobile={mobile}
-                            mobileOpen={mobileOpen}
-                            selectedNote={selectedNote}
-                            setSelectedNote={setSelectedNote}
-                        />
-                    </Box>
-                </Box>
+            <Box component={"header"} sx={{display: "contents"}}>
+                <MobileAppBar
+                    drawerWidth={drawerWidth}
+                    handleDrawerToggle={handleDrawerToggle}
+                    mobile={mobile}
+                />
                 <Box
-                    component={"main"}
+                    component={"nav"}
                     sx={[
-                        {flexGrow: 1, px: 2, py: 8},
                         !mobile && {
-                            px: 8,
-                            py: 6,
-                            width: `calc(100% - ${drawerWidth}px)`,
+                            width: drawerWidth,
+                            flexShrink: 0,
                         },
                     ]}
                 >
-                    {selectedNote != null ? (
-                        <Note key={selectedNote} id={selectedNote} />
-                    ) : (
-                        <Box sx={{display: "flex", justifyContent: "center"}}>
-                            <CircularProgress sx={{mx: "auto"}} />
-                        </Box>
-                    )}
+                    <Drawer
+                        drawerWidth={drawerWidth}
+                        handleDrawerToggle={handleDrawerToggle}
+                        mobile={mobile}
+                        mobileOpen={mobileOpen}
+                        selectedNote={selectedNote}
+                        setSelectedNote={setSelectedNote}
+                    />
                 </Box>
+            </Box>
+            <Box
+                component={"main"}
+                sx={[
+                    {flexGrow: 1, overflowY: "auto", px: 2, py: 8},
+                    !mobile && {
+                        px: 8,
+                        py: 6,
+                        width: `calc(100% - ${drawerWidth}px)`,
+                    },
+                ]}
+            >
+                {selectedNote != null ? (
+                    <Note key={selectedNote} id={selectedNote} />
+                ) : (
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                        }}
+                    >
+                        <CircularProgress sx={{mx: "auto"}} />
+                    </Box>
+                )}
             </Box>
             <ReactQueryDevtools />
         </QueryClientProvider>

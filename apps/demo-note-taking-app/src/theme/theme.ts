@@ -1,27 +1,21 @@
 import {experimental_extendTheme as extendTheme} from "@mui/material";
-import {red} from "@mui/material/colors";
-import {Roboto} from "@next/font/google";
+import {Inter} from "@next/font/google";
+import {grassDark} from "@radix-ui/colors";
 
-export const roboto = Roboto({
+export const roboto = Inter({
     weight: ["300", "400", "500", "700"],
     subsets: ["latin"],
     display: "swap",
-    fallback: ["Helvetica", "Arial", "sans-serif"],
+    fallback: ["system-ui", "sans-serif"],
 });
 
 // Create a theme instance.
 export const theme = extendTheme({
     colorSchemes: {
-        light: {
+        dark: {
             palette: {
-                primary: {
-                    main: "#556cd6",
-                },
-                secondary: {
-                    main: "#19857b",
-                },
-                error: {
-                    main: red.A400,
+                background: {
+                    default: grassDark.grass2,
                 },
             },
         },

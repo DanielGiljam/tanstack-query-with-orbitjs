@@ -49,7 +49,7 @@ export const Drawer = ({
                 disableGutters
             >
                 <Typography component={"div"} variant={"h6"} noWrap>
-                    Demo Note-Taking Application
+                    Notes
                 </Typography>
                 <IconButton
                     aria-label={"add note"}
@@ -111,6 +111,7 @@ export const Drawer = ({
                 },
             }}
             variant={"temporary"}
+            disablePortal
             onClose={handleDrawerToggle}
         >
             {drawer}

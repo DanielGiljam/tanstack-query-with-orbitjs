@@ -23,6 +23,7 @@ export const MobileAppBar = ({
                     bgcolor: "background.paper",
                     borderBottom: 1,
                     borderColor: "divider",
+                    color: "text.primary",
                 },
                 !mobile && {
                     display: "none",
@@ -42,7 +43,7 @@ export const MobileAppBar = ({
                     <MenuIcon />
                 </IconButton>
                 <Typography component={"div"} variant={"h6"} noWrap>
-                    Demo Note-Taking Application
+                    Notes
                 </Typography>
             </Toolbar>
         </AppBar>
