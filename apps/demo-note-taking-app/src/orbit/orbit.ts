@@ -11,8 +11,8 @@ import {RecordSchema} from "@orbit/records";
 
 import * as dataModels from "../data-models";
 
-import {maybeLoadFakeData} from "./fakeData";
 import {addMemoryLyraDBUpdateStrategy} from "./memoryLyraDBUpdateStrategy";
+import {maybeLoadTestData} from "./testData";
 import {normalizeRecordQueryResult} from "./utils";
 
 let coordinator: Coordinator | undefined;
@@ -101,7 +101,7 @@ export const getCoordinator = async () => {
         throw error;
     }
 
-    void maybeLoadFakeData(coordinator);
+    void maybeLoadTestData(coordinator);
 
     // @ts-expect-error for testing purposes
     window.coordinator = coordinator;

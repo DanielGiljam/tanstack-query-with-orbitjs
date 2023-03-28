@@ -3,13 +3,13 @@ import {Coordinator} from "@orbit/coordinator";
 import MemorySource from "@orbit/memory";
 import {get, set} from "idb-keyval";
 
-export const maybeLoadFakeData = async (coordinator: Coordinator) => {
-    if ((await get<boolean>("loaded_fake_data")) === true) {
-        console.log("Fake data: already loaded.");
+export const maybeLoadTestData = async (coordinator: Coordinator) => {
+    if ((await get<boolean>("loaded_test_data")) === true) {
+        console.log("Test data: already loaded.");
     } else {
         try {
-            console.log("Fake data: not loaded.");
-            console.log("Fake data: loading...");
+            console.log("Test data: not loaded.");
+            console.log("Test data: loading...");
             const response = await fetch("test-data.json");
             const data = (await response.json()) as Array<{
                 title: string;
@@ -28,10 +28,10 @@ export const maybeLoadFakeData = async (coordinator: Coordinator) => {
                     });
                 }),
             );
-            await set("loaded_fake_data", true);
-            console.log("Fake data: loading success.");
+            await set("loaded_test_data", true);
+            console.log("Test data: loading success.");
         } catch (error) {
-            console.error("Fake data: loading error.");
+            console.error("Test data: loading error.");
             console.error(error);
         }
     }
