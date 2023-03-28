@@ -20,6 +20,7 @@ export const MobileAppBar = ({
             position={"fixed"}
             sx={[
                 {
+                    bgcolor: "background.paper",
                     borderBottom: 1,
                     borderColor: "divider",
                 },
