@@ -34,6 +34,7 @@
         "@lyrasearch/plugin-data-persistence": "0.1.1",
         "@mui/icons-material": "^5.11.9",
         "@mui/material": "^5.11.9",
+        "@next/bundle-analyzer": "^13.2.4",
         "@next/font": "^13.1.6",
         "@nrwl/cli": "15.6.3",
         "@nrwl/cypress": "15.6.3",
