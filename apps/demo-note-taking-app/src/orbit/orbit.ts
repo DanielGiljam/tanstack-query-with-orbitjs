@@ -104,7 +104,7 @@ export const getCoordinator = async () => {
         throw error;
     }
 
-    await maybeLoadFakeData(coordinator);
+    void maybeLoadFakeData(coordinator);
 
     // @ts-expect-error for testing purposes
     window.coordinator = coordinator;

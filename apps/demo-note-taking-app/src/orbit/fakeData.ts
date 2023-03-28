@@ -32,7 +32,7 @@ export const maybeLoadFakeData = async (coordinator: Coordinator) => {
             console.log("Fake data: loading success.");
         } catch (error) {
             console.error("Fake data: loading error.");
-            throw error;
+            console.error(error);
         }
     }
 };
