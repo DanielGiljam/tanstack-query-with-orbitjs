@@ -1,0 +1,4 @@
+{
+    "buildCommand": "nx build demo-note-taking-app",
+    "outputDirectory": "dist/apps/demo-note-taking-app/.next"
+}
