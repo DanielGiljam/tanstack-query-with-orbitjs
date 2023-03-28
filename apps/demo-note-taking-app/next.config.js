@@ -8,6 +8,9 @@ const {withNx} = require("@nrwl/next/plugins/with-nx");
  **/
 const nextConfig = {
     basePath: "/offline-full-text-search-in-web-app/demo-note-taking-app",
+    env: {
+        testDataUrl: process.env.TEST_DATA_URL ?? "/test-data.json",
+    },
     eslint: {
         ignoreDuringBuilds: true,
     },

@@ -10,7 +10,9 @@ export const maybeLoadTestData = async (coordinator: Coordinator) => {
         try {
             console.log("Test data: not loaded.");
             console.log("Test data: loading...");
-            const response = await fetch("test-data.json");
+            const response = await fetch(process.env.testDataUrl!, {
+                headers: {accept: "application/json"},
+            });
             const data = (await response.json()) as Array<{
                 title: string;
                 content: string;
