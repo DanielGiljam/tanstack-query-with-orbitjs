@@ -82,7 +82,7 @@ export const Wrapper = ({children}: WrapperProps) => {
                             }}
                             variant={"contained"}
                         >
-                            Source code on GitHub
+                            Check out source code on GitHub
                         </Button>
                     </Box>
                 </Box>
