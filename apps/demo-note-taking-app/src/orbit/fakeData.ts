@@ -10,7 +10,7 @@ export const maybeLoadFakeData = async (coordinator: Coordinator) => {
         try {
             console.log("Fake data: not loaded.");
             console.log("Fake data: loading...");
-            const response = await fetch("/test-data.json");
+            const response = await fetch("test-data.json");
             const data = (await response.json()) as Array<{
                 title: string;
                 content: string;
