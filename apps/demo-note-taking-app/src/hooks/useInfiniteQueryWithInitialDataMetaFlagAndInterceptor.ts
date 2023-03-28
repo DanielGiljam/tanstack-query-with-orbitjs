@@ -60,6 +60,9 @@ export const useInfiniteQueryWithInitialDataMetaFlagAndInterceptor = <
                 ) {
                     pages.push(records.slice(offset, (offset += pageSize)));
                 }
+                if (pages.length === 0) {
+                    pages.push([]);
+                }
                 return {
                     pages,
                     pageParams: pages.map((_record, index) => index),
