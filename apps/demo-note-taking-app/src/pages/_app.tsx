@@ -25,6 +25,12 @@ const App = ({
         <>
             <Head>
                 <title>Demo note-taking app</title>
+                <meta
+                    content={
+                        "Demonstrates offline full-text search in a web app"
+                    }
+                    name={"description"}
+                />
                 <link href={"/icon.svg"} rel={"icon"} />
             </Head>
             <CacheProvider value={emotionCache}>
