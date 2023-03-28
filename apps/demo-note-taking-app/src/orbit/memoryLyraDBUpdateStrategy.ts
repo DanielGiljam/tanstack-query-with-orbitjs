@@ -12,6 +12,7 @@ import {dequal} from "dequal";
 import * as dataModels from "../data-models";
 import {lyraDB} from "../lyra";
 import {getQueryClient} from "../query";
+import {ensureArray} from "../utils";
 
 type DataModelType = keyof typeof dataModels;
 
@@ -126,9 +127,7 @@ const memoryOnUpdate = async (transform: RecordTransform) => {
     try {
         console.log("MEMORY ON UPDATE:", transform);
         const aggregationObject: AggregationObject = {};
-        for (const operation of Array.isArray(transform.operations)
-            ? transform.operations
-            : [transform.operations]) {
+        for (const operation of ensureArray(transform.operations)) {
             await aggregateOperation(operation, aggregationObject);
         }
         for (const [type, node] of Object.entries(aggregationObject) as Array<

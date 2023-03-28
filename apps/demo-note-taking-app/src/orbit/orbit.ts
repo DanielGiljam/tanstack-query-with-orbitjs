@@ -13,6 +13,7 @@ import * as dataModels from "../data-models";
 
 import {maybeLoadFakeData} from "./fakeData";
 import {addMemoryLyraDBUpdateStrategy} from "./memoryLyraDBUpdateStrategy";
+import {normalizeRecordQueryResult} from "./utils";
 
 let coordinator: Coordinator | undefined;
 let coordinatorHasActivated = false;
@@ -63,13 +64,9 @@ export const getCoordinator = async () => {
             >,
         ) =>
             await memory.sync((t) =>
-                (Array.isArray(response.data) ? response.data : [response.data])
-                    .flat()
-                    .filter(
-                        (record): record is NonNullable<typeof record> =>
-                            record != null,
-                    )
-                    .map((record) => t.updateRecord(record)),
+                normalizeRecordQueryResult(response.data).map((record) =>
+                    t.updateRecord(record),
+                ),
             ),
     );
 
