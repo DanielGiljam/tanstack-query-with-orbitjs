@@ -14,7 +14,7 @@ export const Wrapper = ({children}: WrapperProps) => {
     return (
         <Box
             sx={{
-                height: "100vh",
+                height: "100svh",
                 overflowY: "auto",
                 scrollSnapType: {
                     xs: "y mandatory",
@@ -28,7 +28,7 @@ export const Wrapper = ({children}: WrapperProps) => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
-                    height: {md: "100vh"},
+                    height: {md: "100svh"},
                     gap: 4,
                     minHeight: {md: pageMinHeight},
                     px: 4,
@@ -108,7 +108,7 @@ export const Wrapper = ({children}: WrapperProps) => {
                             xs: `calc(100% + ${theme.spacing(8)})`,
                             md: 1,
                         }),
-                        height: {xs: "100vh", md: 1},
+                        height: {xs: "100svh", md: 1},
                     }}
                 >
                     {children}
