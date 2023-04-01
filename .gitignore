@@ -44,3 +44,7 @@ Thumbs.db
 # caches
 .eslintcache
 tsconfig.tsbuildinfo
+
+# Generated Docusaurus files
+.docusaurus/
+.cache-loader/

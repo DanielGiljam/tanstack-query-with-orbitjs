@@ -3,4 +3,5 @@
 /dist
 /coverage
 .next
+.docusaurus
 pnpm-lock.yaml
