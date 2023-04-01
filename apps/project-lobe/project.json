@@ -15,6 +15,19 @@
             "options": {
                 "port": 3000
             }
+        },
+        "type-check": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "tsc --build apps/project-lobe/tsconfig.json --incremental"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/project-lobe/**/*.{ts,tsx,js,jsx}"]
+            }
         }
     },
     "tags": []

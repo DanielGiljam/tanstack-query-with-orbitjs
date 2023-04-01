@@ -1,0 +1,24 @@
+{
+    "extends": ["plugin:@nrwl/nx/react-typescript", "../../.eslintrc.json"],
+    "ignorePatterns": ["!**/*", ".docusaurus/**/*"],
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+            "parserOptions": {
+                "project": ["apps/project-lobe/tsconfig.json"]
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "rules": {}
+        },
+        {
+            "files": ["*.js", "*.jsx"],
+            "rules": {}
+        },
+        {
+            "files": ["*.tsx", "*.jsx"],
+            "extends": ["@offline-full-text-search-in-web-app/jsx"]
+        }
+    ]
+}
