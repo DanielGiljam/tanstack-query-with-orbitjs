@@ -1,0 +1,71 @@
+{
+    "name": "typical-chat-app-with-react-query",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/typical-chat-app-with-react-query",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/next:build",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "root": "apps/typical-chat-app-with-react-query",
+                "outputPath": "dist/apps/typical-chat-app-with-react-query"
+            },
+            "configurations": {
+                "development": {
+                    "outputPath": "apps/typical-chat-app-with-react-query"
+                },
+                "production": {}
+            }
+        },
+        "serve": {
+            "executor": "@nrwl/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "typical-chat-app-with-react-query:build",
+                "dev": true
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "typical-chat-app-with-react-query:build:development",
+                    "dev": true
+                },
+                "production": {
+                    "buildTarget": "typical-chat-app-with-react-query:build:production",
+                    "dev": false
+                }
+            }
+        },
+        "export": {
+            "executor": "@nrwl/next:export",
+            "options": {
+                "buildTarget": "typical-chat-app-with-react-query:build:production"
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/typical-chat-app-with-react-query/jest.config.ts",
+                "passWithNoTests": true
+            }
+        },
+        "type-check": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "tsc --build apps/typical-chat-app-with-react-query/tsconfig.json --incremental"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": [
+                    "apps/typical-chat-app-with-react-query/**/*.{ts,tsx,js,jsx}"
+                ]
+            }
+        }
+    },
+    "tags": []
+}

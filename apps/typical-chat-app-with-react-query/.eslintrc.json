@@ -1,0 +1,43 @@
+{
+    "extends": [
+        "plugin:@nrwl/nx/react-typescript",
+        "next",
+        "next/core-web-vitals",
+        "../../.eslintrc.json"
+    ],
+    "ignorePatterns": ["!**/*", ".next/**/*", "next-env.d.ts"],
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+            "parserOptions": {
+                "project": [
+                    "apps/typical-chat-app-with-react-query/tsconfig(.*)?.json"
+                ]
+            },
+            "rules": {
+                "@next/next/no-html-link-for-pages": [
+                    "error",
+                    "apps/typical-chat-app-with-react-query/src/pages"
+                ]
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "rules": {}
+        },
+        {
+            "files": ["*.js", "*.jsx"],
+            "rules": {}
+        },
+        {
+            "files": ["*.tsx", "*.jsx"],
+            "extends": ["@offline-full-text-search-in-web-app/jsx"]
+        }
+    ],
+    "rules": {
+        "@next/next/no-html-link-for-pages": "off"
+    },
+    "env": {
+        "jest": true
+    }
+}
