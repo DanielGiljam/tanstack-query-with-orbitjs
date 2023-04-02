@@ -10,12 +10,9 @@ export const maybeLoadTestData = async (coordinator: Coordinator) => {
         try {
             console.log("Test data: not loaded.");
             console.log("Test data: loading...");
-            const response = await fetch(
-                "/offline-full-text-search-in-web-app/demo-note-taking-app/test-data.json",
-                {
-                    headers: {accept: "application/json"},
-                },
-            );
+            const response = await fetch(process.env.testDataUrl!, {
+                headers: {accept: "application/json"},
+            });
             const data = (await response.json()) as Array<{
                 title: string;
                 content: string;
