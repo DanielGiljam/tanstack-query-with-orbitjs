@@ -96,6 +96,8 @@ importers:
       tslib: ^2.3.0
       typescript: ~4.8.2
       uuid: ^9.0.0
+      zod: ^3.21.4
+      zod-validation-error: ^1.2.0
     dependencies:
       '@docusaurus/core': 2.1.0_i5fyq7uzrpafglz5fhtmb4omri
       '@docusaurus/preset-classic': 2.1.0_5nvlp2k54bqqlvkffgigbg7vsu
@@ -182,6 +184,8 @@ importers:
       ts-node: 10.9.1_cbe7ovvae6zqfnmtgctpgpys54
       typescript: 4.8.4
       uuid: 9.0.0
+      zod: 3.21.4
+      zod-validation-error: 1.2.0_zod@3.21.4
 
   libs/eslint-configs/javascript:
     specifiers:
@@ -14309,6 +14313,19 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  /zod-validation-error/1.2.0_zod@3.21.4:
+    resolution: {integrity: sha512-laJkD/ugwEh8CpuH+xXv5L9Z+RLz3lH8alNxolfaHZJck611OJj97R4Rb+ZqA7WNly2kNtTo4QwjdjXw9scpiw==}
+    engines: {node: ^14.17 || >=16.0.0}
+    peerDependencies:
+      zod: ^3.18.0
+    dependencies:
+      zod: 3.21.4
+    dev: true
+
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: true
 
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
