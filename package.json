@@ -9,10 +9,14 @@
         "fix": "nx affected --target=lint --parallel --cache --fix",
         "prettier": "nx format:check",
         "format": "nx format:write",
-        "lp": "./scripts/lp.bash",
-        "tlp": "./scripts/tlp.bash",
-        "ff": "./scripts/ff.bash",
-        "tff": "./scripts/tff.bash"
+        "lint-prettier": "./scripts/lint-prettier.bash",
+        "lp": "./scripts/lint-prettier.bash",
+        "type-check-lint-prettier": "./scripts/type-check-lint-prettier.bash",
+        "tlp": "./scripts/type-check-lint-prettier.bash",
+        "fix-format": "./scripts/fix-format.bash",
+        "ff": "./scripts/fix-format.bash",
+        "type-check-fix-format": "./scripts/type-check-fix-format.bash",
+        "tff": "./scripts/type-check-fix-format.bash"
     },
     "private": true,
     "dependencies": {
