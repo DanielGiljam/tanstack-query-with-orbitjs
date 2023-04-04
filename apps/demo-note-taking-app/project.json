@@ -52,7 +52,7 @@
             }
         },
         "type-check": {
-            "executor": "@nrwl/workspace:run-commands",
+            "executor": "nx:run-commands",
             "options": {
                 "command": "tsc --build apps/demo-note-taking-app/tsconfig.json --incremental"
             }

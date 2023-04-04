@@ -18,7 +18,7 @@
             }
         },
         "type-check": {
-            "executor": "@nrwl/workspace:run-commands",
+            "executor": "nx:run-commands",
             "options": {
                 "command": "tsc --build apps/typical-chat-app-with-react-query-e2e/tsconfig.json --incremental"
             }
