@@ -2,7 +2,8 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {z} from "zod";
 import {fromZodError} from "zod-validation-error";
 
-import {idSchema, prisma} from "../../../../server";
+import {prisma} from "../../../../prisma";
+import {idSchema} from "../../../../server";
 
 const reqBodySchema = z.object({
     text: z

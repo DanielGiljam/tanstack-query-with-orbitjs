@@ -1,6 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
 
-import {idSchema, prisma} from "../../../../server";
+import {prisma} from "../../../../prisma";
+import {idSchema} from "../../../../server";
 
 const chatMessages = async (req: NextApiRequest, res: NextApiResponse) => {
     const idParseResult = idSchema.safeParse(req.query.chatRoomId);

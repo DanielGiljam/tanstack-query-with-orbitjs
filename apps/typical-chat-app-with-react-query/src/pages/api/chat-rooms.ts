@@ -1,6 +1,6 @@
 import {NextApiResponse} from "next";
 
-import {prisma} from "../../server";
+import {prisma} from "../../prisma";
 
 const chatRooms = async (_req: never, res: NextApiResponse) => {
     const chatMessages = await prisma.chatMessage.findMany({

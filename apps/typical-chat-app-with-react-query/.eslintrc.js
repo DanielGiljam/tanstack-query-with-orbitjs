@@ -7,7 +7,13 @@ module.exports = {
         "next/core-web-vitals",
         "../../.eslintrc.json",
     ],
-    ignorePatterns: ["!**/*", ".next/**/*", "next-env.d.ts", ".eslintrc.js"],
+    ignorePatterns: [
+        "!**/*",
+        ".next/**/*",
+        "src/prisma/client/**/*",
+        ".eslintrc.js",
+        "next-env.d.ts",
+    ],
     overrides: [
         {
             files: ["*.ts", "*.tsx", "*.js", "*.jsx"],

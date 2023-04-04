@@ -2,7 +2,8 @@ import fs from "fs/promises";
 import path from "path";
 
 import {faker} from "@faker-js/faker";
-import {PrismaClient} from "@prisma/client";
+
+import {PrismaClient} from "./client"; // eslint-disable-line import/no-relative-packages
 
 const promiseInSequence = async <T>(
     promises: Array<() => Promise<T>>,
