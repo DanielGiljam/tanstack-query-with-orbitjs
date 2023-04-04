@@ -5,6 +5,6 @@
         "module": "commonjs",
         "types": ["node"]
     },
-    "include": ["prisma/seed.ts"],
+    "include": ["src/prisma/seed.ts"],
     "exclude": ["node_modules"]
 }
