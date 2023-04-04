@@ -1,5 +1,7 @@
 import {PrismaClient} from "./client"; // eslint-disable-line import/no-relative-packages
 
+export type {ChatMessage, ChatRoom, Prisma, User} from "./client"; // eslint-disable-line import/no-relative-packages
+
 const globalForPrisma = global as unknown as {
     prisma: PrismaClient | undefined;
 };
