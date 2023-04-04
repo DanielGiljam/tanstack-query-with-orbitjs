@@ -25,7 +25,11 @@
             "inputs": ["default", "^production"]
         },
         "lint": {
-            "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+            "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintrc.js"
+            ]
         }
     },
     "namedInputs": {
@@ -35,7 +39,8 @@
             "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
             "!{projectRoot}/tsconfig.spec.json",
             "!{projectRoot}/jest.config.[jt]s",
-            "!{projectRoot}/.eslintrc.json"
+            "!{projectRoot}/.eslintrc.json",
+            "!{projectRoot}/.eslintrc.js"
         ],
         "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
     },
