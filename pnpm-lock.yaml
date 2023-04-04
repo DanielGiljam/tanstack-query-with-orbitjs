@@ -40,6 +40,7 @@ importers:
       '@nrwl/web': 15.6.3
       '@nrwl/workspace': 15.6.3
       '@nx-plus/docusaurus': 15.0.0-rc.0
+      '@nx-tools/nx-prisma': ^4.0.3
       '@offline-full-text-search-in-web-app/eslint-config-javascript': workspace:^0.0.0
       '@offline-full-text-search-in-web-app/eslint-config-jsx': workspace:^0.0.0
       '@offline-full-text-search-in-web-app/eslint-config-typescript': workspace:^0.0.0
@@ -48,6 +49,7 @@ importers:
       '@orbit/indexeddb-bucket': ^0.17.0
       '@orbit/memory': ^0.17.2
       '@orbit/records': ^0.17.0
+      '@prisma/client': ^4.5.0
       '@radix-ui/colors': ^0.1.8
       '@tanstack/react-query': 4.26.1
       '@tanstack/react-query-devtools': 4.26.1
@@ -83,6 +85,7 @@ importers:
       prettier: ^2.6.2
       prettier-plugin-tailwindcss: ^0.2.6
       prism-react-renderer: ^1.3.5
+      prisma: ^4.5.0
       react: 18.2.0
       react-dom: 18.2.0
       react-test-renderer: 18.2.0
@@ -98,6 +101,7 @@ importers:
       '@docusaurus/preset-classic': 2.1.0_5nvlp2k54bqqlvkffgigbg7vsu
       '@mdx-js/react': 1.6.22_react@18.2.0
       '@nrwl/next': 15.6.3_cfz7nmmaditshiqc7xzj26mxvq
+      '@prisma/client': 4.12.0_prisma@4.12.0
       clsx: 1.2.1
       core-js: 3.27.2
       next: 13.1.1_biqbaboplfbrettd7655fr4n2y
@@ -131,6 +135,7 @@ importers:
       '@nrwl/web': 15.6.3_haobvbiz67lssrprbzhlfcv5sy
       '@nrwl/workspace': 15.6.3_ru3a6u6i5jfe3w3i7orrmgwxwa
       '@nx-plus/docusaurus': 15.0.0-rc.0_vta4esjllvlzhfw55lbfxjlhaa
+      '@nx-tools/nx-prisma': 4.0.3_hwozgrctchr7vehsvsjir2qfpe
       '@offline-full-text-search-in-web-app/eslint-config-javascript': link:libs/eslint-configs/javascript
       '@offline-full-text-search-in-web-app/eslint-config-jsx': link:libs/eslint-configs/jsx
       '@offline-full-text-search-in-web-app/eslint-config-typescript': link:libs/eslint-configs/typescript
@@ -170,6 +175,7 @@ importers:
       postcss: 8.4.21
       prettier: 2.8.3
       prettier-plugin-tailwindcss: 0.2.6_prettier@2.8.3
+      prisma: 4.12.0
       react-test-renderer: 18.2.0_react@18.2.0
       tailwindcss: 3.3.1_aesdjsunmf4wiehhujt67my7tu
       ts-jest: 28.0.5_c57pmzltpvrsqbtqxiqe3cr3ra
@@ -212,6 +218,16 @@ importers:
       '@offline-full-text-search-in-web-app/eslint-config-javascript': link:../javascript
 
 packages:
+
+  /@actions/exec/1.1.1:
+    resolution: {integrity: sha512-+sCcHHbVdk93a0XT19ECtO/gIXoxvdsgQLzb2fE2/5sIZmWQuluYyjPQtrtTHdU1YzTZ7bAPN4sITq2xi1679w==}
+    dependencies:
+      '@actions/io': 1.1.3
+    dev: true
+
+  /@actions/io/1.1.3:
+    resolution: {integrity: sha512-wi9JjgKLYS7U/z8PPbco+PvTb/nRWjeoFlJ1Qer83k/3C5PHQi28hiVdeE2kHXmIL99mQFawx8qt/JPjZilJ8Q==}
+    dev: true
 
   /@algolia/autocomplete-core/1.7.4:
     resolution: {integrity: sha512-daoLpQ3ps/VTMRZDEBfU8ixXd+amZcNJ4QSP3IERGyzqnL5Ch8uSRFt/4G8pUvW9c3o6GA4vtVv4I4lmnkdXyg==}
@@ -3830,6 +3846,28 @@ packages:
       - typescript
     dev: true
 
+  /@nx-tools/core/4.0.3:
+    resolution: {integrity: sha512-u5t5WxbokjzRKerXIJ3vCmSTb9w7ibua5LExoqN3EuL526ZDWw/FigMtVkmqNN/fGtXvBAmFV/R5skPqlv6gCQ==}
+    peerDependencies:
+      '@nrwl/devkit': ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0
+    dependencies:
+      '@actions/exec': 1.1.1
+      colorette: 2.0.19
+    dev: true
+
+  /@nx-tools/nx-prisma/4.0.3_hwozgrctchr7vehsvsjir2qfpe:
+    resolution: {integrity: sha512-uTCJ7UsBv1uzQi5l3xrur/haXdW/Y9eU6ffC1UkFKSvEDHpkLqXLe6R4RRgcGBfJMFv2ws0UhezwPc3anAP3Sg==}
+    peerDependencies:
+      '@nrwl/devkit': ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0
+      prisma: ^4.5.0
+      ts-node: '*'
+    dependencies:
+      '@nx-tools/core': 4.0.3
+      '@swc/helpers': 0.4.14
+      prisma: 4.12.0
+      ts-node: 10.9.1_cbe7ovvae6zqfnmtgctpgpys54
+    dev: true
+
   /@orbit/coordinator/0.17.0:
     resolution: {integrity: sha512-r/jBGCi/sgvkJf9CBqQVS8pHBopYK4FQZCzcL9gdjKXOhnLwobOb9WH7/SqvwHYceFKx8tv+tOpl+d44+75DWQ==}
     dependencies:
@@ -3944,6 +3982,28 @@ packages:
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: true
+
+  /@prisma/client/4.12.0_prisma@4.12.0:
+    resolution: {integrity: sha512-j9/ighfWwux97J2dS15nqhl60tYoH8V0IuSsgZDb6bCFcQD3fXbXmxjYC8GHhIgOk3lB7Pq+8CwElz2MiDpsSg==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7
+      prisma: 4.12.0
+    dev: false
+
+  /@prisma/engines-version/4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7:
+    resolution: {integrity: sha512-JIHNj5jlXb9mcaJwakM0vpgRYJIAurxTUqM0iX0tfEQA5XLZ9ONkIckkhuAKdAzocZ+80GYg7QSsfpjg7OxbOA==}
+    dev: false
+
+  /@prisma/engines/4.12.0:
+    resolution: {integrity: sha512-0alKtnxhNB5hYU+ymESBlGI4b9XrGGSdv7Ud+8TE/fBNOEhIud0XQsAR+TrvUZgS4na5czubiMsODw0TUrgkIA==}
+    requiresBuild: true
 
   /@radix-ui/colors/0.1.8:
     resolution: {integrity: sha512-jwRMXYwC0hUo0mv6wGpuw254Pd9p/R6Td5xsRpOmaWkUHlooNWqVcadgyzlRumMq3xfOTXwJReU0Jv+EIy4Jbw==}
@@ -4222,7 +4282,6 @@ packages:
     resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
     dependencies:
       tslib: 2.5.0
-    dev: false
 
   /@szmarczak/http-timer/1.1.2:
     resolution: {integrity: sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==}
@@ -11554,6 +11613,14 @@ packages:
       react: '>=0.14.9'
     dependencies:
       react: 18.2.0
+
+  /prisma/4.12.0:
+    resolution: {integrity: sha512-xqVper4mbwl32BWzLpdznHAYvYDWQQWK2tBfXjdUD397XaveRyAP7SkBZ6kFlIg8kKayF4hvuaVtYwXd9BodAg==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.12.0
 
   /prismjs/1.29.0:
     resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
