@@ -5,8 +5,8 @@
     "author": "Daniel Giljam (https://github.com/DanielGiljam)",
     "scripts": {
         "type-check": "nx affected --target=type-check --parallel",
-        "lint": "nx affected --target=lint --parallel --cache",
-        "fix": "nx affected --target=lint --parallel --cache --fix",
+        "lint": "nx affected --target=lint --parallel --cache --maxWarnings=0",
+        "fix": "nx affected --target=lint --parallel --cache --fix --maxWarnings=0",
         "prettier": "nx format:check",
         "format": "nx format:write",
         "lint-prettier": "./scripts/lint-prettier.bash",
