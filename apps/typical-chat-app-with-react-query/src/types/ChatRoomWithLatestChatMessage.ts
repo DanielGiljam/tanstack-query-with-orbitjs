@@ -1,6 +1,8 @@
-import {ChatMessage, ChatRoom, User} from "../prisma";
+import {ChatRoom} from "../prisma";
 
-export type ChatRoomWithLatestChatMessage = Pick<ChatRoom, "id" | "name"> & {
+import {ChatMessageWithSender} from "./ChatMessageWithSender";
+
+export type ChatRoomWithLatestChatMessage = ChatRoom & {
     latestChatMessageId: string;
-    latestChatMessage: Omit<ChatMessage, "chatRoomId"> & {sender: User};
+    latestChatMessage: Omit<ChatMessageWithSender, "chatRoomId">;
 };
