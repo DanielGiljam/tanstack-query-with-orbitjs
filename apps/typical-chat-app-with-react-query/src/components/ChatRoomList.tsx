@@ -23,7 +23,7 @@ export const ChatRoomList = ({
         queryFn,
     });
     return (
-        <ul className={"w-[240px]"}>
+        <ul className={"w-[240px] overflow-y-auto"}>
             {chatRooms?.map((chatRoom) => (
                 <ChatRoomListItem
                     key={chatRoom.id}

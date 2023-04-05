@@ -8,7 +8,7 @@ export const App = () => {
         string | null
     >(null);
     return (
-        <div className={"flex h-screen min-w-[720px]"}>
+        <div className={"flex h-screen min-w-[720px] overflow-hidden"}>
             <ChatRoomList
                 selectedChatRoomId={selectedChatRoomId}
                 setSelectedChatRoomId={setSelectedChatRoomId}
