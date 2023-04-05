@@ -108,6 +108,7 @@
         "idb-keyval": "^6.2.0",
         "jest": "28.1.1",
         "jest-environment-jsdom": "28.1.1",
+        "lodash": "^4.17.21",
         "nx": "15.6.3",
         "postcss": "^8.4.21",
         "prettier": "^2.6.2",

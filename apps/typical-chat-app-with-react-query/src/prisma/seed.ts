@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 
 import {faker} from "@faker-js/faker";
+import {capitalize} from "lodash";
 
 import {PrismaClient} from "./client"; // eslint-disable-line import/no-relative-packages
 
@@ -33,7 +34,9 @@ const seed = async () => {
             () => async () =>
                 await prisma.chatRoom.create({
                     data: {
-                        name: `${faker.word.adjective()} ${faker.word.noun()}`,
+                        name: capitalize(
+                            `${faker.word.adjective()} ${faker.word.noun()}`,
+                        ),
                     },
                 }),
         ),
