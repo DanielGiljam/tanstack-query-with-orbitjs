@@ -13,6 +13,7 @@ export const App = () => {
                 selectedChatRoomId={selectedChatRoomId}
                 setSelectedChatRoomId={setSelectedChatRoomId}
             />
+            <hr className={"h-auto w-0 border-s border-t-0"} />
             {selectedChatRoomId != null ? (
                 <ChatRoom chatRoomId={selectedChatRoomId} />
             ) : (
