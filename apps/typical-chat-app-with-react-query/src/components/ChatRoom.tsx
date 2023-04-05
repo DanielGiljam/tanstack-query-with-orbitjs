@@ -1,5 +1,5 @@
 interface ChatRoomProps {
-    chatRoomId: string | null;
+    chatRoomId: string;
 }
 
 export const ChatRoom = ({chatRoomId}: ChatRoomProps) => {

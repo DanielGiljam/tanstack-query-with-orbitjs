@@ -13,7 +13,13 @@ export const App = () => {
                 selectedChatRoomId={selectedChatRoomId}
                 setSelectedChatRoomId={setSelectedChatRoomId}
             />
-            <ChatRoom chatRoomId={selectedChatRoomId} />
+            {selectedChatRoomId != null ? (
+                <ChatRoom chatRoomId={selectedChatRoomId} />
+            ) : (
+                <div className={"flex flex-grow items-center justify-center"}>
+                    <span>No chat room selected</span>
+                </div>
+            )}
         </div>
     );
 };
