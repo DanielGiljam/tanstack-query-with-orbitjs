@@ -1,15 +1,23 @@
+import {ChatRoomWithLatestChatMessage as TChatRoom} from "../types";
+
 import {ChatMessageInput} from "./ChatMessageInput";
 import {ChatMessageList} from "./ChatMessageList";
 
 interface ChatRoomProps {
-    chatRoomId: string;
+    chatRoom: TChatRoom;
 }
 
-export const ChatRoom = ({chatRoomId}: ChatRoomProps) => {
+export const ChatRoom = ({chatRoom}: ChatRoomProps) => {
     return (
-        <div className={"relative flex-grow"}>
-            <ChatMessageList chatRoomId={chatRoomId} />
-            <ChatMessageInput chatRoomId={chatRoomId} />
+        <div className={"flex flex-grow flex-col"}>
+            <div className={"h-10 px-4 py-2"}>
+                <span className={"text-xl leading-none"}>{chatRoom.name}</span>
+            </div>
+            <hr />
+            <div className={"relative flex-grow overflow-hidden"}>
+                <ChatMessageList chatRoomId={chatRoom.id} />
+                <ChatMessageInput chatRoomId={chatRoom.id} />
+            </div>
         </div>
     );
 };

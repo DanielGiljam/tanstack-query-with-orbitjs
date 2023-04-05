@@ -10,26 +10,26 @@ const queryFn: QueryFunction<TChatRoom[]> = async () => {
 };
 
 interface ChatRoomListProps {
-    selectedChatRoomId: string | null;
-    setSelectedChatRoomId: React.Dispatch<React.SetStateAction<string | null>>;
+    selectedChatRoom: TChatRoom | null;
+    setSelectedChatRoom: React.Dispatch<React.SetStateAction<TChatRoom | null>>;
 }
 
 export const ChatRoomList = ({
-    selectedChatRoomId,
-    setSelectedChatRoomId,
+    selectedChatRoom,
+    setSelectedChatRoom,
 }: ChatRoomListProps) => {
     const {data: chatRooms} = useQuery({
         queryKey: ["chat-rooms"],
         queryFn,
     });
     return (
-        <ul className={"w-[240px] overflow-y-auto"}>
+        <ul className={"w-[240px] flex-grow overflow-y-auto"}>
             {chatRooms?.map((chatRoom) => (
                 <ChatRoomListItem
                     key={chatRoom.id}
                     chatRoom={chatRoom}
-                    selected={chatRoom.id === selectedChatRoomId}
-                    onClick={() => setSelectedChatRoomId(chatRoom.id)}
+                    selected={chatRoom.id === selectedChatRoom?.id}
+                    onClick={() => setSelectedChatRoom(chatRoom)}
                 />
             ))}
         </ul>
