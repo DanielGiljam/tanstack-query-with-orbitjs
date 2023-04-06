@@ -10,7 +10,7 @@ const mutationFn: MutationFunction<
     const res = await fetch(`/api/chat-room/${chatRoomId}/chat-message`, {
         method: "POST",
         headers: {
-            contentType: "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({text}),
     });
