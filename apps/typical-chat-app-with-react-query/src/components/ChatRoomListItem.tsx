@@ -16,7 +16,7 @@ export const ChatRoomListItem = ({
     <li>
         <button
             className={clsx(
-                "px-2 py-1 text-left hover:bg-black/5",
+                "w-full px-2 py-1 text-left hover:bg-black/5",
                 selected && "bg-blue-600 text-white hover:bg-blue-600",
             )}
             type={"button"}
