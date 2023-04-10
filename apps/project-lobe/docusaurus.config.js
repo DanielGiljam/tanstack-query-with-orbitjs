@@ -8,7 +8,7 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const config = {
     title: "Project Fly-By-Wire",
     tagline:
-        "A meta-framework for building web applications that deal with rapidly changing relational data.",
+        "Coming up with a solution for better being able to develop better data-heavy web applications",
     url: process.env.DOCUSAURUS_URL || "http://localhost:3000",
     baseUrl: "/",
     onBrokenLinks: "throw",
