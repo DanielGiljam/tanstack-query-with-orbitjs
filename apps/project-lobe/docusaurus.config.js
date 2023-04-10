@@ -13,7 +13,7 @@ const config = {
     baseUrl: "/fly-by-wire/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "/icon.svg",
+    favicon: "../icon.svg",
     organizationName: "DanielGiljam", // Usually your GitHub org/user name.
     projectName: "offline-full-text-search-in-web-app", // Usually your repo name.
 
