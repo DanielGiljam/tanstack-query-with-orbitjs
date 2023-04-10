@@ -537,8 +537,8 @@ Now that we've dealt with concurrency, we can call it a day for this particular 
 
 The `onNewChatMessage` function was just one query cache updater. When our app grows, we'll be creating more of these updaters, and while the code can be organized into neat file structures and parts of it can be extracted into helper functions that can be reused across those files, there will no doubt still be a lot of query cache updating code to maintain.
 
-In my opinion, this is where [React Query](rq) falls short.
+In my opinion, this is where [React Query][rq] falls short.
 
 <!-- TODO: write about description in Tanstack Query homepage and how it's partially true and Tanstack Query is an improvement over nothing and a good library but not good enough -->
 
-[rq]: /#the-react-query-pattern
+[rq]: react-query

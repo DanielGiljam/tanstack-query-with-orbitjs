@@ -1,8 +1,10 @@
+---
+sidebar_position: 0
+---
+
 # Introduction
 
-_**Project Fly-By-Wire**_ is about finding better ways to develop data-heavy web applications.
-
-_**Fly-By-Wire**_ is about designing a system for handling rapidly changing relational data in a web application.
+_**Project Fly-By-Wire**_ is about coming up with a solution for better being able to developer better data-heavy web applications.
 
 <!-- prettier-ignore -->
 > There are only two hard things in Computer Science: cache invalidation and naming things.<br/>
@@ -34,13 +36,3 @@ There is no "popular pattern" for developing data-heavy web applications.
 ### What are "popular patterns"?
 
 When I use the term "popular patterns", I'm referring to patterns that are widely adopted and widely encouraged by the web development community.
-
-## The React Query pattern
-
-The popular pattern I'm going to use as the primary example is [React.js](https://reactjs.org/) + [Tanstack Query](https://tanstack.com/query). From now on I'm going to refer to that pattern as the _**React Query**_ pattern.
-
-<!-- TODO: motivate why The "popular pattern" can be considered The "popular pattern" -->
-
-Most of the attributes of the _React Query_ pattern that are relevant to this context applies to other popular patterns as well. When this isn't the case, I'll try explicitly point it out.
-
-<!-- TODO: list other popular patterns that exhibit the same limitations as the React Query pattern -->
