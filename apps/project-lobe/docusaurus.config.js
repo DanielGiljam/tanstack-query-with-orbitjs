@@ -10,7 +10,7 @@ const config = {
     tagline:
         "Coming up with a solution for better being able to develop better data-heavy web applications",
     url: process.env.DOCUSAURUS_URL || "http://localhost:3000",
-    baseUrl: "/",
+    baseUrl: "/fly-by-wire/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "/icon.svg",
