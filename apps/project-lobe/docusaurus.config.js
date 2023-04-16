@@ -6,9 +6,8 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "Project Fly-By-Wire",
-    tagline:
-        "Coming up with a solution for better being able to develop better data-heavy web applications",
+    title: "Making Tanstack Query feel more like the Cloud Firestore client-side SDK",
+    tagline: '"Signals", but for data.',
     url: process.env.DOCUSAURUS_URL || "http://localhost:3000",
     baseUrl: "/fly-by-wire/",
     onBrokenLinks: "throw",
@@ -41,7 +40,7 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: "Project Fly-By-Wire",
+                title: "Making Tanstack Query feel more like the Cloud Firestore client-side SDK",
             },
             footer: {
                 style: "dark",

@@ -1,0 +1,65 @@
+import Admonition from "@theme/Admonition";
+
+import ConcreteExampleInitialCode from "./08-results.assets/_concrete-example-initial-code.md";
+import ConcreteExampleUpdatingUI from "./08-results.assets/_concrete-example-updating-ui.md";
+import ConcreteExampleHandlingCaseWhereChatRoomDoesNotExist from "./08-results.assets/_concrete-example-handling-case-where-chat-room-does-not-exist.md";
+import ConcreteExampleConcurrency from "./08-results.assets/_concrete-example-concurrency.md";
+
+# Results
+
+## A concrete example of the problem
+
+Thanks to the method I chose when implementing the solution, there's now a concrete example of the problem, which I can be use to demonstrate the problem in a practical step-by-step manner.
+
+A practical step-by-step demonstration of the problem follows below.
+
+Imagine, you're building a typical (current age) chat application. An application like
+
+-   [Slack](https://slack.com/),
+-   [Discord](https://discord.com/),
+-   [Telegram](https://telegram.org/),
+-   or [WhatsApp](https://whatsapp.com/).
+
+The UI is expected to look something like this:
+
+![typical chat application UI](08-results.assets/typical-chat-app-ui.png)
+
+On the left-hand side, you have a list of chat rooms. On the right-hand side, you have a list of messages in the currently selected chat room.
+
+Now, imagine that you're building the UI for this application using [React.js](https://reactjs.org) and you're using [Tanstack Query][tq] as your data fetching solution.
+
+### Initial code
+
+<ConcreteExampleInitialCode />
+
+### Updating UI when new chat messages arrive
+
+<ConcreteExampleUpdatingUI />
+
+### Handling the case where the chat room doesn't exist in the `["chat-rooms"]` query's cached data
+
+<ConcreteExampleHandlingCaseWhereChatRoomDoesNotExist />
+
+### Dealing with concurrency
+
+<ConcreteExampleConcurrency />
+
+### Summing it up
+
+The `onNewChatMessage` function was just one query cache updater. When our app grows, we'll be creating more of these updaters, and while the code can be organized into neat file structures and parts of it can be extracted into helper functions that can be reused across those files, there will no doubt still be a lot of query cache updating code to maintain.
+
+A single forgotten conditional statement or unhandled edge-case in any of these query cache updaters can lead to a cascade of bugs that are hard to track down and fix.
+
+Whenever there are changes to the data model or the UI of the application, you'll likely have to make some changes to the query cache updaters as well, since they are tightly coupled with both the data model and the UI of the application.
+
+This code is not something you should have to write and maintain yourself, especially since there are other solutions (such as the [Cloud Firestore](https://firebase.google.com/products/firestore) client-side SDK) that prove that the desired functionality can be achieved in other ways which eliminate the need for you to write this kind of code and — in addition to that — work more reliably.
+
+## The solution
+
+<Admonition type={"caution"} title={"TODO"} icon={"🚧"}>
+
+Write about the solution.
+
+</Admonition>
+
+[tq]: https://tanstack.com/query
