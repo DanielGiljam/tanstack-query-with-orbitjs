@@ -1,3 +1,7 @@
 import {ChatMessage, User} from "../prisma";
 
-export type ChatMessageWithSender = ChatMessage & {sender: User};
+import {StringifyDates} from "./StringifyDates";
+
+export type ChatMessageWithSender = StringifyDates<
+    ChatMessage & {sender: User}
+>;
