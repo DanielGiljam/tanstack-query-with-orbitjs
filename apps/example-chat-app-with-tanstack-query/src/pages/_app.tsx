@@ -9,7 +9,7 @@ import "../styles/global.css";
 const App = ({Component, pageProps}: AppProps) => (
     <>
         <Head>
-            <title>Typical Chat App with React Query</title>
+            <title>Example Chat App with Tanstack Query</title>
             <meta
                 content={"initial-scale=1, minimum-scale=1, width=device-width"}
                 name={"viewport"}

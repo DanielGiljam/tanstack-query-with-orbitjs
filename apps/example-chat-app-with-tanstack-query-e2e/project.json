@@ -1,26 +1,26 @@
 {
-    "name": "typical-chat-app-with-react-query-e2e",
+    "name": "example-chat-app-with-tanstack-query-e2e",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "apps/typical-chat-app-with-react-query-e2e/src",
+    "sourceRoot": "apps/example-chat-app-with-tanstack-query-e2e/src",
     "projectType": "application",
     "targets": {
         "e2e": {
             "executor": "@nrwl/cypress:cypress",
             "options": {
-                "cypressConfig": "apps/typical-chat-app-with-react-query-e2e/cypress.config.ts",
-                "devServerTarget": "typical-chat-app-with-react-query:serve:development",
+                "cypressConfig": "apps/example-chat-app-with-tanstack-query-e2e/cypress.config.ts",
+                "devServerTarget": "example-chat-app-with-tanstack-query:serve:development",
                 "testingType": "e2e"
             },
             "configurations": {
                 "production": {
-                    "devServerTarget": "typical-chat-app-with-react-query:serve:production"
+                    "devServerTarget": "example-chat-app-with-tanstack-query:serve:production"
                 }
             }
         },
         "type-check": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "tsc --build apps/typical-chat-app-with-react-query-e2e/tsconfig.json --incremental"
+                "command": "tsc --build apps/example-chat-app-with-tanstack-query-e2e/tsconfig.json --incremental"
             }
         },
         "lint": {
@@ -28,11 +28,11 @@
             "outputs": ["{options.outputFile}"],
             "options": {
                 "lintFilePatterns": [
-                    "apps/typical-chat-app-with-react-query-e2e/**/*.{js,ts}"
+                    "apps/example-chat-app-with-tanstack-query-e2e/**/*.{js,ts}"
                 ]
             }
         }
     },
     "tags": [],
-    "implicitDependencies": ["typical-chat-app-with-react-query"]
+    "implicitDependencies": ["example-chat-app-with-tanstack-query"]
 }

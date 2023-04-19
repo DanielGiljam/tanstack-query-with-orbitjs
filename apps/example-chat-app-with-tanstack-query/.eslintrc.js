@@ -19,13 +19,13 @@ module.exports = {
             files: ["*.ts", "*.tsx", "*.js", "*.jsx"],
             parserOptions: {
                 project: [
-                    "apps/typical-chat-app-with-react-query/tsconfig(.*)?.json",
+                    "apps/example-chat-app-with-tanstack-query/tsconfig(.*)?.json",
                 ],
             },
             rules: {
                 "@next/next/no-html-link-for-pages": [
                     "error",
-                    "apps/typical-chat-app-with-react-query/src/pages",
+                    "apps/example-chat-app-with-tanstack-query/src/pages",
                 ],
                 "import/no-extraneous-dependencies": [
                     "error",

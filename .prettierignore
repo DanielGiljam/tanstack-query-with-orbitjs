@@ -2,8 +2,8 @@
 
 /dist
 /coverage
-/apps/typical-chat-app-with-react-query/src/prisma/seed-data.json
-/apps/typical-chat-app-with-react-query/src/prisma/client
+/apps/example-chat-app-with-tanstack-query/src/prisma/seed-data.json
+/apps/example-chat-app-with-tanstack-query/src/prisma/client
 .next
 .docusaurus
 pnpm-lock.yaml

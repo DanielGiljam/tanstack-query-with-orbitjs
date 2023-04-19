@@ -1,6 +1,6 @@
 import {getGreeting} from "../support/app.po";
 
-describe("typical-chat-app-with-react-query", () => {
+describe("example-chat-app-with-tanstack-query", () => {
     beforeEach(() => cy.visit("/"));
 
     it("should display welcome message", () => {
@@ -8,6 +8,6 @@ describe("typical-chat-app-with-react-query", () => {
         cy.login("my-email@something.com", "myPassword");
 
         // Function helper example, see `../support/app.po.ts` file
-        getGreeting().contains("Welcome typical-chat-app-with-react-query");
+        getGreeting().contains("Welcome example-chat-app-with-tanstack-query");
     });
 });

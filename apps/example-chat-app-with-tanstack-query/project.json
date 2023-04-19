@@ -1,7 +1,7 @@
 {
-    "name": "typical-chat-app-with-react-query",
+    "name": "example-chat-app-with-tanstack-query",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "apps/typical-chat-app-with-react-query",
+    "sourceRoot": "apps/example-chat-app-with-tanstack-query",
     "projectType": "application",
     "targets": {
         "build": {
@@ -9,12 +9,12 @@
             "outputs": ["{options.outputPath}"],
             "defaultConfiguration": "production",
             "options": {
-                "root": "apps/typical-chat-app-with-react-query",
-                "outputPath": "dist/apps/typical-chat-app-with-react-query"
+                "root": "apps/example-chat-app-with-tanstack-query",
+                "outputPath": "dist/apps/example-chat-app-with-tanstack-query"
             },
             "configurations": {
                 "development": {
-                    "outputPath": "apps/typical-chat-app-with-react-query"
+                    "outputPath": "apps/example-chat-app-with-tanstack-query"
                 },
                 "production": {}
             }
@@ -23,16 +23,16 @@
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
             "options": {
-                "buildTarget": "typical-chat-app-with-react-query:build",
+                "buildTarget": "example-chat-app-with-tanstack-query:build",
                 "dev": true
             },
             "configurations": {
                 "development": {
-                    "buildTarget": "typical-chat-app-with-react-query:build:development",
+                    "buildTarget": "example-chat-app-with-tanstack-query:build:development",
                     "dev": true
                 },
                 "production": {
-                    "buildTarget": "typical-chat-app-with-react-query:build:production",
+                    "buildTarget": "example-chat-app-with-tanstack-query:build:production",
                     "dev": false
                 }
             }
@@ -40,21 +40,21 @@
         "export": {
             "executor": "@nrwl/next:export",
             "options": {
-                "buildTarget": "typical-chat-app-with-react-query:build:production"
+                "buildTarget": "example-chat-app-with-tanstack-query:build:production"
             }
         },
         "test": {
             "executor": "@nrwl/jest:jest",
             "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
             "options": {
-                "jestConfig": "apps/typical-chat-app-with-react-query/jest.config.ts",
+                "jestConfig": "apps/example-chat-app-with-tanstack-query/jest.config.ts",
                 "passWithNoTests": true
             }
         },
         "type-check": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "tsc --build apps/typical-chat-app-with-react-query/tsconfig.json --incremental"
+                "command": "tsc --build apps/example-chat-app-with-tanstack-query/tsconfig.json --incremental"
             }
         },
         "lint": {
@@ -62,7 +62,7 @@
             "outputs": ["{options.outputFile}"],
             "options": {
                 "lintFilePatterns": [
-                    "apps/typical-chat-app-with-react-query/**/*.{ts,tsx,js,jsx}"
+                    "apps/example-chat-app-with-tanstack-query/**/*.{ts,tsx,js,jsx}"
                 ]
             }
         }
