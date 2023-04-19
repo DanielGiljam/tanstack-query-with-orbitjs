@@ -26,7 +26,7 @@ const config = {
                     sidebarPath: require.resolve("./sidebars.js"),
                     // Please change this to your repo.
                     editUrl:
-                        "https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/apps/project-lobe/docs/",
+                        "https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/apps/degree-thesis/docs/",
                 },
                 blog: false,
                 theme: {

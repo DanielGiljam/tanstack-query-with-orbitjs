@@ -1,13 +1,13 @@
 {
-    "name": "project-lobe",
+    "name": "degree-thesis",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "projectType": "application",
-    "sourceRoot": "apps/project-lobe/src",
+    "sourceRoot": "apps/degree-thesis/src",
     "targets": {
         "build": {
             "executor": "@nx-plus/docusaurus:browser",
             "options": {
-                "outputPath": "dist/apps/project-lobe"
+                "outputPath": "dist/apps/degree-thesis"
             }
         },
         "serve": {
@@ -19,14 +19,14 @@
         "type-check": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "tsc --build apps/project-lobe/tsconfig.json --incremental"
+                "command": "tsc --build apps/degree-thesis/tsconfig.json --incremental"
             }
         },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
             "options": {
-                "lintFilePatterns": ["apps/project-lobe/**/*.{ts,tsx,js,jsx}"]
+                "lintFilePatterns": ["apps/degree-thesis/**/*.{ts,tsx,js,jsx}"]
             }
         }
     },
