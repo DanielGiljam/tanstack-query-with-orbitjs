@@ -14,8 +14,8 @@ const latestChatMessageCreatedAtDescendingCompareFn = (
     a: TChatRoom,
     b: TChatRoom,
 ) =>
-    b.latestChatMessage.createdAt.valueOf() -
-    a.latestChatMessage.createdAt.valueOf();
+    new Date(b.latestChatMessage.createdAt).valueOf() -
+    new Date(a.latestChatMessage.createdAt).valueOf();
 
 export const onNewChatMessage = async (
     queryClient: QueryClient,
