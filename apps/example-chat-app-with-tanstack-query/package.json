@@ -5,7 +5,7 @@
     "author": "Daniel Giljam (https://github.com/DanielGiljam)",
     "private": true,
     "scripts": {
-        "postinstall": "prisma migrate dev"
+        "postinstall": "if [[ $CI != 1 ]]; then prisma migrate dev; fi"
     },
     "prisma": {
         "schema": "src/prisma/schema.prisma",
