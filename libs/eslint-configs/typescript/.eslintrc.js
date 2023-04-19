@@ -1,1 +1,1 @@
-module.exports = {extends: ["@offline-full-text-search-in-web-app/javascript"]};
+module.exports = {extends: ["@tanstack-query-with-orbitjs/javascript"]};

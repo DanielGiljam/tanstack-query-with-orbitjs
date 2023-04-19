@@ -14,7 +14,7 @@ const config = {
     onBrokenMarkdownLinks: "warn",
     favicon: "../icon.svg",
     organizationName: "DanielGiljam", // Usually your GitHub org/user name.
-    projectName: "offline-full-text-search-in-web-app", // Usually your repo name.
+    projectName: "tanstack-query-with-orbitjs", // Usually your repo name.
 
     presets: [
         [
@@ -26,7 +26,7 @@ const config = {
                     sidebarPath: require.resolve("./sidebars.js"),
                     // Please change this to your repo.
                     editUrl:
-                        "https://github.com/DanielGiljam/offline-full-text-search-in-web-app/tree/main/apps/project-lobe/docs/",
+                        "https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/apps/project-lobe/docs/",
                 },
                 blog: false,
                 theme: {

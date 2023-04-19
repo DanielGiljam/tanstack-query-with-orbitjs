@@ -20,7 +20,7 @@ export const App = () => {
 
 :::note
 
-For the sake of brevity, only the most relevant source code for this example is shown. For the full source code, see the [GitHub repository](https://github.com/DanielGiljam/offline-full-text-search-in-web-app/tree/main/apps/typical-chat-app-with-react-query).
+For the sake of brevity, only the most relevant source code for this example is shown. For the full source code, see the [GitHub repository](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/apps/typical-chat-app-with-react-query).
 
 :::
 

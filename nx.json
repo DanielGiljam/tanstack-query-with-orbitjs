@@ -1,6 +1,6 @@
 {
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
-    "npmScope": "offline-full-text-search-in-web-app",
+    "npmScope": "tanstack-query-with-orbitjs",
     "tasksRunnerOptions": {
         "default": {
             "runner": "nx/tasks-runners/default",

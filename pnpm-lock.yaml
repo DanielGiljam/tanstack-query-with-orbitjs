@@ -40,9 +40,6 @@ importers:
       '@nrwl/web': 15.6.3
       '@nrwl/workspace': 15.6.3
       '@nx-plus/docusaurus': 15.0.0-rc.0
-      '@offline-full-text-search-in-web-app/eslint-config-javascript': workspace:^0.0.0
-      '@offline-full-text-search-in-web-app/eslint-config-jsx': workspace:^0.0.0
-      '@offline-full-text-search-in-web-app/eslint-config-typescript': workspace:^0.0.0
       '@orbit/coordinator': ^0.17.0
       '@orbit/indexeddb': ^0.17.2
       '@orbit/indexeddb-bucket': ^0.17.0
@@ -50,6 +47,9 @@ importers:
       '@orbit/records': ^0.17.0
       '@prisma/client': ^4.12.0
       '@radix-ui/colors': ^0.1.8
+      '@tanstack-query-with-orbitjs/eslint-config-javascript': workspace:^0.0.0
+      '@tanstack-query-with-orbitjs/eslint-config-jsx': workspace:^0.0.0
+      '@tanstack-query-with-orbitjs/eslint-config-typescript': workspace:^0.0.0
       '@tanstack/react-query': 4.26.1
       '@tanstack/react-query-devtools': 4.26.1
       '@tanstack/react-virtual': v3.0.0-beta.54
@@ -137,9 +137,6 @@ importers:
       '@nrwl/web': 15.6.3_haobvbiz67lssrprbzhlfcv5sy
       '@nrwl/workspace': 15.6.3_ru3a6u6i5jfe3w3i7orrmgwxwa
       '@nx-plus/docusaurus': 15.0.0-rc.0_vta4esjllvlzhfw55lbfxjlhaa
-      '@offline-full-text-search-in-web-app/eslint-config-javascript': link:libs/eslint-configs/javascript
-      '@offline-full-text-search-in-web-app/eslint-config-jsx': link:libs/eslint-configs/jsx
-      '@offline-full-text-search-in-web-app/eslint-config-typescript': link:libs/eslint-configs/typescript
       '@orbit/coordinator': 0.17.0
       '@orbit/indexeddb': 0.17.2
       '@orbit/indexeddb-bucket': 0.17.0
@@ -147,6 +144,9 @@ importers:
       '@orbit/records': 0.17.0
       '@prisma/client': 4.12.0_prisma@4.12.0
       '@radix-ui/colors': 0.1.8
+      '@tanstack-query-with-orbitjs/eslint-config-javascript': link:libs/eslint-configs/javascript
+      '@tanstack-query-with-orbitjs/eslint-config-jsx': link:libs/eslint-configs/jsx
+      '@tanstack-query-with-orbitjs/eslint-config-typescript': link:libs/eslint-configs/typescript
       '@tanstack/react-query': 4.26.1_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-devtools': 4.26.1_brdhmlf72zuns3lsk66phyptty
       '@tanstack/react-virtual': 3.0.0-beta.54_react@18.2.0
@@ -219,9 +219,9 @@ importers:
 
   libs/eslint-configs/typescript:
     specifiers:
-      '@offline-full-text-search-in-web-app/eslint-config-javascript': workspace:^
+      '@tanstack-query-with-orbitjs/eslint-config-javascript': workspace:^
     devDependencies:
-      '@offline-full-text-search-in-web-app/eslint-config-javascript': link:../javascript
+      '@tanstack-query-with-orbitjs/eslint-config-javascript': link:../javascript
 
 packages:
 

@@ -43,7 +43,7 @@ module.exports = {
         },
         {
             files: ["*.tsx", "*.jsx"],
-            extends: ["@offline-full-text-search-in-web-app/jsx"],
+            extends: ["@tanstack-query-with-orbitjs/jsx"],
         },
     ],
     rules: {

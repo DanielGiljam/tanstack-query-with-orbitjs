@@ -25,7 +25,7 @@
             "files": ["*.ts", "*.tsx"],
             "extends": [
                 "plugin:@nrwl/nx/typescript",
-                "@offline-full-text-search-in-web-app/typescript"
+                "@tanstack-query-with-orbitjs/typescript"
             ],
             "rules": {}
         },
@@ -33,7 +33,7 @@
             "files": ["*.js", "*.jsx"],
             "extends": [
                 "plugin:@nrwl/nx/javascript",
-                "@offline-full-text-search-in-web-app/javascript"
+                "@tanstack-query-with-orbitjs/javascript"
             ],
             "rules": {}
         }

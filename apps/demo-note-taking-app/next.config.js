@@ -10,10 +10,10 @@ const {withNx} = require("@nrwl/next/plugins/with-nx");
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
-    basePath: "/offline-full-text-search-in-web-app/demo-note-taking-app",
+    basePath: "/tanstack-query-with-orbitjs/demo-note-taking-app",
     env: {
         testDataUrl:
-            "/offline-full-text-search-in-web-app/demo-note-taking-app/test-data.json",
+            "/tanstack-query-with-orbitjs/demo-note-taking-app/test-data.json",
     },
     eslint: {
         ignoreDuringBuilds: true,

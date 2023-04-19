@@ -70,7 +70,7 @@ export const Wrapper = ({children}: WrapperProps) => {
                         <Button
                             color={"inherit"}
                             href={
-                                "https://github.com/DanielGiljam/offline-full-text-search-in-web-app"
+                                "https://github.com/DanielGiljam/tanstack-query-with-orbitjs"
                             }
                             startIcon={<GitHubIcon />}
                             sx={{
@@ -119,7 +119,7 @@ export const Wrapper = ({children}: WrapperProps) => {
                         <Link
                             color={"inherit"}
                             href={
-                                "https://github.com/DanielGiljam/offline-full-text-search-in-web-app/blob/main/LICENSE"
+                                "https://github.com/DanielGiljam/tanstack-query-with-orbitjs/blob/main/LICENSE"
                             }
                             underline={"hover"}
                         >
