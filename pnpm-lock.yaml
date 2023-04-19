@@ -67,6 +67,7 @@ importers:
       concurrently: ^8.0.1
       core-js: ^3.6.5
       cypress: ^12.2.0
+      date-fns: ^2.29.3
       dequal: ^2.0.3
       eslint: ~8.15.0
       eslint-config-next: 13.1.1
@@ -164,6 +165,7 @@ importers:
       babel-jest: 28.1.1
       concurrently: 8.0.1
       cypress: 12.5.1
+      date-fns: 2.29.3
       dequal: 2.0.3
       eslint: 8.15.0
       eslint-config-next: 13.1.1_oy7hgmlo6357d5kkcjbkfgtg4q
