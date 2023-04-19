@@ -7,7 +7,7 @@
         "build": {
             "executor": "@nx-plus/docusaurus:browser",
             "options": {
-                "outputPath": "dist/apps/degree-thesis"
+                "outputPath": "dist/apps/degree-thesis/degree-thesis"
             }
         },
         "serve": {
