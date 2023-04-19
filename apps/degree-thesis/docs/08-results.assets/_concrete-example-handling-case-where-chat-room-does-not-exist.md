@@ -55,7 +55,7 @@ export const onNewChatMessage = async (
     }
     // else remove it from the array
     else {
-        const [staleChatRoom] = newData.splice(chatRoomIndex, 1)[0];
+        const staleChatRoom = newData.splice(chatRoomIndex, 1)[0];
         chatRoom = {
             ...staleChatRoom,
             latestChatMessage: chatMessage,

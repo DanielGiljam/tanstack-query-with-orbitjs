@@ -56,7 +56,7 @@ export const onNewChatMessage = async (
     }
     // else remove it from the array
     else {
-        const [staleChatRoom] = newData.splice(chatRoomIndex, 1)[0];
+        const staleChatRoom = newData.splice(chatRoomIndex, 1)[0];
         chatRoom = {
             ...staleChatRoom,
             latestChatMessage: chatMessage,
@@ -156,12 +156,12 @@ export const onNewChatMessage = async (
         }
         // we cannot assume that the chat room we just fetched
         // should still go to the top of the list
-        newData.sort(latestChatMessageCreatedAtCompareFn);
+        newData.sort(latestChatMessageCreatedAtDescendingCompareFn);
         // highlight-add-end
     }
     // else remove it from the array
     else {
-        const [staleChatRoom] = newData.splice(chatRoomIndex, 1)[0];
+        const staleChatRoom = newData.splice(chatRoomIndex, 1)[0];
         chatRoom = {
             ...staleChatRoom,
             latestChatMessage: chatMessage,
