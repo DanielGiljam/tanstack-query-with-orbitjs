@@ -9,7 +9,7 @@ const config = {
     title: "Making Tanstack Query feel more like the Cloud Firestore client-side SDK",
     tagline: '"Signals", but for data.',
     url: process.env.DOCUSAURUS_URL || "http://localhost:3000",
-    baseUrl: "/fly-by-wire/",
+    baseUrl: "/degree-thesis/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "../icon.svg",
