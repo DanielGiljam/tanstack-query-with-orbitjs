@@ -1,13 +1,34 @@
+import {useQueryClient} from "@tanstack/react-query";
 import React from "react";
+import {io} from "socket.io-client";
 
-import {ChatRoomWithLatestChatMessage as TChatRoom} from "../types";
+import {onNewChatMessage} from "../query";
+import {
+    ChatMessageWithSender as TChatMessage,
+    ChatRoomWithLatestChatMessage as TChatRoom,
+} from "../types";
 
 import {ChatRoom} from "./ChatRoom";
 import {ChatRoomList} from "./ChatRoomList";
 
 export const App = () => {
+    const queryClient = useQueryClient();
     const [selectedChatRoom, setSelectedChatRoom] =
         React.useState<TChatRoom | null>(null);
+    React.useEffect(() => {
+        const socket = io({path: "/api/socket"});
+        socket.connect();
+        console.log("connected to socket", socket);
+        socket.on("new-chat-message", (chatMessage: TChatMessage) => {
+            onNewChatMessage(queryClient, chatMessage).catch((error) =>
+                console.error(error),
+            );
+        });
+        return () => {
+            console.log("disconnected from socket", socket);
+            socket.disconnect();
+        };
+    }, [queryClient]);
     return (
         <div className={"flex h-screen min-w-[720px] overflow-hidden"}>
             <div className={"flex flex-col"}>

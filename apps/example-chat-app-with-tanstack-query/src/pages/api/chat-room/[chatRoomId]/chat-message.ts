@@ -3,7 +3,7 @@ import {z} from "zod";
 import {fromZodError} from "zod-validation-error";
 
 import {prisma} from "../../../../prisma";
-import {idSchema} from "../../../../server";
+import {idSchema, initSocket} from "../../../../server";
 
 const reqBodySchema = z.object({
     text: z
@@ -50,6 +50,12 @@ const chatMessage = async (req: NextApiRequest, res: NextApiResponse) => {
         data: {text, senderId, chatRoomId},
         include: {sender: true},
     });
+    if (res.socket != null) {
+        const socket = (res.socket.server.socketIo ??= await initSocket(
+            res.socket.server,
+        ));
+        socket.emit("new-chat-message", chatMessage);
+    }
     res.status(201).json(chatMessage);
 };
 
