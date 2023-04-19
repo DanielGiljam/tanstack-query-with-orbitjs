@@ -5,11 +5,7 @@ interface ChatMessageListProps {
 }
 
 export const ChatMessageListItem = ({chatMessage}: ChatMessageListProps) => (
-    <li
-        className={
-            "mx-auto w-full max-w-[38rem] px-2 py-1 text-left hover:bg-black/5"
-        }
-    >
+    <li className={"mx-auto w-full px-2 py-1 text-left hover:bg-black/5"}>
         <span className={"block text-sm font-bold"}>
             {chatMessage.sender.name}
         </span>

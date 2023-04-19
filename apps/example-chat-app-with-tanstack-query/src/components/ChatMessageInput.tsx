@@ -44,7 +44,7 @@ export const ChatMessageInput = ({chatRoomId}: ChatMessageInputProps) => {
     return (
         <div
             className={
-                "absolute inset-x-0 bottom-0 isolate mx-auto w-full max-w-2xl px-8"
+                "absolute inset-x-0 bottom-0 isolate mx-auto w-full px-8"
             }
         >
             <span
