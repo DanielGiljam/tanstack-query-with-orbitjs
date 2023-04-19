@@ -22,11 +22,17 @@ interface ChatMessageInputProps {
 }
 
 export const ChatMessageInput = ({chatRoomId}: ChatMessageInputProps) => {
+    const inputRef = React.useRef<HTMLInputElement>(null);
     const {mutate: sendChatMessage, isLoading} = useMutation({
         mutationFn,
         onSuccess: () => setText(""),
     });
     const [text, setText] = React.useState("");
+    React.useEffect(() => {
+        if (!isLoading) {
+            inputRef.current?.focus();
+        }
+    }, [isLoading]);
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setText(event.target.value);
     };
@@ -48,6 +54,7 @@ export const ChatMessageInput = ({chatRoomId}: ChatMessageInputProps) => {
                 role={"decoration"}
             />
             <input
+                ref={inputRef}
                 aria-label={"type a chat message"}
                 className={"mb-4 block w-full rounded-lg bg-black/5 p-2"}
                 disabled={isLoading}

@@ -16,7 +16,7 @@ export const ChatRoom = ({chatRoom}: ChatRoomProps) => {
             <hr />
             <div className={"relative flex-grow overflow-hidden"}>
                 <ChatMessageList chatRoomId={chatRoom.id} />
-                <ChatMessageInput chatRoomId={chatRoom.id} />
+                <ChatMessageInput key={chatRoom.id} chatRoomId={chatRoom.id} />
             </div>
         </div>
     );
