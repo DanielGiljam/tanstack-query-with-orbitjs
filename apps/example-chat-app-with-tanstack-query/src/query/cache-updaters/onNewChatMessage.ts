@@ -98,7 +98,7 @@ export const onNewChatMessage = async (
         newData.unshift(chatRoom);
     }
     queryClient.setQueryData(["chat-rooms"], newData);
-    if (wasFetchingChatMessages) {
+    if (wasFetchingChatRooms) {
         void queryClient.refetchQueries(["chat-rooms"]);
     }
 };
