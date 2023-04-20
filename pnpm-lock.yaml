@@ -24,6 +24,7 @@ importers:
       '@faker-js/faker': ^7.6.0
       '@lyrasearch/lyra': ^0.4.11
       '@lyrasearch/plugin-data-persistence': 0.1.1
+      '@mantine/hooks': ^6.0.8
       '@mdx-js/react': ^1.6.22
       '@mui/icons-material': ^5.11.9
       '@mui/material': ^5.11.9
@@ -126,6 +127,7 @@ importers:
       '@faker-js/faker': 7.6.0
       '@lyrasearch/lyra': 0.4.11
       '@lyrasearch/plugin-data-persistence': 0.1.1_lnlcllvovbofd7ft52tknizlpi
+      '@mantine/hooks': 6.0.8_react@18.2.0
       '@mui/icons-material': 5.11.9_rf36yb7fpwohzfiba4qr5l2xre
       '@mui/material': 5.11.9_djbvr54jltxzvghogofy3z763q
       '@next/bundle-analyzer': 13.2.4
@@ -3050,6 +3052,14 @@ packages:
       dpack: 0.6.22
     dev: true
     patched: true
+
+  /@mantine/hooks/6.0.8_react@18.2.0:
+    resolution: {integrity: sha512-9N4/v1Pt9EWY22MkyZfdMvoQuvLGKui7RqsS29b23Gz1xXR/DrkIAblvLWWu/xE/xYhIpdYfufpC1mF8Y3RfNg==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: true
 
   /@mdx-js/mdx/1.6.22:
     resolution: {integrity: sha512-AMxuLxPz2j5/6TpF/XSdKpQP1NlG0z11dFOlq+2IP/lSgl11GY8ji6S/rgsViN/L0BDvHvUMruRb7ub+24LUYA==}

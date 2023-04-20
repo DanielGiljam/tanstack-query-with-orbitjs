@@ -57,6 +57,7 @@
         "@faker-js/faker": "^7.6.0",
         "@lyrasearch/lyra": "^0.4.11",
         "@lyrasearch/plugin-data-persistence": "0.1.1",
+        "@mantine/hooks": "^6.0.8",
         "@mui/icons-material": "^5.11.9",
         "@mui/material": "^5.11.9",
         "@next/bundle-analyzer": "^13.2.4",
