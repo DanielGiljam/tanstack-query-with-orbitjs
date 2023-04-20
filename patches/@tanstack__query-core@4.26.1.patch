@@ -1,5 +1,5 @@
 diff --git a/build/lib/infiniteQueryBehavior.mjs b/build/lib/infiniteQueryBehavior.mjs
-index 34fde2ec178d7af4af39ae825a3a79ccded05000..76b050b277190073ce6032b51ee4c9ccc279b8d1 100644
+index 34fde2ec178d7af4af39ae825a3a79ccded05000..b0d46777ccba5353c768c16882ae8f1547ff37c8 100644
 --- a/build/lib/infiniteQueryBehavior.mjs
 +++ b/build/lib/infiniteQueryBehavior.mjs
 @@ -103,7 +103,13 @@ function infiniteQueryBehavior() {
@@ -11,7 +11,7 @@ index 34fde2ec178d7af4af39ae825a3a79ccded05000..76b050b277190073ce6032b51ee4c9cc
 +          if (typeof context.options.meta?.interceptInfiniteQueryBehavior === "function") {
 +            return context.options.meta.interceptInfiniteQueryBehavior(data);
 +          } else {
-+            return result;
++            return data;
 +          }
 +        });
          return finalPromise;

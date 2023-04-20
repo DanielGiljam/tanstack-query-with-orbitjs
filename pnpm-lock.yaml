@@ -1,12 +1,12 @@
 lockfileVersion: 5.4
 
 patchedDependencies:
+  '@tanstack/query-core@4.26.1':
+    hash: l7dsego345qosfyyd4c7klaqui
+    path: patches/@tanstack__query-core@4.26.1.patch
   '@lyrasearch/plugin-data-persistence@0.1.1':
     hash: lnlcllvovbofd7ft52tknizlpi
     path: patches/@lyrasearch__plugin-data-persistence@0.1.1.patch
-  '@tanstack/query-core@4.26.1':
-    hash: mccptj3t62by3hdqbixxxek4tq
-    path: patches/@tanstack__query-core@4.26.1.patch
 
 importers:
 
@@ -4282,7 +4282,7 @@ packages:
       remove-accents: 0.4.2
     dev: true
 
-  /@tanstack/query-core/4.26.1_mccptj3t62by3hdqbixxxek4tq:
+  /@tanstack/query-core/4.26.1_l7dsego345qosfyyd4c7klaqui:
     resolution: {integrity: sha512-Zrx2pVQUP4ndnsu6+K/m8zerXSVY8QM+YSbxA1/jbBY21GeCd5oKfYl92oXPK0hPEUtoNuunIdiq0ZMqLos+Zg==}
     dev: true
     patched: true
@@ -4314,7 +4314,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.26.1_mccptj3t62by3hdqbixxxek4tq
+      '@tanstack/query-core': 4.26.1_l7dsego345qosfyyd4c7klaqui
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
