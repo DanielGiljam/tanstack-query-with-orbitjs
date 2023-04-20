@@ -1,3 +1,4 @@
+import autoAnimate from "@formkit/auto-animate";
 import {useIntersection} from "@mantine/hooks";
 import {
     GetNextPageParamFunction,
@@ -68,6 +69,11 @@ export const ChatRoomList = ({
     const {ref: loadingIndicatorRef, entry} = useIntersection({
         root: listRef.current,
     });
+    React.useEffect(() => {
+        if (listRef.current != null) {
+            autoAnimate(listRef.current);
+        }
+    }, []);
     React.useEffect(() => {
         console.log("ChatRoomList useEffect", entry?.isIntersecting);
         if (entry?.isIntersecting) {
