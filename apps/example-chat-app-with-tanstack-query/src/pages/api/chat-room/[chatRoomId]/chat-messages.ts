@@ -4,6 +4,10 @@ import {prisma} from "../../../../prisma";
 import {idSchema} from "../../../../server";
 
 const chatMessages = async (req: NextApiRequest, res: NextApiResponse) => {
+    if (req.method !== "GET") {
+        res.status(405).json({statusMessage: "Method not allowed"});
+        return;
+    }
     const idParseResult = idSchema.safeParse(req.query.chatRoomId);
     if (!idParseResult.success) {
         res.status(404).json({statusMessage: "Not found"});
