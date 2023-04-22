@@ -78,7 +78,6 @@ export const ChatMessageList = ({chatRoomId}: ChatMessageListProps) => {
         }
     }, []);
     React.useEffect(() => {
-        console.log("ChatMessageList useEffect", entry?.isIntersecting);
         if (entry?.isIntersecting) {
             fetchNextPage().catch((error) => console.error(error));
         }

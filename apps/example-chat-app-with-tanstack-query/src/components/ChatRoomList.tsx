@@ -75,7 +75,6 @@ export const ChatRoomList = ({
         }
     }, []);
     React.useEffect(() => {
-        console.log("ChatRoomList useEffect", entry?.isIntersecting);
         if (entry?.isIntersecting) {
             fetchNextPage().catch((error) => console.error(error));
         }
