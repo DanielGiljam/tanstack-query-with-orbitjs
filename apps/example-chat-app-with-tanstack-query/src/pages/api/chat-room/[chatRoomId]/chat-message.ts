@@ -24,8 +24,8 @@ const chatMessage = async (req: NextApiRequest, res: NextApiResponse) => {
     }
     const chatRoomId = idParseResult.data;
     try {
-        await prisma.chatRoom.findUniqueOrThrow({
-            where: {id: chatRoomId},
+        await prisma.chatRoom.findFirstOrThrow({
+            where: {id: chatRoomId, chatMessages: {some: {}}},
             select: {id: true},
         });
     } catch {
