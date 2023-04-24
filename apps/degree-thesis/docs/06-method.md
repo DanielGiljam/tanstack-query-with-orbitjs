@@ -134,11 +134,14 @@ On the left-hand side, you have a list of chat rooms. On the right-hand side, yo
 
 -   It should be able to fetch and display a list of chat rooms.
     -   Ordered by when the latest chat message was sent, descending.
+    -   A preview of the latest chat message should be displayed in the chat room list item.
+    -   The list should be an "infinite scroll" list, meaning it should load more chat rooms as the user scrolls down.
 -   It should let the user select a chat room to view the messages in that room and send new messages to that room.
 -   It should be able to fetch and display a list of chat messages in the currently selected room.
     -   Ordered by when the latest chat message was sent, descending.
+    -   The list should be an "infinite scroll" list, meaning it should load more chat messages as the user scrolls to the end of the list.
 -   It should let the user send a new chat message to the currently selected room.
--   It should automatically and as quickly as possible reflect update the UI to reflect the changes to the data when new chat messages arrive.
+-   It should automatically and as quickly as possible reflect update the UI to reflect the changes to the data when new chat messages arrive or when the user has sent a new chat message.
 
 ### Solving the problem
 
