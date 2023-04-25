@@ -14,7 +14,11 @@
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "tanstack-query-with-orbitjs": [
+                "libs/tanstack-query-with-orbitjs/src/index.ts"
+            ]
+        }
     },
     "exclude": ["node_modules", "tmp"]
 }
