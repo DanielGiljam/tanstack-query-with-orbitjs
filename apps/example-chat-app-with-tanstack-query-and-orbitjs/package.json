@@ -1,0 +1,14 @@
+{
+    "name": "@tanstack-query-with-orbitjs/example-chat-app-with-tanstack-query-and-orbitjs",
+    "version": "0.0.0",
+    "license": "MIT",
+    "author": "Daniel Giljam (https://github.com/DanielGiljam)",
+    "private": true,
+    "scripts": {
+        "postinstall": "if [[ $CI != 1 ]]; then prisma migrate dev; fi"
+    },
+    "prisma": {
+        "schema": "src/prisma/schema.prisma",
+        "seed": "ts-node --project=tsconfig.prisma-seed.json --transpile-only src/prisma/seed.ts"
+    }
+}

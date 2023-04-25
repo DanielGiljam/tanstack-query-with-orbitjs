@@ -1,0 +1,71 @@
+{
+    "name": "example-chat-app-with-tanstack-query-and-orbitjs",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/example-chat-app-with-tanstack-query-and-orbitjs",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/next:build",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "root": "apps/example-chat-app-with-tanstack-query-and-orbitjs",
+                "outputPath": "dist/apps/example-chat-app-with-tanstack-query-and-orbitjs"
+            },
+            "configurations": {
+                "development": {
+                    "outputPath": "apps/example-chat-app-with-tanstack-query-and-orbitjs"
+                },
+                "production": {}
+            }
+        },
+        "serve": {
+            "executor": "@nrwl/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "example-chat-app-with-tanstack-query-and-orbitjs:build",
+                "dev": true
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "example-chat-app-with-tanstack-query-and-orbitjs:build:development",
+                    "dev": true
+                },
+                "production": {
+                    "buildTarget": "example-chat-app-with-tanstack-query-and-orbitjs:build:production",
+                    "dev": false
+                }
+            }
+        },
+        "export": {
+            "executor": "@nrwl/next:export",
+            "options": {
+                "buildTarget": "example-chat-app-with-tanstack-query-and-orbitjs:build:production"
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/example-chat-app-with-tanstack-query-and-orbitjs/jest.config.ts",
+                "passWithNoTests": true
+            }
+        },
+        "type-check": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "tsc --build apps/example-chat-app-with-tanstack-query-and-orbitjs/tsconfig.json --incremental"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": [
+                    "apps/example-chat-app-with-tanstack-query-and-orbitjs/**/*.{ts,tsx,js,jsx}"
+                ]
+            }
+        }
+    },
+    "tags": []
+}

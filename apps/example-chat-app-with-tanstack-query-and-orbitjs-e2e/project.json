@@ -1,0 +1,38 @@
+{
+    "name": "example-chat-app-with-tanstack-query-and-orbitjs-e2e",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/example-chat-app-with-tanstack-query-and-orbitjs-e2e/src",
+    "projectType": "application",
+    "targets": {
+        "e2e": {
+            "executor": "@nrwl/cypress:cypress",
+            "options": {
+                "cypressConfig": "apps/example-chat-app-with-tanstack-query-and-orbitjs-e2e/cypress.config.ts",
+                "devServerTarget": "example-chat-app-with-tanstack-query:serve:development",
+                "testingType": "e2e"
+            },
+            "configurations": {
+                "production": {
+                    "devServerTarget": "example-chat-app-with-tanstack-query:serve:production"
+                }
+            }
+        },
+        "type-check": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "tsc --build apps/example-chat-app-with-tanstack-query-and-orbitjs-e2e/tsconfig.json --incremental"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": [
+                    "apps/example-chat-app-with-tanstack-query-and-orbitjs-e2e/**/*.{js,ts}"
+                ]
+            }
+        }
+    },
+    "tags": [],
+    "implicitDependencies": ["example-chat-app-with-tanstack-query"]
+}
