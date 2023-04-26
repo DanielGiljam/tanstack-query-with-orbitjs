@@ -2,6 +2,7 @@ import {MemorySource} from "@orbit/memory";
 import {QueryClient, QueryClientConfig, QueryKey} from "@tanstack/query-core";
 
 import {LiveQueryAdapterCache} from "./LiveQueryAdapterCache";
+import {normalizeRecordQueryResult} from "./utils";
 
 declare module "@tanstack/query-core" {
     export interface QueryMeta {
@@ -29,15 +30,16 @@ const mergeLiveQueryClientConfig = (
                     return Promise.reject("Missing meta.getQueryOrExpressions");
                 }
                 const memorySource = config.memorySource;
-                return memorySource.activated.then(
-                    async () =>
-                        await memorySource.query(
-                            getQueryOrExpressions(
-                                ctx.queryKey,
-                                ctx.pageParam ?? 0,
-                            ),
-                        ),
-                );
+                return memorySource.activated.then(async () => {
+                    const result = await memorySource.query(
+                        getQueryOrExpressions(ctx.queryKey, ctx.pageParam ?? 0),
+                    );
+                    const normalizedResult = normalizeRecordQueryResult(result);
+                    if (normalizedResult.length > 0) {
+                        return result;
+                    }
+                    return undefined;
+                });
             },
             staleTime: Infinity,
             cacheTime: 0,

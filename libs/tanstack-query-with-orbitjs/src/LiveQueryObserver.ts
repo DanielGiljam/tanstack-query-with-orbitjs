@@ -6,6 +6,7 @@ import {
 } from "@tanstack/query-core";
 
 import {LiveQueryClient} from "./LiveQueryClient";
+import {normalizeRecordQueryResult} from "./utils";
 
 export class LiveQueryObserver<
     TQueryFnData extends RecordQueryResult = RecordQueryResult,
@@ -43,9 +44,14 @@ export class LiveQueryObserver<
                 if (memorySource == null) {
                     return;
                 }
-                return memorySource.cache.query(
+                const result = memorySource.cache.query(
                     getQueryOrExpressions(queryKey),
-                ) as TQueryData | undefined;
+                );
+                const normalizedResult = normalizeRecordQueryResult(result);
+                if (normalizedResult.length > 0) {
+                    return result as TQueryData | undefined;
+                }
+                return undefined;
             },
             ...options,
         });
