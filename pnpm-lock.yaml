@@ -56,6 +56,7 @@ importers:
       '@tanstack-query-with-orbitjs/eslint-config-javascript': workspace:^0.0.0
       '@tanstack-query-with-orbitjs/eslint-config-jsx': workspace:^0.0.0
       '@tanstack-query-with-orbitjs/eslint-config-typescript': workspace:^0.0.0
+      '@tanstack/query-core': 4.26.1
       '@tanstack/react-query': 4.26.1
       '@tanstack/react-query-devtools': 4.26.1
       '@tanstack/react-virtual': v3.0.0-beta.54
@@ -170,6 +171,7 @@ importers:
       '@tanstack-query-with-orbitjs/eslint-config-javascript': link:libs/eslint-configs/javascript
       '@tanstack-query-with-orbitjs/eslint-config-jsx': link:libs/eslint-configs/jsx
       '@tanstack-query-with-orbitjs/eslint-config-typescript': link:libs/eslint-configs/typescript
+      '@tanstack/query-core': 4.26.1_l7dsego345qosfyyd4c7klaqui
       '@tanstack/react-query': 4.26.1_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-devtools': 4.26.1_brdhmlf72zuns3lsk66phyptty
       '@tanstack/react-virtual': 3.0.0-beta.54_react@18.2.0
