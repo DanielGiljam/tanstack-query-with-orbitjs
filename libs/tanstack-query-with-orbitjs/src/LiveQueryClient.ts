@@ -39,6 +39,8 @@ const mergeLiveQueryClientConfig = (
                         ),
                 );
             },
+            staleTime: Infinity,
+            cacheTime: 0,
             ...config.defaultOptions?.queries,
         },
     },
