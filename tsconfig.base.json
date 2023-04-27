@@ -15,7 +15,8 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@tanstack-query-with-orbitjs/core": ["libs/core/src/index.ts"]
+            "@tanstack-query-with-orbitjs/core": ["libs/core/src/index.ts"],
+            "@tanstack-query-with-orbitjs/react": ["libs/react/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
