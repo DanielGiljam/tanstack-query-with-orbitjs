@@ -1,35 +1,35 @@
 {
-    "name": "tanstack-query-with-orbitjs",
+    "name": "core",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "libs/tanstack-query-with-orbitjs/src",
+    "sourceRoot": "libs/core/src",
     "projectType": "library",
     "targets": {
         "build": {
             "executor": "@nrwl/vite:build",
             "outputs": ["{options.outputPath}"],
             "options": {
-                "outputPath": "dist/libs/tanstack-query-with-orbitjs"
+                "outputPath": "dist/libs/core"
             }
         },
         "test": {
             "executor": "@nrwl/vite:test",
-            "outputs": ["coverage/libs/tanstack-query-with-orbitjs"],
+            "outputs": ["coverage/libs/core"],
             "options": {
                 "passWithNoTests": true,
-                "reportsDirectory": "../../coverage/libs/tanstack-query-with-orbitjs"
+                "reportsDirectory": "../../coverage/libs/core"
             }
         },
         "type-check": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "tsc --build libs/tanstack-query-with-orbitjs/tsconfig.json --incremental"
+                "command": "tsc --build libs/core/tsconfig.json --incremental"
             }
         },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
             "options": {
-                "lintFilePatterns": ["libs/tanstack-query-with-orbitjs/**/*.ts"]
+                "lintFilePatterns": ["libs/core/**/*.ts"]
             }
         }
     },

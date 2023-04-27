@@ -7,7 +7,7 @@ module.exports = {
         {
             files: ["*.ts", "*.tsx", "*.js", "*.jsx"],
             parserOptions: {
-                project: ["libs/tanstack-query-with-orbitjs/tsconfig.*?.json"],
+                project: ["libs/core/tsconfig.*?.json"],
             },
             rules: {
                 "import/no-extraneous-dependencies": [

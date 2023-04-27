@@ -1,7 +1,7 @@
 import {QueryCache} from "@tanstack/query-core";
 
 import {LiveQueryAdapter} from "./LiveQueryAdapter";
-import { LiveQueryClient } from "./LiveQueryClient";
+import {LiveQueryClient} from "./LiveQueryClient";
 
 type QueryCacheNotifyEvent = Parameters<
     Parameters<QueryCache["subscribe"]>[0]
@@ -18,17 +18,23 @@ export class LiveQueryAdapterCache {
     private readonly client: LiveQueryClient;
 
     constructor(config: LiveQueryAdapterCacheConfig) {
-        const client = (this.client = config.client)
-        client.getQueryCache().subscribe((event) => this.onQueryCacheNotifyEvent(event));
+        const client = (this.client = config.client);
+        client
+            .getQueryCache()
+            .subscribe((event) => this.onQueryCacheNotifyEvent(event));
     }
 
     private onQueryCacheNotifyEvent({type, query}: QueryCacheNotifyEvent) {
         let adapter = this.adapterMap[query.queryHash];
         const queryIsDisabled = query.isDisabled();
-        this.client.getLogger().log(
-            "LiveQueryAdapterCache: before onQueryCacheNotifyEvent:",
-            {adapter, eventType: type, queryIsDisabled, queryKey: query.queryKey},
-        );
+        this.client
+            .getLogger()
+            .log("LiveQueryAdapterCache: before onQueryCacheNotifyEvent:", {
+                adapter,
+                eventType: type,
+                queryIsDisabled,
+                queryKey: query.queryKey,
+            });
         if (adapter != null) {
             if (type === "removed" || queryIsDisabled) {
                 adapter.disconnect();
@@ -43,14 +49,13 @@ export class LiveQueryAdapterCache {
                     });
             }
         }
-        this.client.getLogger().log(
-            "LiveQueryAdapterCache: after onQueryCacheNotifyEvent:",
-            {
+        this.client
+            .getLogger()
+            .log("LiveQueryAdapterCache: after onQueryCacheNotifyEvent:", {
                 adapter,
                 eventType: type,
                 queryIsDisabled,
-                queryKey: query.queryKey
-            },
-        );
+                queryKey: query.queryKey,
+            });
     }
 }
