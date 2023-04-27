@@ -19,6 +19,12 @@
                 "reportsDirectory": "../../coverage/libs/react"
             }
         },
+        "type-check": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "tsc --build libs/react/tsconfig.json --incremental"
+            }
+        },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
