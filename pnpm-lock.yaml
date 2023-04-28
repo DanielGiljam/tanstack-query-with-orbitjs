@@ -56,9 +56,11 @@ importers:
       '@swc/cli': ~0.1.55
       '@swc/core': ^1.2.173
       '@swc/helpers': ~0.4.11
+      '@tanstack-query-with-orbitjs/core': workspace:^0.0.1
       '@tanstack-query-with-orbitjs/eslint-config-javascript': workspace:^0.0.0
       '@tanstack-query-with-orbitjs/eslint-config-jsx': workspace:^0.0.0
       '@tanstack-query-with-orbitjs/eslint-config-typescript': workspace:^0.0.0
+      '@tanstack-query-with-orbitjs/react': workspace:^0.0.1
       '@tanstack/query-core': 4.26.1
       '@tanstack/react-query': 4.26.1
       '@tanstack/react-query-devtools': 4.26.1
@@ -171,9 +173,11 @@ importers:
       '@radix-ui/colors': 0.1.8
       '@swc/cli': 0.1.62_@swc+core@1.3.54
       '@swc/core': 1.3.54_@swc+helpers@0.4.14
+      '@tanstack-query-with-orbitjs/core': link:libs/core
       '@tanstack-query-with-orbitjs/eslint-config-javascript': link:libs/eslint-configs/javascript
       '@tanstack-query-with-orbitjs/eslint-config-jsx': link:libs/eslint-configs/jsx
       '@tanstack-query-with-orbitjs/eslint-config-typescript': link:libs/eslint-configs/typescript
+      '@tanstack-query-with-orbitjs/react': link:libs/react
       '@tanstack/query-core': 4.26.1_l7dsego345qosfyyd4c7klaqui
       '@tanstack/react-query': 4.26.1_ji2sf6tti6eqojnevo7marwvy4_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-devtools': 4.26.1_brdhmlf72zuns3lsk66phyptty
