@@ -1,4 +1,4 @@
-import {RecordQueryResult} from "@orbit/records";
+import {RecordQueryExpressionResult} from "@orbit/records";
 import {
     QueryKey,
     QueryObserver,
@@ -9,7 +9,10 @@ import {LiveQueryClient} from "./LiveQueryClient";
 import {normalizeRecordQueryResult} from "./utils";
 
 export class LiveQueryObserver<
-    TQueryFnData extends RecordQueryResult = RecordQueryResult,
+    TQueryFnData extends Exclude<RecordQueryExpressionResult, null> = Exclude<
+        RecordQueryExpressionResult,
+        null
+    >,
     TError = unknown,
     TData = TQueryFnData,
     TQueryData = TQueryFnData,
@@ -49,7 +52,7 @@ export class LiveQueryObserver<
                 );
                 const normalizedResult = normalizeRecordQueryResult(result);
                 if (normalizedResult.length > 0) {
-                    return result as TQueryData | undefined;
+                    return result as TQueryData;
                 }
                 return undefined;
             },
