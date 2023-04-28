@@ -64,11 +64,11 @@ export class LiveInfiniteQueryObserver<
                 }
                 return undefined;
             },
+            ...options,
             meta: {
                 isInfinite: true,
                 ...options.meta,
             },
-            ...options,
         });
     }
 }
