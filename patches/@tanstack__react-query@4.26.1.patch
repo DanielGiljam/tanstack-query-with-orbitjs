@@ -1,0 +1,23 @@
+diff --git a/build/lib/index.d.ts b/build/lib/index.d.ts
+index 59d3ea01eb31927de8b3eec295aaae9a0ba54b33..c1196e417d073c89f6a1bafed6b8728306675b4f 100644
+--- a/build/lib/index.d.ts
++++ b/build/lib/index.d.ts
+@@ -13,5 +13,6 @@ export { QueryErrorResetBoundary, useQueryErrorResetBoundary, } from './QueryErr
+ export { useIsFetching } from './useIsFetching';
+ export { useIsMutating } from './useIsMutating';
+ export { useMutation } from './useMutation';
++export { useBaseQuery } from './useBaseQuery';
+ export { useInfiniteQuery } from './useInfiniteQuery';
+ export { useIsRestoring, IsRestoringProvider } from './isRestoring';
+diff --git a/build/lib/index.mjs b/build/lib/index.mjs
+index 5dcb3188c7eb8ea7ba97dbbf6413071635cb430d..3cf7233d43342aa0a725a780c0d9e1bc1d847971 100644
+--- a/build/lib/index.mjs
++++ b/build/lib/index.mjs
+@@ -8,6 +8,7 @@ export { QueryErrorResetBoundary, useQueryErrorResetBoundary } from './QueryErro
+ export { useIsFetching } from './useIsFetching.mjs';
+ export { useIsMutating } from './useIsMutating.mjs';
+ export { useMutation } from './useMutation.mjs';
++export { useBaseQuery } from './useBaseQuery.mjs';
+ export { useInfiniteQuery } from './useInfiniteQuery.mjs';
+ export { IsRestoringProvider, useIsRestoring } from './isRestoring.mjs';
+ //# sourceMappingURL=index.mjs.map

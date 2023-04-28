@@ -145,7 +145,8 @@
     "pnpm": {
         "patchedDependencies": {
             "@tanstack/query-core@4.26.1": "patches/@tanstack__query-core@4.26.1.patch",
-            "@lyrasearch/plugin-data-persistence@0.1.1": "patches/@lyrasearch__plugin-data-persistence@0.1.1.patch"
+            "@lyrasearch/plugin-data-persistence@0.1.1": "patches/@lyrasearch__plugin-data-persistence@0.1.1.patch",
+            "@tanstack/react-query@4.26.1": "patches/@tanstack__react-query@4.26.1.patch"
         }
     }
 }

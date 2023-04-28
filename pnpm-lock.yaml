@@ -1,12 +1,15 @@
 lockfileVersion: 5.4
 
 patchedDependencies:
-  '@tanstack/query-core@4.26.1':
-    hash: l7dsego345qosfyyd4c7klaqui
-    path: patches/@tanstack__query-core@4.26.1.patch
+  '@tanstack/react-query@4.26.1':
+    hash: ji2sf6tti6eqojnevo7marwvy4
+    path: patches/@tanstack__react-query@4.26.1.patch
   '@lyrasearch/plugin-data-persistence@0.1.1':
     hash: lnlcllvovbofd7ft52tknizlpi
     path: patches/@lyrasearch__plugin-data-persistence@0.1.1.patch
+  '@tanstack/query-core@4.26.1':
+    hash: l7dsego345qosfyyd4c7klaqui
+    path: patches/@tanstack__query-core@4.26.1.patch
 
 importers:
 
@@ -172,7 +175,7 @@ importers:
       '@tanstack-query-with-orbitjs/eslint-config-jsx': link:libs/eslint-configs/jsx
       '@tanstack-query-with-orbitjs/eslint-config-typescript': link:libs/eslint-configs/typescript
       '@tanstack/query-core': 4.26.1_l7dsego345qosfyyd4c7klaqui
-      '@tanstack/react-query': 4.26.1_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.26.1_ji2sf6tti6eqojnevo7marwvy4_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-devtools': 4.26.1_brdhmlf72zuns3lsk66phyptty
       '@tanstack/react-virtual': 3.0.0-beta.54_react@18.2.0
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -4812,14 +4815,14 @@ packages:
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       '@tanstack/match-sorter-utils': 8.7.6
-      '@tanstack/react-query': 4.26.1_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.26.1_ji2sf6tti6eqojnevo7marwvy4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       superjson: 1.12.2
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: true
 
-  /@tanstack/react-query/4.26.1_biqbaboplfbrettd7655fr4n2y:
+  /@tanstack/react-query/4.26.1_ji2sf6tti6eqojnevo7marwvy4_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-i3dnz4TOARGIXrXQ5P7S25Zfi4noii/bxhcwPurh2nrf5EUCcAt/95TB2HSmMweUBx206yIMWUMEQ7ptd6zwDg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -4836,6 +4839,7 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: true
+    patched: true
 
   /@tanstack/react-virtual/3.0.0-beta.54_react@18.2.0:
     resolution: {integrity: sha512-D1mDMf4UPbrtHRZZriCly5bXTBMhylslm4dhcHqTtDJ6brQcgGmk8YD9JdWBGWfGSWPKoh2x1H3e7eh+hgPXtQ==}
