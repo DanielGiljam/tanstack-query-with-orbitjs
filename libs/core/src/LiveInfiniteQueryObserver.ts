@@ -71,4 +71,36 @@ export class LiveInfiniteQueryObserver<
             },
         });
     }
+
+    override setOptions(
+        options?: Parameters<
+            InfiniteQueryObserver<
+                TQueryFnData,
+                TError,
+                TData,
+                TQueryData,
+                TQueryKey
+            >["setOptions"]
+        >[0],
+        notifyOptions?: Parameters<
+            InfiniteQueryObserver<
+                TQueryFnData,
+                TError,
+                TData,
+                TQueryData,
+                TQueryKey
+            >["setOptions"]
+        >[1],
+    ) {
+        let optionsWithMetaIsInfinite;
+        if (options?.meta != null && "isInfinite" in options.meta) {
+            optionsWithMetaIsInfinite = options;
+        } else {
+            optionsWithMetaIsInfinite = {
+                ...options,
+                meta: {isInfinite: true, ...options?.meta},
+            };
+        }
+        super.setOptions(optionsWithMetaIsInfinite, notifyOptions);
+    }
 }
