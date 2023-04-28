@@ -4,16 +4,20 @@ import {QueryClient, QueryClientConfig, QueryKey} from "@tanstack/query-core";
 import {LiveQueryAdapterCache} from "./LiveQueryAdapterCache";
 import {normalizeRecordQueryResult} from "./utils";
 
+export type GetQueryOrExpressions<TQueryKey extends QueryKey = QueryKey> = (
+    queryKey: TQueryKey,
+    pageParam?: number,
+) => Parameters<MemorySource["query"]>[0];
+
 declare module "@tanstack/query-core" {
     export interface QueryMeta {
-        getQueryOrExpressions?: <TQueryKey extends QueryKey = QueryKey>(
-            queryKey: TQueryKey,
-            pageParam?: number,
-        ) => Parameters<MemorySource["query"]>[0];
+        getQueryOrExpressions?: GetQueryOrExpressions;
         isInfinite?: boolean;
         pageSize?: number;
     }
 }
+
+export type {QueryMeta} from "@tanstack/query-core";
 
 const mergeLiveQueryClientConfig = (
     config: LiveQueryClientConfig,
