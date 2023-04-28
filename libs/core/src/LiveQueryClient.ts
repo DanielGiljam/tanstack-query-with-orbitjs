@@ -38,6 +38,9 @@ const mergeLiveQueryClientConfig = (
                     if (normalizedResult.length > 0) {
                         return result;
                     }
+                    if (Array.isArray(result)) {
+                        return [];
+                    }
                     return undefined;
                 });
             },

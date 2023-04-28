@@ -54,6 +54,9 @@ export class LiveQueryObserver<
                 if (normalizedResult.length > 0) {
                     return result as TQueryData;
                 }
+                if (Array.isArray(result)) {
+                    return [] as TQueryData;
+                }
                 return undefined;
             },
             ...options,
