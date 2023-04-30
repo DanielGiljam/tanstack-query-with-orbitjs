@@ -77,6 +77,10 @@ I compare related work and [Tanstack Query][tq] against my checklist:
 
 -   ORM capabilities
 
+    -   **Relationship tracking**
+
+        The solution "understands" relationships in your data.
+
     -   **"Live queries"**
 
         The solution provides a mechanism to listen for when the result of a query for data changes.
