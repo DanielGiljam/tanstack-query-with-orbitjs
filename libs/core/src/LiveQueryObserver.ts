@@ -48,7 +48,7 @@ export class LiveQueryObserver<
                     return;
                 }
                 const result = memorySource.cache.query(
-                    getQueryOrExpressions(queryKey),
+                    getQueryOrExpressions(memorySource.queryBuilder, queryKey),
                 );
                 const normalizedResult = normalizeRecordQueryResult(result);
                 if (normalizedResult.length > 0) {

@@ -27,7 +27,8 @@ export class LiveQueryAdapter {
     }
 
     private async connect() {
-        await this.client.getMemorySource().activated;
+        const memorySource = this.client.getMemorySource();
+        await memorySource.activated;
         if (this.disconnected) {
             return;
         }
@@ -36,9 +37,12 @@ export class LiveQueryAdapter {
         if (getQueryOrExpressions == null) {
             throw new Error("Missing meta.getQueryOrExpressions");
         }
-        const liveQuery = this.client
-            .getMemorySource()
-            .cache.liveQuery(getQueryOrExpressions(this.query.queryKey));
+        const liveQuery = memorySource.cache.liveQuery(
+            getQueryOrExpressions(
+                memorySource.queryBuilder,
+                this.query.queryKey,
+            ),
+        );
         this.client.getLogger().log("LiveQueryAdapter: created liveQuery:", {
             adapter: this,
             liveQuery,

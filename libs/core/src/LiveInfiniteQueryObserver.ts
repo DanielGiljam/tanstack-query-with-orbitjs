@@ -54,7 +54,11 @@ export class LiveInfiniteQueryObserver<
                     return;
                 }
                 const records = memorySource.cache.query<TQueryFnData>(
-                    getQueryOrExpressions(queryKey, 0),
+                    getQueryOrExpressions(
+                        memorySource.queryBuilder,
+                        queryKey,
+                        0,
+                    ),
                 );
                 if (records.length > 0) {
                     return {

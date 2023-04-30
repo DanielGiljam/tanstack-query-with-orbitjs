@@ -1,10 +1,12 @@
 import {MemorySource} from "@orbit/memory";
+import {RecordQueryBuilder} from "@orbit/records";
 import {QueryClient, QueryClientConfig, QueryKey} from "@tanstack/query-core";
 
 import {LiveQueryAdapterCache} from "./LiveQueryAdapterCache";
 import {normalizeRecordQueryResult} from "./utils";
 
 export type GetQueryOrExpressions<TQueryKey extends QueryKey = QueryKey> = (
+    queryBuilder: RecordQueryBuilder,
     queryKey: TQueryKey,
     pageParam?: number,
 ) => Parameters<MemorySource["query"]>[0];
@@ -36,7 +38,11 @@ const mergeLiveQueryClientConfig = (
                 const memorySource = config.memorySource;
                 return memorySource.activated.then(async () => {
                     const result = await memorySource.query(
-                        getQueryOrExpressions(ctx.queryKey, ctx.pageParam ?? 0),
+                        getQueryOrExpressions(
+                            memorySource.queryBuilder,
+                            ctx.queryKey,
+                            ctx.pageParam ?? 0,
+                        ),
                     );
                     const normalizedResult = normalizeRecordQueryResult(result);
                     if (normalizedResult.length > 0) {
