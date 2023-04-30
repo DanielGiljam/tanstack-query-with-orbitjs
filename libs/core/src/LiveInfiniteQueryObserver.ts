@@ -33,7 +33,7 @@ export class LiveInfiniteQueryObserver<
         super(client, {
             initialData: () => {
                 const enabled = options.enabled;
-                if (enabled !== true) {
+                if (enabled === false) {
                     return;
                 }
                 const queryKey = options.queryKey;

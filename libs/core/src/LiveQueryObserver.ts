@@ -31,7 +31,7 @@ export class LiveQueryObserver<
         super(client, {
             initialData: () => {
                 const enabled = options.enabled;
-                if (enabled !== true) {
+                if (enabled === false) {
                     return;
                 }
                 const queryKey = options.queryKey;
