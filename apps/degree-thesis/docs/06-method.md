@@ -95,7 +95,7 @@ I compare related work and [Tanstack Query][tq] against my checklist:
 
         The solution provides a way to synchronize the state between browser tabs.
 
--   Offline-support
+-   Offline support
 
     -   **Offline-first**
 
