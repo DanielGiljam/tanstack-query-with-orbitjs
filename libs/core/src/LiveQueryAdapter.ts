@@ -43,31 +43,9 @@ export class LiveQueryAdapter {
                 this.query.queryKey,
             ),
         );
-        this.client.getLogger().log("LiveQueryAdapter: created liveQuery:", {
-            adapter: this,
-            liveQuery,
-            queryKey: this.query.queryKey,
-        });
-        const unsubscribeFromLiveQuery = liveQuery.subscribe((update) => {
+        this.unsubscribeFromLiveQuery = liveQuery.subscribe((update) => {
             void this.onLiveQueryUpdate(update);
         });
-        this.client
-            .getLogger()
-            .log("LiveQueryAdapter: subscribed to liveQuery:", {
-                adapter: this,
-                liveQuery,
-                queryKey: this.query.queryKey,
-            });
-        this.unsubscribeFromLiveQuery = () => {
-            unsubscribeFromLiveQuery();
-            this.client
-                .getLogger()
-                .log("LiveQueryAdapter: unsubscribed from liveQuery:", {
-                    adapter: this,
-                    liveQuery,
-                    queryKey: this.query.queryKey,
-                });
-        };
     }
 
     disconnect() {

@@ -27,14 +27,6 @@ export class LiveQueryAdapterCache {
     private onQueryCacheNotifyEvent({type, query}: QueryCacheNotifyEvent) {
         let adapter = this.adapterMap[query.queryHash];
         const queryIsDisabled = query.isDisabled();
-        this.client
-            .getLogger()
-            .log("LiveQueryAdapterCache: before onQueryCacheNotifyEvent:", {
-                adapter,
-                eventType: type,
-                queryIsDisabled,
-                queryKey: query.queryKey,
-            });
         if (adapter != null) {
             if (type === "removed" || queryIsDisabled) {
                 adapter.disconnect();
@@ -49,13 +41,5 @@ export class LiveQueryAdapterCache {
                     });
             }
         }
-        this.client
-            .getLogger()
-            .log("LiveQueryAdapterCache: after onQueryCacheNotifyEvent:", {
-                adapter,
-                eventType: type,
-                queryIsDisabled,
-                queryKey: query.queryKey,
-            });
     }
 }
