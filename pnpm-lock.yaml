@@ -25,7 +25,6 @@ importers:
       '@emotion/server': ^11.10.0
       '@emotion/styled': ^11.10.6
       '@faker-js/faker': ^7.6.0
-      '@formkit/auto-animate': 1.0.0-beta.6
       '@lyrasearch/lyra': ^0.4.11
       '@lyrasearch/plugin-data-persistence': 0.1.1
       '@mantine/hooks': ^6.0.8
@@ -145,7 +144,6 @@ importers:
       '@emotion/server': 11.10.0
       '@emotion/styled': 11.10.6_36w5hsinjku373i4fj56ptnobm
       '@faker-js/faker': 7.6.0
-      '@formkit/auto-animate': 1.0.0-beta.6
       '@lyrasearch/lyra': 0.4.11
       '@lyrasearch/plugin-data-persistence': 0.1.1_lnlcllvovbofd7ft52tknizlpi
       '@mantine/hooks': 6.0.8_react@18.2.0
@@ -2929,10 +2927,6 @@ packages:
   /@faker-js/faker/7.6.0:
     resolution: {integrity: sha512-XK6BTq1NDMo9Xqw/YkYyGjSsg44fbNwYRx7QK2CuoQgyy+f1rrTDHoExVM5PsyXCtfl2vs2vVJ0MN0yN6LppRw==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
-    dev: true
-
-  /@formkit/auto-animate/1.0.0-beta.6:
-    resolution: {integrity: sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==}
     dev: true
 
   /@hapi/hoek/9.3.0:

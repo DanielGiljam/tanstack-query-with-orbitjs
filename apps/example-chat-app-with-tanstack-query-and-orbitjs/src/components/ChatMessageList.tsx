@@ -1,4 +1,3 @@
-import autoAnimate from "@formkit/auto-animate";
 import {useIntersection} from "@mantine/hooks";
 import {
     QueryMeta,
@@ -80,11 +79,6 @@ export const ChatMessageList = ({chatRoomId}: ChatMessageListProps) => {
     const {ref: loadingIndicatorRef, entry} = useIntersection({
         root: listRef.current,
     });
-    React.useEffect(() => {
-        if (listRef.current != null) {
-            autoAnimate(listRef.current);
-        }
-    }, []);
     React.useEffect(() => {
         if (entry?.isIntersecting) {
             fetchNextPage().catch((error) => console.error(error));
