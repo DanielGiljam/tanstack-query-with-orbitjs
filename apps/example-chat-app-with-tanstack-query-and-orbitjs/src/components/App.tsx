@@ -1,25 +1,22 @@
-import {useQueryClient} from "@tanstack/react-query";
+import {useLiveQueryClient} from "@tanstack-query-with-orbitjs/react";
 import React from "react";
 import {io} from "socket.io-client";
 
 import {onNewChatMessage} from "../query";
-import {
-    ChatMessageWithSender as TChatMessage,
-    ChatRoomWithLatestChatMessage as TChatRoom,
-} from "../types";
+import {ChatMessageWithSender, ChatRoomRecord} from "../types";
 
 import {ChatRoom} from "./ChatRoom";
 import {ChatRoomList} from "./ChatRoomList";
 
 export const App = () => {
-    const queryClient = useQueryClient();
+    const queryClient = useLiveQueryClient();
     const [selectedChatRoom, setSelectedChatRoom] =
-        React.useState<TChatRoom | null>(null);
+        React.useState<ChatRoomRecord | null>(null);
     React.useEffect(() => {
         const socket = io({path: "/api/socket"});
         socket.connect();
         console.log("connected to socket", socket);
-        socket.on("new-chat-message", (chatMessage: TChatMessage) => {
+        socket.on("new-chat-message", (chatMessage: ChatMessageWithSender) => {
             onNewChatMessage(queryClient, chatMessage).catch((error) =>
                 console.error(error),
             );

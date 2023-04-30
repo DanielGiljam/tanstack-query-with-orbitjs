@@ -1,29 +1,16 @@
 import autoAnimate from "@formkit/auto-animate";
 import {useIntersection} from "@mantine/hooks";
 import {
-    GetNextPageParamFunction,
-    InfiniteData,
-    QueryFunction,
-    useInfiniteQuery,
-} from "@tanstack/react-query";
+    QueryMeta,
+    useLiveInfiniteQuery,
+} from "@tanstack-query-with-orbitjs/react";
+import {GetNextPageParamFunction, InfiniteData} from "@tanstack/react-query";
 import React from "react";
 
-import {ChatMessageWithSender as TChatMessage} from "../types";
+import {ChatMessageRecord as TChatMessage} from "../types";
 
 import {ChatMessageListItem} from "./ChatMessageListItem";
 import {LoadingIndicator} from "./LoadingIndicator";
-
-const queryFn: QueryFunction<
-    TChatMessage[],
-    ["chat-messages", string]
-> = async (ctx) => {
-    const res = await fetch(
-        `/api/chat-room/${ctx.queryKey[1]}/chat-messages?count=${10}&offset=${
-            (ctx.pageParam ?? 0) * 10
-        }`,
-    );
-    return await res.json();
-};
 
 const getNextPageParam: GetNextPageParamFunction<TChatMessage[]> = (
     lastPage,
@@ -56,17 +43,38 @@ const select = (data: InfiniteData<TChatMessage[]>) => {
     };
 };
 
+const meta: QueryMeta = {
+    getQueryOrExpressions: (qb, [, chatRoomId], pageParam) => {
+        const term = qb
+            .findRelatedRecords(
+                {type: "chatRoom", id: chatRoomId as string},
+                "chatMessages",
+            )
+            .sort("-createdAt");
+        if (pageParam == null) {
+            return term;
+        }
+        return term.page({offset: pageParam * 10, limit: 10}).options({
+            remoteDataTransformer: "ChatMessagesTransformer",
+            remotePath: `/api/chat-room/${
+                chatRoomId as string
+            }/chat-messages?count=${10}&offset=${(pageParam ?? 0) * 10}`,
+        });
+    },
+    pageSize: 10,
+};
+
 interface ChatMessageListProps {
     chatRoomId: string;
 }
 
 export const ChatMessageList = ({chatRoomId}: ChatMessageListProps) => {
     const {data, fetchNextPage, hasNextPage, isFetchingNextPage} =
-        useInfiniteQuery({
+        useLiveInfiniteQuery<TChatMessage[]>({
             queryKey: ["chat-messages", chatRoomId],
-            queryFn,
             getNextPageParam,
             select,
+            meta,
         });
     const listRef = React.useRef<HTMLUListElement>(null);
     const {ref: loadingIndicatorRef, entry} = useIntersection({

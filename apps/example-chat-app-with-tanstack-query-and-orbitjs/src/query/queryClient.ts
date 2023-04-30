@@ -1,3 +1,7 @@
-import {QueryClient} from "@tanstack/react-query";
+import {LiveQueryClient} from "@tanstack-query-with-orbitjs/react";
 
-export const queryClient = new QueryClient();
+import {getCoordinator} from "../orbit";
+
+export const queryClient = new LiveQueryClient({
+    memorySource: getCoordinator().getSource("memory"),
+});

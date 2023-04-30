@@ -1,4 +1,4 @@
-import {ChatRoomWithLatestChatMessage as TChatRoom} from "../types";
+import {ChatRoomRecord as TChatRoom} from "../types";
 
 import {ChatMessageInput} from "./ChatMessageInput";
 import {ChatMessageList} from "./ChatMessageList";
@@ -11,7 +11,9 @@ export const ChatRoom = ({chatRoom}: ChatRoomProps) => {
     return (
         <div className={"flex flex-grow flex-col"}>
             <div className={"h-10 px-4 py-2"}>
-                <span className={"text-xl leading-none"}>{chatRoom.name}</span>
+                <span className={"text-xl leading-none"}>
+                    {chatRoom.attributes.name}
+                </span>
             </div>
             <hr />
             <div className={"relative flex-grow overflow-hidden"}>

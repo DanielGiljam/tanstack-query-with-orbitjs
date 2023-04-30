@@ -1,24 +1,16 @@
 import autoAnimate from "@formkit/auto-animate";
 import {useIntersection} from "@mantine/hooks";
 import {
-    GetNextPageParamFunction,
-    InfiniteData,
-    QueryFunction,
-    useInfiniteQuery,
-} from "@tanstack/react-query";
+    QueryMeta,
+    useLiveInfiniteQuery,
+} from "@tanstack-query-with-orbitjs/react";
+import {GetNextPageParamFunction, InfiniteData} from "@tanstack/react-query";
 import React from "react";
 
-import {ChatRoomWithLatestChatMessage as TChatRoom} from "../types";
+import {ChatRoomRecord as TChatRoom} from "../types";
 
 import {ChatRoomListItem} from "./ChatRoomListItem";
 import {LoadingIndicator} from "./LoadingIndicator";
-
-const queryFn: QueryFunction<TChatRoom[]> = async (ctx) => {
-    const res = await fetch(
-        `/api/chat-rooms?count=${10}&offset=${(ctx.pageParam ?? 0) * 10}`,
-    );
-    return await res.json();
-};
 
 const getNextPageParam: GetNextPageParamFunction<TChatRoom[]> = (
     lastPage,
@@ -49,6 +41,26 @@ const select = (data: InfiniteData<TChatRoom[]>) => {
     };
 };
 
+const meta: QueryMeta = {
+    getQueryOrExpressions: (qb, _queryKey, pageParam) => {
+        const term = qb
+            .findRecords("chatRoom")
+            .sort("-latestChatMessageCreatedAt");
+        // pageParam being nullish is a sign that
+        // the function is being called to instantiate
+        // the live query, in which case we DON'T want to
+        // "paginate" the query
+        if (pageParam == null) {
+            return term;
+        }
+        return term.page({offset: pageParam * 10, limit: 10}).options({
+            remoteDataTransformer: "ChatRoomsTransformer",
+            remotePath: `/api/chat-rooms?count=${10}&offset=${(pageParam ?? 0) * 10}`,
+        });
+    },
+    pageSize: 10,
+};
+
 interface ChatRoomListProps {
     selectedChatRoom: TChatRoom | null;
     setSelectedChatRoom: React.Dispatch<React.SetStateAction<TChatRoom | null>>;
@@ -59,11 +71,11 @@ export const ChatRoomList = ({
     setSelectedChatRoom,
 }: ChatRoomListProps) => {
     const {data, fetchNextPage, hasNextPage, isFetchingNextPage} =
-        useInfiniteQuery({
+        useLiveInfiniteQuery({
             queryKey: ["chat-rooms"],
-            queryFn,
             getNextPageParam,
             select,
+            meta,
         });
     const listRef = React.useRef<HTMLUListElement>(null);
     const {ref: loadingIndicatorRef, entry} = useIntersection({
