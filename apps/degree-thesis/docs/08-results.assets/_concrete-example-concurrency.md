@@ -1,8 +1,17 @@
-The `onNewChatMessage` function we just wrote does not take into account if any of the queries which cached data we are operating on are currently in-flight. This could affect the outcome in different unwanted ways.
+The [`onNewChatMessage` function](#on-new-chat-message-function) does not
+take into consideration if any of the queries whose cached data it's
+modifying are currently in-flight. This could affect the outcome in
+different unwanted ways.
 
-<!-- TODO: list ways in which it could affect the outcome in different unwanted ways -->
-
-To dodge this potential bullet, we need to cancel the query we are currently operating on if it's currently in-flight. We can do this by using [`QueryClient#cancelQueries`](https://tanstack.com/query/latest/docs/reference/QueryClient#queryclientcancelqueries). Then after doing our synchronous query cache update, if the query was being fetched prior to our update, we should call [`QueryClient#refetchQueries`](https://tanstack.com/query/latest/docs/reference/QueryClient#queryclientrefetchqueries) to make sure that whatever was being fetched prior to our update still gets fetched in the end.
+To dodge this potential bullet, the query which the function is
+currently operating on must be cancelled if it's currently in-flight. It
+can be done by using
+[`QueryClient#cancelQueries`](https://tanstack.com/query/v4/docs/reference/QueryClient#queryclientcancelqueries).
+Then after doing the synchronous query cache update, if the query was
+being fetched prior to the update, the function must call
+[`QueryClient#refetchQueries`](https://tanstack.com/query/v4/docs/reference/QueryClient#queryclientrefetchqueries)
+to make sure that whatever was being fetched prior to the update still
+gets fetched in the end.
 
 ```ts title="src/socket-message-handler/onNewChatMessage.ts"
 export const onNewChatMessage = async (
@@ -73,7 +82,9 @@ export const onNewChatMessage = async (
 };
 ```
 
-Since `fetchChatRoom` is asynchronous, by the time it's finished, the cached data for the `["chat-rooms"]` query might already have changed and differ from what's in `newData`.
+Since `fetchChatRoom` is asynchronous, by the time it's finished, the
+cached data for the `["chat-rooms"]` query might already have changed
+and differ from what's in `newData`.
 
 ```ts title="src/socket-message-handler/onNewChatMessage.ts"
 export const onNewChatMessage = async (
@@ -182,4 +193,5 @@ export const onNewChatMessage = async (
 };
 ```
 
-Now that we've dealt with concurrency, we can call it a day for this particular query cache updater.
+Now that concurrency has been taken into consideration, this particular
+query cache updater is finished.

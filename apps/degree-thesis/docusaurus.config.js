@@ -6,8 +6,7 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "Making Tanstack Query feel more like the Cloud Firestore client-side SDK",
-    tagline: '"Signals", but for data.',
+    title: "Making TanStack Query feel more like the Cloud Firestore client-side SDK",
     url: process.env.DOCUSAURUS_URL || "http://localhost:3000",
     baseUrl: "/degree-thesis/",
     onBrokenLinks: "throw",
@@ -40,7 +39,7 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: "Making Tanstack Query feel more like the Cloud Firestore client-side SDK",
+                title: "Making TanStack Query feel more like the Cloud Firestore client-side SDK",
             },
             footer: {
                 style: "dark",

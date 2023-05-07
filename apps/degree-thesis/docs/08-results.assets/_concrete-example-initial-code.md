@@ -1,4 +1,5 @@
-You would probably start out by creating an `App` component that looks something like this:
+You would probably start out by creating an `App` component that looks
+something like this:
 
 ```tsx title="src/components/App.tsx"
 export const App = () => {
@@ -20,11 +21,15 @@ export const App = () => {
 
 :::note
 
-For the sake of brevity, only the most relevant source code for this example is shown. For the full source code, see the [GitHub repository](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/apps/example-chat-app-with-tanstack-query).
+For the sake of brevity only the most relevant source code
+for this example is shown. For the full source code, see the [GitHub
+repository](https://github.com/DanielGiljam/tanstack-query-with-orbitjs).
 
 :::
 
 Then you would go on to implement the `ChatRoomList` component…
+
+<div id="chat-room-list-component" style={{scrollMarginTop: "calc(var(--ifm-navbar-height) + 0.5rem)"}}>
 
 ```tsx title="src/components/ChatRoomList.tsx"
 const queryFn = async () => {
@@ -57,6 +62,8 @@ export const ChatRoomList = ({
 };
 ```
 
+</div>
+
 …and the `ChatRoom` component.
 
 ```tsx title="src/components/ChatRoom.tsx"
@@ -70,7 +77,7 @@ export const ChatRoom = ({chatRoomId}: ChatRoomProps) => {
 };
 ```
 
-Now, we have two more components to implement.
+Now, there are two more components to implement.
 
 The `ChatMessageList` component…
 

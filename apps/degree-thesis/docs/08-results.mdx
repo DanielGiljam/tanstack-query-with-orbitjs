@@ -1,5 +1,3 @@
-import Admonition from "@theme/Admonition";
-
 import ConcreteExampleInitialCode from "./08-results.assets/_concrete-example-initial-code.md";
 import ConcreteExampleUpdatingUI from "./08-results.assets/_concrete-example-updating-ui.md";
 import ConcreteExampleHandlingCaseWhereChatRoomDoesNotExist from "./08-results.assets/_concrete-example-handling-case-where-chat-room-does-not-exist.md";
@@ -9,24 +7,17 @@ import ConcreteExampleConcurrency from "./08-results.assets/_concrete-example-co
 
 ## A concrete example of the problem
 
-Thanks to the method I chose when implementing the solution, there's now a concrete example of the problem, which I can be use to demonstrate the problem in a practical step-by-step manner.
+Thanks to the method I chose when implementing the solution, there's
+now a concrete example of the problem, which can be used to demonstrate
+the problem in a practical step-by-step manner.
 
 A practical step-by-step demonstration of the problem follows below.
 
-Imagine, you're building a typical (current age) chat application. An application like
-
--   [Slack](https://slack.com/),
--   [Discord](https://discord.com/),
--   [Telegram](https://telegram.org/),
--   or [WhatsApp](https://whatsapp.com/).
-
-The UI is expected to look something like this:
-
-![typical chat application UI](08-results.assets/typical-chat-app-ui.png)
-
-On the left-hand side, you have a list of chat rooms. On the right-hand side, you have a list of messages in the currently selected chat room.
-
-Now, imagine that you're building the UI for this application using [React.js](https://reactjs.org) and you're using [Tanstack Query][tq] as your data fetching solution.
+Imagine you're building the chat application described in [_Methods:
+Implementation: Developing an example
+application_](methods#developing-an-example-application), using
+[React.js](https://react.dev/) and [TanStack
+Query](https://tanstack.com/query).
 
 ### Initial code
 
@@ -46,20 +37,143 @@ Now, imagine that you're building the UI for this application using [React.js](h
 
 ### Summing it up
 
-The `onNewChatMessage` function was just one query cache updater. When our app grows, we'll be creating more of these updaters, and while the code can be organized into neat file structures and parts of it can be extracted into helper functions that can be reused across those files, there will no doubt still be a lot of query cache updating code to maintain.
+The `onNewChatMessage` function was just one query cache updater. As the
+app grows, the need to create more of these updaters will arise, and
+while the code can be organized into neat file structures and parts of
+it can be extracted into helper functions that can be reused across
+those files, there will still no doubt be a lot of query cache updating
+code to maintain.
 
-A single forgotten conditional statement or unhandled edge-case in any of these query cache updaters can lead to a cascade of bugs that are hard to track down and fix.
+A single forgotten conditional statement or unhandled edge-case in any
+of these query cache updaters can lead to a cascade of bugs that are
+hard to track down and fix.
 
-Whenever there are changes to the data model or the UI of the application, you'll likely have to make some changes to the query cache updaters as well, since they are tightly coupled with both the data model and the UI of the application.
+Whenever there are changes to the data model or the UI of the
+application, it's likely that some changes need to be made to the query
+cache updaters as well, since they are tightly coupled with both the
+data model and the UI of the application.
 
-This code is not something you should have to write and maintain yourself, especially since there are other solutions (such as the [Cloud Firestore](https://firebase.google.com/products/firestore) client-side SDK) that prove that the desired functionality can be achieved in other ways which eliminate the need for you to write this kind of code and — in addition to that — work more reliably.
+This code is not something you should have to write and maintain
+yourself, especially since there are other solutions (such as
+[Orbit.js](https://orbitjs.com/) and the [Cloud
+Firestore](https://firebase.google.com/products/firestore) client-side
+SDK) that prove that the desired functionality can be achieved in other
+ways which eliminate the need for you to write this kind of code and —
+in addition to that — work more reliably.
 
 ## The solution
 
-<Admonition type={"caution"} title={"TODO"} icon={"🚧"}>
+The solution comprises of two libraries:
 
-Write about the solution.
+-   [`@tanstack-query-with-orbitjs/core`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core)
 
-</Admonition>
+-   [`@tanstack-query-with-orbitjs/react`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/react)
 
-[tq]: https://tanstack.com/query
+### `@tanstack-query-with-orbitjs/core`
+
+[`@tanstack-query-with-orbitjs/core`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core)
+is effectively an extension of, a wrapper of, a flavor of or a preset
+for
+[`@tanstack/query-core`](https://github.com/TanStack/query/tree/v4.16.1/packages/query-core);
+the UI framework agnostic core of [TanStack
+Query](https://tanstack.com/query).
+
+[`@tanstack-query-with-orbitjs/core`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core)
+is also UI framework agnostic. As the name suggests, it's a library for
+using [TanStack Query](https://tanstack.com/query) together with
+[Orbit.js](https://orbitjs.com/). It exports the following items:
+
+-   **`LiveQueryClient`**<br/>
+    Replacement for
+    [`QueryClient`](https://tanstack.com/query/v4/docs/reference/QueryClient).
+    (Extends
+    [`QueryClient`](https://tanstack.com/query/v4/docs/reference/QueryClient)
+    class.)
+
+-   **`LiveQueryClientConfig`**<br/>
+    Type definition. (Extends
+    [`QueryClientConfig`](https://github.com/TanStack/query/blob/v4.16.1/packages/query-core/src/types.ts#L708-L713)
+    interface.)
+
+-   **`QueryMeta`**<br/>
+    Module augmented, and declaration merged more specific version of
+    the
+    [`QueryMeta`](https://github.com/TanStack/query/blob/v4.16.1/packages/query-core/src/types.ts#L51-L53)
+    interface.
+
+-   **`GetQueryOrExpressions`**<br/>
+    Type definition for a function signature which has a central role
+    when using the library.
+
+-   **`LiveQueryObserver`**<br/>
+    Replacement for
+    [`QueryObserver`](https://tanstack.com/query/v4/docs/reference/QueryObserver).
+    (Extends
+    [`QueryObserver`](https://tanstack.com/query/v4/docs/reference/QueryObserver)
+    class.)
+
+-   **`LiveInfiniteQueryObserver`**<br/>
+    Replacement for
+    [`InfiniteQueryObserver`](https://tanstack.com/query/v4/docs/reference/InfiniteQueryObserver).
+    (Extends
+    [`InfiniteQueryObserver`](https://tanstack.com/query/v4/docs/reference/InfiniteQueryObserver)
+    class.)
+
+Using
+[`@tanstack-query-with-orbitjs/core`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core)
+differs from using
+[`@tanstack/query-core`](https://github.com/TanStack/query/tree/v4.16.1/packages/query-core)
+in that the `LiveQueryClient` constructor requires that you pass it a
+reference to an [Orbit.js
+`MemorySource`](https://orbitjs.com/docs/api/memory/classes/MemorySource)
+and in that you don't pass
+[`queryFn`](https://tanstack.com/query/v4/docs/guides/query-functions)s to
+observers when instantiating them. Instead, the library makes use of the
+meta object that
+[`@tanstack/query-core`](https://github.com/TanStack/query/tree/v4.16.1/packages/query-core)
+associates with each query. In the meta object, you specify a
+`getQueryOrExpressions` function which returns the query or expression
+which the [default
+`queryFn`](https://tanstack.com/query/v4/docs/guides/default-query-function)
+uses to query the memory source and which is used to create an [Orbit.js
+live query](https://orbitjs.com/docs/querying-data#live-queries) which
+automatically keeps your query up to date.
+
+For more information, check out the library's
+[`README.md`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core),
+where how to use the library is covered in greater detail, or check out
+the [source code for the example chat
+application](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/apps/example-chat-app-with-tanstack-query-and-orbitjs)
+which uses this solution.
+
+### `@tanstack-query-with-orbitjs/react`
+
+[`@tanstack-query-with-orbitjs/react`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/react)
+contains [React](https://react.dev/) bindings for using
+[`@tanstack-query-with-orbitjs/core`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core)
+in a [React](https://react.dev/) application. It exports:
+
+-   **`useLiveQuery`**<br/>
+    Same as
+    [`useQuery`](https://tanstack.com/query/v4/docs/react/reference/useQuery),
+    but for when using
+    [`@tanstack-query-with-orbitjs/core`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core).
+
+-   **`useLiveInfiniteQuery`**<br/>
+    Same as
+    [`useInfiniteQuery`](https://tanstack.com/query/v4/docs/react/reference/useInfiniteQuery),
+    but for when using
+    [`@tanstack-query-with-orbitjs/core`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core).
+
+-   **`useLiveQueryClient`**<br/>
+    Same as
+    [`useQueryClient`](https://tanstack.com/query/v4/docs/react/reference/useQueryClient),
+    but for when using
+    [`@tanstack-query-with-orbitjs/core`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/core).
+
+For more information, check out the library's
+[`README.md`](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/libs/react),
+where how to use the library is covered in greater detail, or check out
+the [source code for the example chat
+application](https://github.com/DanielGiljam/tanstack-query-with-orbitjs/tree/main/apps/example-chat-app-with-tanstack-query-and-orbitjs)
+which uses this solution.
