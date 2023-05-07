@@ -54,7 +54,9 @@ const meta: QueryMeta = {
         }
         return term.page({offset: pageParam * 10, limit: 10}).options({
             remoteDataTransformer: "ChatRoomsTransformer",
-            remotePath: `/api/chat-rooms?count=${10}&offset=${(pageParam ?? 0) * 10}`,
+            remotePath: `/api/chat-rooms?count=${10}&offset=${
+                (pageParam ?? 0) * 10
+            }`,
         });
     },
     pageSize: 10,
