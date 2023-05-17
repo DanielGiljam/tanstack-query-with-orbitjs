@@ -12,7 +12,17 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": ".devcontainer/post-create-command.bash"
+	"postCreateCommand": ".devcontainer/post-create-command.bash",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"EditorConfig.EditorConfig",
+				"esbenp.prettier-vscode",
+				"firsttris.vscode-jest-runner",
+				"nrwl.angular-console"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},
