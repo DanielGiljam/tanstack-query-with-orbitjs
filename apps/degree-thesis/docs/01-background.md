@@ -42,12 +42,6 @@ It provides the following value:
     -   Graphical "devtools"[^4],
         which is great for debugging while developing.
 
-<Admonition type={"info"} icon={"📏"} title={"Delimitation #1"}>
-
-In this thesis, the underlying assumption is that [Tanstack Query][tq] is part of our frontend stack, and that is not going to change.
-
-</Admonition>
-
 But while it solves many problems and challenges commonly faced when
 developing web applications, it does not solve all of them. Or by
 solving some problems and challenges, it takes you to the next level and

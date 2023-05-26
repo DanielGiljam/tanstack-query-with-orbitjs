@@ -34,7 +34,7 @@ SDK.
 The source code for the web page edition of this thesis, as well as the
 examples and libraries produced as results of this thesis can be found
 on GitHub: [https://github.com/DanielGiljam/tanstack-query-with-orbitjs
-](https://github.com/DanielGiljam/tanstack-query-with-orbitjs).
+](https://github.com/DanielGiljam/tanstack-query-with-orbitjs)
 
 :::
 
