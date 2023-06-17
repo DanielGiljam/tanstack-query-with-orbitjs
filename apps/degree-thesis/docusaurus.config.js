@@ -43,7 +43,7 @@ const config = {
             },
             footer: {
                 style: "dark",
-                copyright: `Copyright © ${new Date().getFullYear()} Daniel Giljam.`,
+                copyright: "Copyright © 2023 Daniel Giljam.",
             },
             colorMode: {
                 disableSwitch: true,
