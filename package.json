@@ -120,6 +120,7 @@
         "jest": "28.1.1",
         "jest-environment-jsdom": "28.1.1",
         "jsdom": "~20.0.3",
+        "lerna": "7.0.2",
         "lodash": "^4.17.21",
         "nx": "15.6.3",
         "postcss": "^8.4.21",
