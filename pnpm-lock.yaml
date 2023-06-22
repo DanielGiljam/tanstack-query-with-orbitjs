@@ -342,7 +342,14 @@ importers:
 
   apps/example-chat-app-with-tanstack-query-and-orbitjs: {}
 
-  libs/core: {}
+  libs/core:
+    dependencies:
+      '@orbit/records':
+        specifier: '*'
+        version: 0.17.0
+      '@tanstack/query-core':
+        specifier: '*'
+        version: 4.26.1(patch_hash=l7dsego345qosfyyd4c7klaqui)
 
   libs/eslint-configs/javascript:
     devDependencies:
@@ -386,7 +393,11 @@ importers:
         specifier: workspace:^
         version: link:../javascript
 
-  libs/react: {}
+  libs/react:
+    dependencies:
+      '@tanstack-query-with-orbitjs/core':
+        specifier: workspace:^
+        version: link:../core
 
 packages:
 
@@ -4665,14 +4676,12 @@ packages:
     resolution: {integrity: sha512-wzaA7d04QU+Bi/ebVk100vPhVNDe8CHiACK7h0FjX+qTa54M9YmCNOOlXHj6PvO6GWY6s5eDBaloJdijKXjFHQ==}
     dependencies:
       '@orbit/utils': 0.17.0
-    dev: true
 
   /@orbit/data@0.17.0:
     resolution: {integrity: sha512-aaF40uriJ0SBXjoqyZ5/03Cj1XVxYzDwZnrRlM7GjI1lSd6f6OwyoDeru5WoflQvDTE3ILej1h0v1++fh9H5/A==}
     dependencies:
       '@orbit/core': 0.17.0
       '@orbit/utils': 0.17.0
-    dev: true
 
   /@orbit/immutable@0.17.0:
     resolution: {integrity: sha512-WImAn7I6I35lXzXq/JA5d23yPGV8Vv+xn7DM6lysPJ3ZWOXBF7aBTDJAXYxNtgdEEJnat83PctUDO/QWEKofJQ==}
@@ -4721,17 +4730,14 @@ packages:
       '@orbit/data': 0.17.0
       '@orbit/utils': 0.17.0
       '@orbit/validators': 0.17.0
-    dev: true
 
   /@orbit/utils@0.17.0:
     resolution: {integrity: sha512-nRxzl0pvFHK9+g0WhQMq++6EZ5YQjPxEkqRDAeIfPJtX2+hu8hG7Oyz/KzHJRWimzjC9nRDL4M2HatZleFCwNg==}
-    dev: true
 
   /@orbit/validators@0.17.0:
     resolution: {integrity: sha512-OOcrTWdai0ce7CEXPsVXOw6oxHVCbE7W9nSH1Fn3B28VpzUnKQ9O/d59e3S5E1DTFXZpNvcVBAVsohQS+PGm+g==}
     dependencies:
       '@orbit/utils': 0.17.0
-    dev: true
 
   /@parcel/watcher@2.0.4:
     resolution: {integrity: sha512-cTDi+FUDBIUOBKEtj+nhiJ71AZVlkAsQFuGQTun5tV9mwQBQgZvhCzG+URPQc8myeN32yRVZEfVAPCs1RW+Jvg==}
@@ -5247,7 +5253,6 @@ packages:
 
   /@tanstack/query-core@4.26.1(patch_hash=l7dsego345qosfyyd4c7klaqui):
     resolution: {integrity: sha512-Zrx2pVQUP4ndnsu6+K/m8zerXSVY8QM+YSbxA1/jbBY21GeCd5oKfYl92oXPK0hPEUtoNuunIdiq0ZMqLos+Zg==}
-    dev: true
     patched: true
 
   /@tanstack/react-query-devtools@4.26.1(@tanstack/react-query@4.26.1)(react-dom@18.2.0)(react@18.2.0):

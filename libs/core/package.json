@@ -1,4 +1,10 @@
 {
     "name": "@tanstack-query-with-orbitjs/core",
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "dependencies": {
+        "@tanstack/query-core": "*"
+    },
+    "peerDependencies": {
+        "@orbit/records": "*"
+    }
 }

@@ -2,7 +2,7 @@ const {join} = require("path");
 
 module.exports = {
     extends: ["../../.eslintrc.json"],
-    ignorePatterns: ["!**/*", ".eslintrc.js"],
+    ignorePatterns: ["!**/*", ".eslintrc.js", "node_modules"],
     overrides: [
         {
             files: ["*.ts", "*.tsx", "*.js", "*.jsx"],
