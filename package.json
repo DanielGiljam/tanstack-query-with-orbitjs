@@ -6,6 +6,12 @@
         "name": "Daniel Giljam",
         "url": "https://github.com/DanielGiljam"
     },
+    "homepage": "https://github.com/DanielGiljam/tanstack-query-with-orbitjs#readme",
+    "bugs": "https://github.com/DanielGiljam/tanstack-query-with-orbitjs/issues?q=is%3Aissue+is%3Aopen",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DanielGiljam/tanstack-query-with-orbitjs.git"
+    },
     "scripts": {
         "type-check": "nx affected --target=type-check --parallel",
         "lint": "nx affected --target=lint --parallel --cache --maxWarnings=0",
