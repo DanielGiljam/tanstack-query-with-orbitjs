@@ -2,7 +2,10 @@
     "name": "tanstack-query-with-orbitjs",
     "version": "0.0.0",
     "license": "MIT",
-    "author": "Daniel Giljam (https://github.com/DanielGiljam)",
+    "author": {
+        "name": "Daniel Giljam",
+        "url": "https://github.com/DanielGiljam"
+    },
     "scripts": {
         "type-check": "nx affected --target=type-check --parallel",
         "lint": "nx affected --target=lint --parallel --cache --maxWarnings=0",
