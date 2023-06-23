@@ -1,6 +1,9 @@
 {
     "name": "@tanstack-query-with-orbitjs/core",
     "version": "0.0.1",
+    "scripts": {
+        "build": "tsup"
+    },
     "dependencies": {
         "@tanstack/query-core": "*"
     },
