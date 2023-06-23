@@ -1,0 +1,26 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index d7460dd672753dca2776c0e934d5c35dae8ee736..635b8e8e0982edbf27ae300d7ea0243605a8d98a 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -353,6 +353,7 @@ type DtsConfig = {
+      * This option takes higher priority than `compilerOptions` in tsconfig.json
+      */
+     compilerOptions?: any;
++    respectExternal?: boolean;
+ };
+ type BannerOrFooter = {
+     js?: string;
+diff --git a/dist/rollup.js b/dist/rollup.js
+index 44f4cb02111ce2961d4e98224ee1fe1ee2467391..6b893db888e052354071fac8842b753116279590 100644
+--- a/dist/rollup.js
++++ b/dist/rollup.js
+@@ -7929,7 +7929,8 @@ var getRollupConfig = async (options) => {
+             preserveSymlinks: false,
+             // Ensure we can parse the latest code
+             target: _typescript2.default.ScriptTarget.ESNext
+-          }
++          },
++          respectExternal: dtsOptions.respectExternal,
+         }),
+         fixEnumDeclaration
+       ].filter(Boolean),
