@@ -5,6 +5,7 @@
     "createRelease": "github",
     "npmClient": "pnpm",
     "message": "release: publish new versions of packages",
+    "private": false,
     "useNx": true,
     "version": "independent"
 }
