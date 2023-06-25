@@ -43,6 +43,24 @@ export default defineConfig({
         pkg.author = rootPkg.author;
         pkg.repository = {...rootPkg.repository};
         pkg.repository.directory = `libs/${projectName}`;
+        for (const dependency in pkg.dependencies) {
+            const version = pkg.dependencies[dependency];
+            if (version === "*") {
+                pkg.dependencies[dependency] =
+                    rootPkg.dependencies[dependency] ??
+                    rootPkg.devDependencies[dependency] ??
+                    version;
+            }
+        }
+        for (const dependency in pkg.peerDependencies) {
+            const version = pkg.peerDependencies[dependency];
+            if (version === "*") {
+                pkg.peerDependencies[dependency] =
+                    rootPkg.dependencies[dependency] ??
+                    rootPkg.devDependencies[dependency] ??
+                    version;
+            }
+        }
         await writeJsonFile(`${outDir}/package.json`, pkg);
         console.log(
             "  - Merged package.json and ../../package.json and wrote to out directory.",

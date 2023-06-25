@@ -62,6 +62,15 @@ export default defineConfig(async () => {
             pkg.author = rootPkg.author;
             pkg.repository = {...rootPkg.repository};
             pkg.repository.directory = `libs/${projectName}`;
+            for (const dependency in pkg.dependencies) {
+                const version = pkg.dependencies[dependency];
+                if (version === "*") {
+                    pkg.dependencies[dependency] =
+                        rootPkg.dependencies[dependency] ??
+                        rootPkg.devDependencies[dependency] ??
+                        version;
+                }
+            }
             pkg.dependencies = {
                 ...pkg.dependencies,
                 ...reactQueryPkg.dependencies,
