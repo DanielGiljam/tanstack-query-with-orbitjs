@@ -403,7 +403,7 @@ importers:
   libs/react:
     dependencies:
       '@tanstack-query-with-orbitjs/core':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../core
     publishDirectory: ../../dist/libs/react
 

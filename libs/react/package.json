@@ -18,7 +18,7 @@
         "prepack": "pnpm build"
     },
     "dependencies": {
-        "@tanstack-query-with-orbitjs/core": "workspace:^"
+        "@tanstack-query-with-orbitjs/core": "workspace:*"
     },
     "publishConfig": {
         "access": "public",
