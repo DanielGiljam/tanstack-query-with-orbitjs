@@ -1,6 +1,18 @@
 {
     "name": "@tanstack-query-with-orbitjs/react",
     "version": "0.0.1",
+    "description": "React bindings for using TanStack Query with Orbit.js.",
+    "keywords": [
+        "orbit",
+        "orbit.js",
+        "data",
+        "synchronization",
+        "tanstack-query",
+        "tanstack",
+        "query",
+        "react-query",
+        "react"
+    ],
     "scripts": {
         "build": "tsup",
         "prepack": "pnpm build"

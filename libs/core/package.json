@@ -1,6 +1,17 @@
 {
     "name": "@tanstack-query-with-orbitjs/core",
     "version": "0.0.1",
+    "description": "A library for using TanStack Query with Orbit.js.",
+    "keywords": [
+        "orbit",
+        "orbit.js",
+        "data",
+        "synchronization",
+        "tanstack-query",
+        "tanstack",
+        "query",
+        "react-query"
+    ],
     "scripts": {
         "build": "tsup",
         "prepack": "pnpm build"
