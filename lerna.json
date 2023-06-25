@@ -1,0 +1,10 @@
+{
+    "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+    "allowBranch": "main",
+    "conventionalCommits": true,
+    "createRelease": "github",
+    "npmClient": "pnpm",
+    "message": "release: publish new versions of packages",
+    "useNx": true,
+    "version": "independent"
+}
