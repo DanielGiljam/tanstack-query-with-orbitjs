@@ -70,6 +70,7 @@ export default defineConfig(async () => {
                 ...pkg.peerDependencies,
                 ...reactQueryPkg.peerDependencies,
             };
+            pkg.peerDependenciesMeta = reactQueryPkg.peerDependenciesMeta;
             await writeJsonFile(`${outDir}/package.json`, pkg);
             console.log(
                 "  - Merged package.json and ../../package.json and wrote to out directory.",
