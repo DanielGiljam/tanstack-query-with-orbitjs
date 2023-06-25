@@ -10,5 +10,9 @@
     },
     "peerDependencies": {
         "@orbit/records": "*"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "../../dist/libs/core"
     }
 }

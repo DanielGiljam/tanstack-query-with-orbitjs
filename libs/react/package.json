@@ -7,5 +7,9 @@
     },
     "dependencies": {
         "@tanstack-query-with-orbitjs/core": "workspace:^"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "../../dist/libs/react"
     }
 }
