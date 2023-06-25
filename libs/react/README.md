@@ -1,11 +1,11 @@
-# react
+# `@tanstack-query-with-orbitjs/react`
 
-This library was generated with [Nx](https://nx.dev).
+React bindings for using [TanStack Query](https://tanstack.com/query) with [Orbit.js](https://orbitjs.com/).
 
-## Building
+## Usage
 
-Run `nx build react` to build the library.
+Install using your preferred Node.js package manager. For example:
 
-## Running unit tests
-
-Run `nx test react` to execute the unit tests via [Jest](https://jestjs.io).
+```sh
+pnpm add @tanstack-query-with-orbitjs/core
+```
