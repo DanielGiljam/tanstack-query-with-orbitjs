@@ -22,6 +22,7 @@
     },
     "publishConfig": {
         "access": "public",
-        "directory": "../../dist/libs/react"
+        "directory": "../../dist/libs/react",
+        "linkDirectory": false
     }
 }

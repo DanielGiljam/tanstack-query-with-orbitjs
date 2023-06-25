@@ -24,6 +24,7 @@
     },
     "publishConfig": {
         "access": "public",
-        "directory": "../../dist/libs/core"
+        "directory": "../../dist/libs/core",
+        "linkDirectory": false
     }
 }
