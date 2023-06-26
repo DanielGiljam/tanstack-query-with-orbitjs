@@ -1,0 +1,82 @@
+name: Publish
+
+# Roughly based on https://github.com/nrwl/ci/blob/main/.github/workflows/nx-cloud-main.yml
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        # The name of the job which will invoke this one is expected to be "Publish", and whatever we call this will be appended
+        # to that one after a forward slash, so we keep this one intentionally short to produce "Publish / Run" in the Github UI
+        name: Run
+        defaults:
+            run:
+                working-directory: ${{ github.workspace }}
+                # Specify shell to help normalize across different operating systems
+                shell: bash
+        steps:
+            - uses: actions/checkout@v3
+              name: Checkout
+              with:
+                  # We need to fetch all branches and commits so that Lerna has a base to compare against.
+                  fetch-depth: 0
+
+            # Set node/npm/yarn versions using volta, with optional overrides provided by the consumer
+            - uses: volta-cli/action@v4
+
+            # Install pnpm with exact version provided by consumer or fallback to latest
+            - name: Install PNPM
+              uses: pnpm/action-setup@v2
+
+            - name: Print node/npm/yarn versions
+              id: versions
+              run: |
+                  node_ver=$( node --version )
+                  yarn_ver=$( yarn --version || true )
+                  pnpm_ver=$( pnpm --version || true )
+
+                  echo "Node: ${node_ver:1}"
+                  echo "NPM: $( npm --version )"
+                  if [[ $yarn_ver != '' ]]; then echo "Yarn: $yarn_ver"; fi
+                  if [[ $pnpm_ver != '' ]]; then echo "PNPM: $pnpm_ver"; fi
+
+                  echo "node_version=${node_ver:1}" >> $GITHUB_OUTPUT
+                  echo "yarn_version=${yarn_ver}" >> $GITHUB_OUTPUT
+
+            - name: Get pnpm cache directory path
+              id: pnpm-cache-dir-path
+              run: echo "dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+            - name: Use the node_modules cache if available
+              uses: actions/cache@v3
+              with:
+                  path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-
+
+            - name: Install dependencies
+              run: |
+                  echo "Running pnpm install --frozen-lockfile"
+                  pnpm install --frozen-lockfile
+
+            - name: Import GPG key
+              uses: crazy-max/ghaction-import-gpg@v5
+              with:
+                  gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+                  passphrase: ${{ secrets.GPG_KEY_PASSPHRASE }}
+                  git_user_signingkey: true
+                  git_commit_gpgsign: true
+                  git_tag_gpgsign: true
+
+            - name: Publish
+              env:
+                  "GH_TOKEN": ${{ secrets.GITHUB_TOKEN }}
+                  "npm_config_//registry.npmjs.org/:_authToken": ${{ secrets.NPM_TOKEN }}
+              run: |
+                  echo "Running pnpm lerna publish --yes"
+                  pnpm lerna publish --yes
