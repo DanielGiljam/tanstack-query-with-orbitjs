@@ -29,6 +29,32 @@ export class LiveQueryObserver<
         >,
     ) {
         super(client, {
+            // eslint-disable-next-line @typescript-eslint/promise-function-async
+            queryFn: (ctx) => {
+                const getQueryOrExpressions = ctx.meta?.getQueryOrExpressions;
+                if (getQueryOrExpressions == null) {
+                    // eslint-disable-next-line prefer-promise-reject-errors
+                    return Promise.reject("Missing meta.getQueryOrExpressions");
+                }
+                const memorySource = client.getMemorySource();
+                return memorySource.activated.then(async () => {
+                    const result = await memorySource.query(
+                        getQueryOrExpressions(
+                            memorySource.queryBuilder,
+                            ctx.queryKey,
+                            ctx.pageParam ?? 0,
+                        ),
+                    );
+                    const normalizedResult = normalizeRecordQueryResult(result);
+                    if (normalizedResult.length > 0) {
+                        return result;
+                    }
+                    if (Array.isArray(result)) {
+                        return [];
+                    }
+                    return undefined;
+                }) as Promise<TQueryFnData>;
+            },
             initialData: () => {
                 const enabled = options.enabled;
                 if (enabled === false) {
@@ -59,6 +85,8 @@ export class LiveQueryObserver<
                 }
                 return undefined;
             },
+            staleTime: Infinity,
+            cacheTime: 0,
             ...options,
         });
     }
