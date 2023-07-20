@@ -1,3 +1,5 @@
+export * from "@tanstack/react-query";
+
 export * from "@tanstack-query-with-orbitjs/core";
 
 export * from "./useLiveInfiniteQuery";
