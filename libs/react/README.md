@@ -9,3 +9,5 @@ Install using your preferred Node.js package manager. For example:
 ```sh
 pnpm add @tanstack-query-with-orbitjs/core
 ```
+
+Replace all imports from `@tanstack/react-query` with imports from `@tanstack-query-with-orbitjs/react`.
